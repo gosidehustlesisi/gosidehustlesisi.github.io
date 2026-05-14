@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sierra Napier — The AI Architect</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        .header .tagline {
+            font-size: 1.1rem;
+            color: #888;
+            font-style: italic;
+        }
+        .quote {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 48px;
+            padding: 24px;
+            border-left: 3px solid #667eea;
+            background: #111;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+        .stat-card {
+            background: #111;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #222;
+        }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 4px;
+        }
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 40px 0 20px;
+            color: #fff;
+        }
+        .repos {
+            display: grid;
+            gap: 12px;
+        }
+        .repo-card {
+            background: #111;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #222;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: border-color 0.2s;
+        }
+        .repo-card:hover {
+            border-color: #667eea;
+        }
+        .repo-info h3 {
+            color: #667eea;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        .repo-info p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .repo-status {
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 12px;
+            background: #1a1a2e;
+            color: #667eea;
+        }
+        .links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 48px;
+        }
+        .links a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Sierra Napier</h1>
+            <p class="tagline">The AI Architect</p>
+        </div>
+        
+        <div class="quote">
+            "The best time to build AI agents was yesterday.<br>The second best time is now."
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Repositories</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24</div>
+                <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">45+</div>
+                <div class="stat-label">Notebooks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">500K+</div>
+                <div class="stat-label">Real Records</div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Portfolio Repositories</h2>
+        <div class="repos">
+            <a href="https://github.com/gosidehustlesisi/sierra-applied-ml" class="repo-card">
+                <div class="repo-info">
+                    <h3>sierra-applied-ml</h3>
+                    <p>Applied ML — NASA C-MAPSS, 20 Newsgroups, UCI Bike Sharing</p>
+                </div>
+                <span class="repo-status">✅ Complete</span>
+            </a>
+            <a href="https://github.com/gosidehustlesisi/sierra-data-governance" class="repo-card">
+                <div class="repo-info">
+                    <h3>sierra-data-governance</h3>
+                    <p>Data Governance — Data.gov, FOIA.gov, OMB Guidance</p>
+                </div>
+                <span class="repo-status">✅ Complete</span>
+            </a>
+            <a href="https://github.com/gosidehustlesisi/sierra-pmo-analytics" class="repo-card">
+                <div class="repo-info">
+                    <h3>sierra-pmo-analytics</h3>
+                    <p>PMO Analytics — USASpending.gov, Census ACS, BLS</p>
+                </div>
+                <span class="repo-status">✅ Complete</span>
+            </a>
+            <a href="https://github.com/gosidehustlesisi/sierra-mobility-data" class="repo-card">
+                <div class="repo-info">
+                    <h3>sierra-mobility-data</h3>
+                    <p>Mobility Data — WMATA, NHTSA, USDOT BTS</p>
+                </div>
+                <span class="repo-status">✅ Real Data</span>
+            </a>
+            <a href="https://github.com/gosidehustlesisi/sierra-genai-engineering" class="repo-card">
+                <div class="repo-info">
+                    <h3>sierra-genai-engineering</h3>
+                    <p>GenAI Engineering — arXiv, SCOTUS, PubMed</p>
+                </div>
+                <span class="repo-status">✅ Complete</span>
+            </a>
+            <a href="https://github.com/gosidehustlesisi/sierra-public-sector-insights" class="repo-card">
+                <div class="repo-info">
+                    <h3>sierra-public-sector-insights</h3>
+                    <p>Public Sector — Census ACS, BLS, World Bank</p>
+                </div>
+                <span class="repo-status">🔄 Real Data</span>
+            </a>
+        </div>
+        
+        <div class="links">
+            <a href="https://e3-ai.com">e3-ai.com</a>
+            <a href="https://github.com/gosidehustlesisi">GitHub</a>
+            <a href="https://linkedin.com/in/sierran">LinkedIn</a>
+        </div>
+        
+        <footer>
+            Built with real data. Zero synthetic records.<br>
+            Sierra Napier — The AI Architect
+        </footer>
+    </div>
+</body>
+</html>
