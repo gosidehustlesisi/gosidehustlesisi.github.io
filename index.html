@@ -1332,7 +1332,20 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">94% RUL Accuracy</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-applied-ml/main/projects/predictive-maintenance-transit/figures/sensor_degradation_curves.png" alt="NASA Sensor Degradation" loading="lazy">
+                            <!-- INTERACTIVE: NASA Sensor Degradation -->
+                            <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                                <iframe src="https://gosidehustlesisi.github.io/sierra-applied-ml/projects/predictive-maintenance-transit/figures/sensor_degradation_interactive.html" 
+                                    width="100%" height="550" 
+                                    style="border:none; background:var(--bg-deep);"
+                                    loading="lazy"
+                                    title="NASA C-MAPSS Interactive Sensor Degradation">
+                                </iframe>
+                            </div>
+                            <div style="text-align:center; margin-bottom:8px;">
+                                <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle 21 sensors, hover for RUL correlation, click buttons to filter</span>
+                            </div>
+                            <!-- Fallback static image -->
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-applied-ml/main/projects/predictive-maintenance-transit/figures/sensor_degradation_curves.png" alt="NASA Sensor Degradation Static" loading="lazy" style="display:none;">
                             <div class="tldr">
                                 <p><strong>You only need 5 sensors</strong> to predict engine failure 25+ cycles before breakdown. Running the full 21-sensor suite is a 75% infrastructure waste.</p>
                             </div>
@@ -1374,7 +1387,20 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">73% Variance Explained</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-applied-ml/main/projects/demand-forecasting-operations/figures/ensemble_forecast.png" alt="Demand Forecast" loading="lazy" onerror="this.style.display='none'; this.parentNode.querySelector('.chart-fallback').style.display='flex';">
+                            <!-- INTERACTIVE: Demand Forecasting Ensemble -->
+                            <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                                <iframe src="https://gosidehustlesisi.github.io/sierra-applied-ml/projects/demand-forecasting-operations/figures/ensemble_forecast_interactive.html" 
+                                    width="100%" height="550" 
+                                    style="border:none; background:var(--bg-deep);"
+                                    loading="lazy"
+                                    title="Demand Forecasting Interactive Ensemble">
+                                </iframe>
+                            </div>
+                            <div style="text-align:center; margin-bottom:8px;">
+                                <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle ARIMA/XGB/RF layers, use 7/14/30 day slider, hover for exact values</span>
+                            </div>
+                            <!-- Fallback static image -->
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-applied-ml/main/projects/demand-forecasting-operations/figures/ensemble_forecast.png" alt="Demand Forecast Static" loading="lazy" style="display:none;"
                             <div class="chart-fallback" style="display:none;align-items:center;justify-content:center;background:var(--bg-elevated);min-height:180px;">
                                 <div style="text-align:center;padding:20px;">
                                     <div style="font-size:48px;margin-bottom:12px;">📊</div>
@@ -1698,7 +1724,20 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">2–3× Per-Capita Risk</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-mobility-data/main/projects/nhtsa-safety/figures/01_fatalities_by_state.png" alt="NHTSA Heatmap" loading="lazy">
+                            <!-- INTERACTIVE: NHTSA Fatalities Choropleth -->
+                            <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                                <iframe src="https://gosidehustlesisi.github.io/sierra-mobility-data/projects/nhtsa-safety/figures/fatalities_choropleth_interactive.html" 
+                                    width="100%" height="550" 
+                                    style="border:none; background:var(--bg-deep);"
+                                    loading="lazy"
+                                    title="NHTSA Safety Interactive Choropleth">
+                                </iframe>
+                            </div>
+                            <div style="text-align:center; margin-bottom:8px;">
+                                <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Press Play to animate 2014-2024, drag slider to any year, hover states for rates</span>
+                            </div>
+                            <!-- Fallback static image -->
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-mobility-data/main/projects/nhtsa-safety/figures/01_fatalities_by_state.png" alt="NHTSA Heatmap Static" loading="lazy" style="display:none;">
                             <div class="tldr">
                                 <p><strong>Wyoming drivers die 2.5× more often than California drivers.</strong> Not because of worse roads — because it takes 48 minutes to reach a hospital in rural Wyoming vs. 12 minutes in urban California. Per-capita risk is the metric that matters.</p>
                             </div>

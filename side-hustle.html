@@ -868,6 +868,18 @@
                         <h5>What I'd bring to your team</h5>
                         <p>Failure-prediction pipelines for sensor-monitored assets. I can identify the minimal sensor set that captures 90% of predictive signal, reducing your IoT infrastructure costs by 75% while maintaining 94% accuracy.</p>
                     </div>
+                    <!-- INTERACTIVE: NASA Sensor Degradation -->
+                    <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                        <iframe src="https://gosidehustlesisi.github.io/sierra-applied-ml/projects/predictive-maintenance-transit/figures/sensor_degradation_interactive.html" 
+                            width="100%" height="500" 
+                            style="border:none;background:var(--bg-deep);"
+                            loading="lazy"
+                            title="NASA C-MAPSS Interactive">
+                        </iframe>
+                    </div>
+                    <div style="text-align:center;margin-bottom:8px;">
+                        <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Toggle 21 sensors, hover for RUL correlation, click buttons to filter</span>
+                    </div>
                 </div>
             </div>
 
@@ -965,7 +977,20 @@
                         </div>
                     </div>
                     <div class="chart-box">
-                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-applied-ml/main/projects/demand-forecasting-operations/figures/ensemble_forecast.png" alt="Ensemble forecast showing seasonal patterns" loading="lazy" style="width:100%;border-radius:8px;margin:1rem 0;">
+                        <!-- INTERACTIVE: Demand Forecasting -->
+                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                            <iframe src="https://gosidehustlesisi.github.io/sierra-applied-ml/projects/demand-forecasting-operations/figures/ensemble_forecast_interactive.html" 
+                                width="100%" height="500" 
+                                style="border:none;background:var(--bg-deep);"
+                                loading="lazy"
+                                title="Demand Forecasting Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center;margin-bottom:8px;">
+                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Toggle models, 7/14/30 day slider, hover drill-down</span>
+                        </div>
+                        <!-- Fallback -->
+                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-applied-ml/main/projects/demand-forecasting-operations/figures/ensemble_forecast.png" alt="Ensemble forecast" loading="lazy" style="display:none;"
                         <div class="tldr">
                             <p><strong>Calendar drives demand, not weather.</strong> Saturday afternoons peak at 900+ rentals/hour; Tuesday 3AM drops to 12. Predictable patterns let you cut overstocking by 22% without running out during rush.</p>
                         </div>
@@ -1067,7 +1092,20 @@
                         </div>
                     </div>
                     <div class="chart-box">
-                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-mobility-data/main/projects/nhtsa-safety/figures/01_fatalities_by_state.png" alt="Fatalities by state heatmap" loading="lazy" style="width:100%;border-radius:8px;margin:1rem 0;">
+                        <!-- INTERACTIVE: NHTSA Choropleth -->
+                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                            <iframe src="https://gosidehustlesisi.github.io/sierra-mobility-data/projects/nhtsa-safety/figures/fatalities_choropleth_interactive.html" 
+                                width="100%" height="500" 
+                                style="border:none;background:var(--bg-deep);"
+                                loading="lazy"
+                                title="NHTSA Safety Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center;margin-bottom:8px;">
+                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Play 2014-2024 animation, drag year slider, hover states</span>
+                        </div>
+                        <!-- Fallback -->
+                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-mobility-data/main/projects/nhtsa-safety/figures/01_fatalities_by_state.png" alt="NHTSA static" loading="lazy" style="display:none;">
                         <div class="tldr">
                             <p><strong>Rural states have 3× higher fatality rates per capita.</strong> Montana, Wyoming, and Mississippi lead not because of more accidents — but because rural crashes are deadlier at higher speeds with longer emergency response times.</p>
                         </div>
