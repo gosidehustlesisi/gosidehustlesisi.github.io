@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sierra Napier — Fractional CMO & BI Consulting. MPA/MPH. Data Scientist | AI Architect | Analytics Viz. Available for fractional leadership, BI consulting, and AI architecture engagements.">
-    
     <meta property="og:title" content="Sierra Napier — Fractional CMO & BI Consulting">
     <meta property="og:description" content="Fractional CMO | BI Consulting | AI Architecture. 743K+ records analyzed. 24 production projects. Real data, real systems, real results.">
     <meta property="og:url" content="https://gosidehustlesisi.github.io/side-hustle.html">
     <meta property="og:type" content="website">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sierra Napier — Fractional CMO & BI Consulting">
     <meta name="twitter:description" content="Fractional CMO | BI Consulting | AI Architecture. 743K+ records. 24 projects. Real data, real results.">
-
     <title>Sierra Napier — Fractional CMO & BI Consulting</title>
     <style>
         :root {
@@ -70,6 +67,7 @@
             width: 32px;
             height: 32px;
             border-radius: 6px;
+            object-fit: contain;
         }
         .nav-links {
             display: flex;
@@ -114,6 +112,7 @@
             border: 3px solid var(--accent-gold);
             box-shadow: 0 0 40px rgba(245, 158, 11, 0.3), 0 0 80px rgba(6, 182, 212, 0.15);
             object-fit: cover;
+            background: var(--bg-elevated);
         }
         .avatar-ring {
             position: absolute;
@@ -136,6 +135,13 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
         .hero-badge {
             display: inline-block;
             padding: 0.5rem 1.25rem;
@@ -145,16 +151,11 @@
             border: 1px solid var(--border);
             background: var(--bg-elevated);
             color: var(--text-secondary);
-            margin: 0.5rem;
-        }
-        .hero-badge:hover {
-            border-color: var(--accent-cyan);
-            color: var(--accent-cyan-hover);
         }
         .tagline {
             font-size: 1.25rem;
             color: var(--text-secondary);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             font-weight: 300;
         }
@@ -664,7 +665,7 @@
                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect fill='%23111827' width='160' height='160'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23f59e0b' font-size='48' font-weight='700' font-family='system-ui'%3ESN%3C/text%3E%3C/svg%3E" alt="Sierra Napier">
             </div>
             <h1>Sierra Napier</h1>
-            <div style="margin: 1rem 0;">
+            <div class="hero-badges">
                 <span class="hero-badge">Fractional CMO</span>
                 <span class="hero-badge">BI Consulting</span>
                 <span class="hero-badge">AI Architecture</span>
@@ -843,8 +844,16 @@
                     </div>
                 </div>
                 <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Predictive maintenance system for jet engines using NASA C-MAPSS data. Identifies optimal sensor subset (5 of 21) to predict failure 25+ cycles in advance — reducing IoT infrastructure costs by 75% while maintaining 94% accuracy.</p>
+                    </div>
                     <div class="tldr">
                         <p><strong>You only need 5 sensors</strong> to predict engine failure 25+ cycles before breakdown. Running the full 21-sensor suite is a 75% infrastructure waste.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>XGBoost achieved 94% RUL accuracy by weighting recent cycles more heavily. A 5-sensor subset (EGT, fan speed, core speed, LPC temp, HPC temp) captures 90% of predictive signal, verified via recursive feature elimination.</p>
                     </div>
                     <div class="transfer-box">
                         <h5>What I'd bring to your team</h5>
@@ -865,8 +874,16 @@
                     </div>
                 </div>
                 <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Production text classification pipeline using TF-IDF + Naive Bayes on 18,846 real Usenet posts. 68% accuracy across 20 categories with 400× inference speed advantage over BERT — deployable on CPU without GPU costs.</p>
+                    </div>
                     <div class="tldr">
                         <p><strong>Simple beats fancy.</strong> A basic TF-IDF + Naive Bayes model scores 68% on 20 categories and runs 400× faster than BERT. For most production text tasks, that's the right trade-off.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>BERT reaches 89% but needs GPU. Naive Bayes runs on CPU with only 21% accuracy trade-off. Tested on 18,846 real Usenet posts from sklearn's 20 Newsgroups dataset. Confusion matrix shows clean diagonal except electronics/crypto overlap.</p>
                     </div>
                     <div class="transfer-box">
                         <h5>What I'd bring to your team</h5>
@@ -887,8 +904,16 @@
                     </div>
                 </div>
                 <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Multi-role AI agent system handling strategy, operations, finance, and creative — with persistent memory across sessions, 22 integrated MCP tools, and autonomous sub-agent delegation for parallel execution.</p>
+                    </div>
                     <div class="tldr">
                         <p><strong>One agent, infinite capability.</strong> A multi-role AI system that handles strategy, ops, finance, and creative — with persistent memory across sessions and 22 integrated tools.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Built in Gemini AI Studio with goal-oriented planning, tool selection via MCP, memory persistence across sessions, and sub-agent orchestration for parallel task execution. Not a chatbot — true agentic architecture.</p>
                     </div>
                     <div class="transfer-box">
                         <h5>What I'd bring to your team</h5>
