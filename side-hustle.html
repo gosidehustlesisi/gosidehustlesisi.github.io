@@ -3,384 +3,919 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sierra Napier — Fractional CMO & BI Consulting. MPA/MPH. Data Scientist | AI Architect | Analytics Viz. Available for fractional leadership, BI consulting, and AI architecture engagements.">
+    
+    <meta property="og:title" content="Sierra Napier — Fractional CMO & BI Consulting">
+    <meta property="og:description" content="Fractional CMO | BI Consulting | AI Architecture. 743K+ records analyzed. 24 production projects. Real data, real systems, real results.">
+    <meta property="og:url" content="https://gosidehustlesisi.github.io/side-hustle.html">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sierra Napier — Fractional CMO & BI Consulting">
+    <meta name="twitter:description" content="Fractional CMO | BI Consulting | AI Architecture. 743K+ records. 24 projects. Real data, real results.">
+
     <title>Sierra Napier — Fractional CMO & BI Consulting</title>
     <style>
+        :root {
+            --bg-deep: #0a0e1a;
+            --bg-surface: #111827;
+            --bg-elevated: #1a2234;
+            --border: #1f2d44;
+            --text-primary: #f0f0f0;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-gold: #f59e0b;
+            --accent-cyan: #06b6d4;
+            --accent-gold-hover: #fbbf24;
+            --accent-cyan-hover: #22d3ee;
+            --success: #22c55e;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0a0a;
-            color: #e0e0e0;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-deep);
+            color: var(--text-primary);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 60px 24px;
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 1rem 0;
         }
-        .header {
-            text-align: center;
-            margin-bottom: 48px;
-        }
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 8px;
-        }
-        .header .tagline {
-            font-size: 1.1rem;
-            color: #888;
-            font-style: italic;
-        }
-        .quote {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #aaa;
-            margin-bottom: 48px;
-            padding: 24px;
-            border-left: 3px solid #667eea;
-            background: #111;
-        }
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 16px;
-            margin-bottom: 48px;
-        }
-        .stat-card {
-            background: #111;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #222;
-        }
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #667eea;
-        }
-        .stat-label {
-            font-size: 0.85rem;
-            color: #888;
-            margin-top: 4px;
-        }
-        .section-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin: 40px 0 20px;
-            color: #fff;
-        }
-        .section-subtitle {
-            font-size: 0.95rem;
-            color: #888;
-            margin-bottom: 20px;
-        }
-        .repos {
-            display: grid;
-            gap: 12px;
-            margin-bottom: 40px;
-        }
-        .repo-card {
-            background: #111;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #222;
-            text-decoration: none;
-            color: inherit;
+        .nav-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: border-color 0.2s;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
-        .repo-card:hover {
-            border-color: #667eea;
-        }
-        .repo-info h3 {
-            color: #667eea;
-            font-size: 1.1rem;
-            margin-bottom: 4px;
-        }
-        .repo-info p {
-            color: #888;
-            font-size: 0.9rem;
-        }
-        .repo-status {
-            font-size: 0.8rem;
-            padding: 4px 12px;
-            border-radius: 12px;
-            background: #1a1a2e;
-            color: #667eea;
-        }
-        .featured {
-            display: grid;
-            gap: 16px;
-            margin-bottom: 40px;
-        }
-        .featured-card {
-            background: #111;
-            padding: 24px;
-            border-radius: 8px;
-            border: 1px solid #222;
-            transition: border-color 0.2s;
-        }
-        .featured-card:hover {
-            border-color: #667eea;
-        }
-        .featured-card .pillar {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #667eea;
-            margin-bottom: 8px;
-        }
-        .featured-card h3 {
-            color: #fff;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-        .featured-card .metric {
-            font-size: 0.9rem;
-            color: #aaa;
-            margin-bottom: 4px;
-        }
-        .featured-card .insight {
-            font-size: 0.85rem;
-            color: #888;
-            font-style: italic;
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px solid #222;
-        }
-        .links {
+        .nav-brand {
             display: flex;
-            gap: 16px;
-            justify-content: center;
-            margin-top: 48px;
-        }
-        .links a {
-            color: #667eea;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-primary);
             text-decoration: none;
+        }
+        .nav-brand img {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        header {
+            padding: 6rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 50% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 30% 20%, rgba(245, 158, 11, 0.06) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        .avatar-wrap {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        .avatar-wrap img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-gold);
+            box-shadow: 0 0 40px rgba(245, 158, 11, 0.3), 0 0 80px rgba(6, 182, 212, 0.15);
+            object-fit: cover;
+        }
+        .avatar-ring {
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: var(--accent-cyan);
+            border-right-color: var(--accent-gold);
+            animation: spin 8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            background: var(--bg-elevated);
+            color: var(--text-secondary);
+            margin: 0.5rem;
+        }
+        .hero-badge:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan-hover);
+        }
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        .tagline strong {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
             font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+            cursor: pointer;
         }
-        .links a:hover {
-            text-decoration: underline;
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), #d97706);
+            color: #0a0e1a;
         }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
+        }
+        .btn-secondary {
+            background: transparent;
+            border-color: var(--border);
+            color: var(--text-secondary);
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan-hover);
+        }
+        .btn-accent {
+            background: var(--accent-cyan);
+            color: var(--bg-deep);
+            border-color: var(--accent-cyan);
+        }
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(6, 182, 212, 0.35);
+        }
+
+        .hero-metrics-strip {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        .hero-metric {
+            text-align: center;
+        }
+        .hero-metric-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            line-height: 1;
+        }
+        .hero-metric-label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+        .hero-metric-divider {
+            color: var(--border);
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        .trust-bar {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .trust-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+        .trust-logos {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .trust-logo {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.35rem 0.75rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .trust-logo:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 4rem 0;
+        }
+        .stat-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .stat-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-4px);
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            line-height: 1;
+        }
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        section { padding: 4rem 0; }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .section-subtitle {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        .section-accent {
+            width: 48px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan));
+            border-radius: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        .about-text {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        .about-text p { margin-bottom: 1rem; }
+        .about-text strong { color: var(--accent-gold); }
+        .career-arc {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        .career-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .career-step:last-child { border-bottom: none; }
+        .career-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+        .career-step:first-child .career-dot { background: var(--accent-gold); }
+        .career-step h4 {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        .career-step p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .project-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin: 2rem 0;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+        .project-card:hover { border-color: var(--accent-cyan); }
+        .project-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .project-title { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); }
+        .project-meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem; }
+        .badges { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .badge-live { background: rgba(34, 197, 94, 0.15); color: var(--success); border: 1px solid rgba(34, 197, 94, 0.3); }
+        .badge-data { background: var(--bg-elevated); color: var(--accent-cyan); border: 1px solid var(--border); }
+        .badge-avail { background: rgba(245, 158, 11, 0.15); color: var(--accent-gold); border: 1px solid rgba(245, 158, 11, 0.3); }
+
+        .project-body { padding: 2rem; }
+        .exec-summary {
+            background: var(--bg-elevated);
+            border-left: 3px solid var(--accent-gold);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1.5rem;
+        }
+        .exec-summary h4 {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .exec-summary p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .project-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .metric {
+            background: var(--bg-deep);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        .metric-value {
+            font-size: 1.4rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .tldr {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(6, 182, 212, 0.08));
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin: 0.75rem 0;
+            position: relative;
+        }
+        .tldr::before {
+            content: "TL;DR";
+            position: absolute;
+            top: -9px;
+            left: 12px;
+            background: var(--accent-gold);
+            color: var(--bg-deep);
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .tldr p {
+            margin: 0;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        .tldr strong {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .technical-detail {
+            background: var(--bg-deep);
+            border-left: 3px solid var(--accent-cyan);
+            border-radius: 0 8px 8px 0;
+            padding: 0.75rem 1rem;
+            margin-top: 0.75rem;
+        }
+        .technical-detail p {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        .technical-detail p:last-child { margin-bottom: 0; }
+        .technical-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        .transfer-box {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(6, 182, 212, 0.05));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin-top: 1rem;
+        }
+        .transfer-box h5 {
+            color: var(--accent-cyan);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+        }
+        .transfer-box p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .contact-section {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--bg-surface), var(--bg-elevated));
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            margin: 4rem 0;
+        }
+        .contact-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .contact-section p {
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .contact-links a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .contact-links a:hover { color: var(--accent-cyan-hover); }
+
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+            background: linear-gradient(135deg, var(--accent-gold), #d97706);
+            color: var(--bg-deep);
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+            transition: all 0.3s;
+        }
+        .floating-cta:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.5);
+        }
+
         footer {
             text-align: center;
-            margin-top: 48px;
-            padding-top: 24px;
-            border-top: 1px solid #222;
-            color: #666;
-            font-size: 0.85rem;
+            padding: 3rem 0;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .service-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.2s;
+        }
+        .service-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-4px);
+        }
+        .service-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .service-card .price {
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.8rem; }
+            .hero-metrics-strip { gap: 0.75rem; }
+            .hero-metric-number { font-size: 1.5rem; }
+            .hero-metric-divider { display: none; }
+            .trust-bar { flex-direction: column; align-items: flex-start; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .floating-cta {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.75rem 1rem;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
+    <nav>
+        <div class="container">
+            <div class="nav-inner">
+                <a href="/" class="nav-brand">
+                    <span style="width:32px;height:32px;background:var(--bg-elevated);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--accent-gold);font-weight:700;font-size:0.8rem;">SN</span>
+                    Sierra Napier
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <div class="avatar-wrap">
+                <div class="avatar-ring"></div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect fill='%23111827' width='160' height='160'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23f59e0b' font-size='48' font-weight='700' font-family='system-ui'%3ESN%3C/text%3E%3C/svg%3E" alt="Sierra Napier">
+            </div>
             <h1>Sierra Napier</h1>
-            <p class="tagline">Fractional CMO & BI Consulting</p>
+            <div style="margin: 1rem 0;">
+                <span class="hero-badge">Fractional CMO</span>
+                <span class="hero-badge">BI Consulting</span>
+                <span class="hero-badge">AI Architecture</span>
+            </div>
+            <div class="hero-metrics-strip">
+                <div class="hero-metric">
+                    <span class="hero-metric-number">743K+</span>
+                    <span class="hero-metric-label">Records Analyzed</span>
+                </div>
+                <span class="hero-metric-divider">|</span>
+                <div class="hero-metric">
+                    <span class="hero-metric-number">24</span>
+                    <span class="hero-metric-label">Production Projects</span>
+                </div>
+                <span class="hero-metric-divider">|</span>
+                <div class="hero-metric">
+                    <span class="hero-metric-number">100%</span>
+                    <span class="hero-metric-label">Real Data</span>
+                </div>
+            </div>
+            <p class="tagline">
+                I <strong>architect growth systems</strong> for companies that need senior marketing leadership without the full-time hire. 
+                I <strong>build BI infrastructure</strong> that turns your data into decisions. 
+                I <strong>deploy AI agents</strong> that automate what used to take teams.
+            </p>
+            <div class="hero-cta">
+                <a href="#services" class="btn btn-primary">View Services</a>
+                <a href="https://gosidehustlesisi.github.io/sierra-applied-ml/" class="btn btn-secondary">See Portfolio</a>
+                <a href="#contact" class="btn btn-accent">Book a Call</a>
+            </div>
         </div>
-        
-        <div class="quote">
-            "Need growth without the full-time CMO price tag? I build data-driven marketing systems, automate reporting, and find revenue leaks in your funnel — all in 90-day sprints."
+    </header>
+
+    <div class="container">
+        <div class="trust-bar">
+            <span class="trust-label">Verified Data Sources:</span>
+            <div class="trust-logos">
+                <span class="trust-logo">NASA</span>
+                <span class="trust-logo">Census ACS</span>
+                <span class="trust-logo">BLS</span>
+                <span class="trust-logo">World Bank</span>
+                <span class="trust-logo">USASpending</span>
+                <span class="trust-logo">arXiv</span>
+                <span class="trust-logo">Data.gov</span>
+                <span class="trust-logo">NHTSA</span>
+            </div>
         </div>
-        
+
         <div class="stats">
             <div class="stat-card">
-                <div class="stat-number">27</div>
-                <div class="stat-label">Production Projects</div>
+                <div class="stat-number">743K+</div>
+                <div class="stat-label">Records Analyzed</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">500K+</div>
-                <div class="stat-label">Records Processed</div>
+                <div class="stat-number">12</div>
+                <div class="stat-label">Gov APIs</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">91%</div>
-                <div class="stat-label">ML Classification Accuracy</div>
+                <div class="stat-number">24</div>
+                <div class="stat-label">Projects</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">1.37ms</div>
-                <div class="stat-label">RAG Retrieval Latency</div>
+                <div class="stat-number">45</div>
+                <div class="stat-label">Notebooks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Categories</div>
             </div>
         </div>
-        
-        <h2 class="section-title">Services — What I Deliver</h2>
-        <p class="section-subtitle">AI-native growth strategy for companies that don't have a data team yet.</p>
-        
-        <div class="featured">
-            <div class="featured-card">
-                <div class="pillar">Growth Strategy</div>
-                <h3>📊 Growth Funnel Audit</h3>
-                <div class="metric">Scope: Full customer journey mapping + attribution model</div>
-                <div class="metric">Deliverable: Channel-level ROI breakdown with drop-off points</div>
-                <div class="insight">"Map your funnel end-to-end and identify which channels actually drive revenue — no more guessing."</div>
-            </div>
-            
-            <div class="featured-card">
-                <div class="pillar">Content & SEO</div>
-                <h3>🤖 AI-Powered Content Engine</h3>
-                <div class="metric">Scope: Agentic content system (research → draft → optimize)</div>
-                <div class="metric">Deliverable: Scaled SEO content pipeline with editorial workflow</div>
-                <div class="insight">"One strategist plus AI equals the output of a five-person team — without the payroll."</div>
-            </div>
-            
-            <div class="featured-card">
-                <div class="pillar">Business Intelligence</div>
-                <h3>📈 Executive Dashboards</h3>
-                <div class="metric">Scope: Real-time BI connecting ad spend, CRM, revenue</div>
-                <div class="metric">Stack: Streamlit, Looker, or whatever you already use</div>
-                <div class="insight">"Connect your ad spend to actual revenue in a dashboard your CEO can read in 30 seconds."</div>
-            </div>
-            
-            <div class="featured-card">
-                <div class="pillar">Machine Learning</div>
-                <h3>🎯 Predictive Lead Scoring</h3>
-                <div class="metric">Scope: ML model scoring leads before sales talks to them</div>
-                <div class="metric">Result: Prioritize the 20% of prospects generating 80% of revenue</div>
-                <div class="insight">"Score every lead with machine learning so your sales team calls the right prospects first."</div>
-            </div>
-        </div>
-        
-        <h2 class="section-title">Case Studies — Proof of Work</h2>
-        <p class="section-subtitle">Real projects from my portfolio applied to business problems.</p>
-        
-        <div class="featured">
-            <div class="featured-card">
-                <div class="pillar">Business Intelligence — Content Strategy</div>
-                <h3>🎬 Netflix Content Strategy Intelligence</h3>
-                <div class="metric">Dataset: 8,807 Netflix titles | Analysis: SQL cohort + regional gap scoring</div>
-                <div class="metric">Result: TV shows reach Netflix 2.5× faster than movies (2.1 vs 5.3 years)</div>
-                <div class="insight">"Identifies content acquisition bias toward serialized programming — a strategic insight from public data alone."</div>
-            </div>
-            
-            <div class="featured-card">
-                <div class="pillar">Business Intelligence — Customer Analytics</div>
-                <h3>📦 Amazon Product Trust Detection</h3>
-                <div class="metric">Dataset: 473MB Amazon Electronics reviews | Analysis: Trend + sentiment + BI hybrid</div>
-                <div class="metric">Result: Category-level trust degradation detectable before sales impact</div>
-                <div class="insight">"Processes half a gigabyte of review data to detect which product categories are losing customer trust before revenue drops."</div>
-            </div>
-            
-            <div class="featured-card">
-                <div class="pillar">People Analytics — Retention</div>
-                <h3>👥 Workforce Attrition Prediction (87% Accuracy)</h3>
-                <div class="metric">Dataset: Real HR data | Models: Classification with SHAP explainability</div>
-                <div class="metric">Result: 87% accuracy, feature importance, risk scoring</div>
-                <div class="insight">"Identifies flight-risk employees before they submit resignations — with explainable factors HR can actually act on."</div>
-            </div>
-        </div>
-        
-        <h2 class="section-title">Engagement Models</h2>
-        <p class="section-subtitle">Flexible structures for different stages of data maturity.</p>
-        
-        <div class="repos">
-            <div class="repo-card">
-                <div class="repo-info">
-                    <h3>🎯 One-Time Audit</h3>
-                    <p>2-week deep-dive — data health report, bottleneck analysis, 90-day roadmap</p>
+
+        <section id="about">
+            <div class="section-accent"></div>
+            <h2 class="section-title">About Sierra</h2>
+            <p class="section-subtitle">MPA/MPH. Data Scientist. AI Architect. Analytics Viz Specialist. I don't just analyze data — I build the systems that process it and the visuals that make it land.</p>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Most analysts stop at the report. Most engineers stop at the model. I do <strong>all three</strong> — from raw data to deployed system to boardroom-ready visualization.</p>
+                    <p>My foundation is <strong>MPA/MPH</strong> — policy analysis, regulatory environments, and public health data. I spent years working with <strong>Census ACS, BLS employment data, CMS drug utilization, and USASpending procurement records</strong> at scale.</p>
+                    <p>That deep federal data expertise led me to <strong>machine learning</strong> — NASA turbofan predictive maintenance, arXiv NLP classification, transit demand forecasting. Then to <strong>AI architecture</strong> — building agentic systems, local LLM deployments, and automation pipelines.</p>
+                    <p>Now I offer that expertise as <strong>fractional leadership</strong> — whether you need a CMO to own your growth, a BI consultant to make your data talk, or an AI architect to automate what used to take teams.</p>
                 </div>
-                <span class="repo-status">$2,500</span>
-            </div>
-            <div class="repo-card">
-                <div class="repo-info">
-                    <h3>🚀 90-Day Sprint</h3>
-                    <p>Full funnel audit + dashboard + one predictive model or content system</p>
+                <div class="career-arc">
+                    <div class="career-step">
+                        <div class="career-dot"></div>
+                        <div>
+                            <h4>MPA / MPH — Policy Analytics</h4>
+                            <p>Public sector data analysis, regulatory frameworks, government operations</p>
+                        </div>
+                    </div>
+                    <div class="career-step">
+                        <div class="career-dot"></div>
+                        <div>
+                            <h4>Federal Data at Scale</h4>
+                            <p>Census, BLS, CMS, USASpending — $4T procurement, 1.28M FOIA requests, 144K datasets</p>
+                        </div>
+                    </div>
+                    <div class="career-step">
+                        <div class="career-dot"></div>
+                        <div>
+                            <h4>Machine Learning Engineering</h4>
+                            <p>Predictive maintenance, NLP pipelines, time series forecasting — 50+ real visualizations</p>
+                        </div>
+                    </div>
+                    <div class="career-step">
+                        <div class="career-dot"></div>
+                        <div>
+                            <h4>AI Architecture & Automation</h4>
+                            <p>Agentic systems, local LLMs, multi-agent orchestration, AI automation pipelines</p>
+                        </div>
+                    </div>
+                    <div class="career-step">
+                        <div class="career-dot"></div>
+                        <div>
+                            <h4>Fractional Leadership & Consulting</h4>
+                            <p>Growth strategy, BI infrastructure, AI deployment — for companies that need senior talent without the full-time hire</p>
+                        </div>
+                    </div>
                 </div>
-                <span class="repo-status">$8,500</span>
             </div>
-            <div class="repo-card">
-                <div class="repo-info">
-                    <h3>📈 Monthly Retainer</h3>
-                    <p>Ongoing optimization, new model builds, dashboard updates, strategic advisory</p>
+        </section>
+
+        <section id="services">
+            <div class="section-accent"></div>
+            <h2 class="section-title">Services</h2>
+            <p class="section-subtitle">Three ways I help companies grow, understand their data, and automate what matters.</p>
+
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>🔥 Fractional CMO</h3>
+                    <p>Strategic growth leadership without the $200K+ full-time salary. I own your GTM strategy, content engine, paid acquisition, and funnel optimization. You get senior marketing leadership at a fraction of the cost.</p>
+                    <div class="project-metrics" style="margin-top: 1rem;">
+                        <div class="metric"><div class="metric-value">GTM</div><div class="metric-label">Strategy</div></div>
+                        <div class="metric"><div class="metric-value">Content</div><div class="metric-label">Engine</div></div>
+                        <div class="metric"><div class="metric-value">Paid</div><div class="metric-label">Acquisition</div></div>
+                    </div>
+                    <div class="price">Starting at $5,000/month</div>
                 </div>
-                <span class="repo-status">$3,500/mo</span>
-            </div>
-        </div>
-        
-        <h2 class="section-title">Process — How It Works</h2>
-        <p class="section-subtitle">Four-phase delivery with measurable outcomes at each step.</p>
-        
-        <div class="featured">
-            <div class="featured-card">
-                <div class="pillar">Phase 1 — Week 1</div>
-                <h3>🔍 Discovery Audit</h3>
-                <div class="metric">Deep-dive into your data sources, current stack, and growth bottlenecks</div>
-                <div class="metric">Deliverable: Audit report with prioritized opportunities and quick-win list</div>
-                <div class="insight">"Know exactly where your revenue leaks are before spending a dollar on fixes."</div>
-            </div>
-            
-            <div class="featured-card">
-                <div class="pillar">Phase 2 — Weeks 2-4</div>
-                <h3>⚡ Quick Wins</h3>
-                <div class="metric">Deploy dashboards, fix tracking, automate reporting</div>
-                <div class="metric">Outcome: Clearer data within 30 days, no waiting for the full build</div>
-                <div class="insight">"See your real numbers in 30 days — not after a six-month implementation."</div>
-            </div>
-            
-            <div class="featured-card">
-                <div class="pillar">Phase 3 — Weeks 5-10</div>
-                <h3>🏗️ System Build</h3>
-                <div class="metric">Build the ML pipeline, content engine, or predictive model</div>
-                <div class="metric">Standard: Production-ready, documented, handed over to your team</div>
-                <div class="insight">"You own the system when I'm done — no vendor lock-in, no black boxes."</div>
-            </div>
-            
-            <div class="featured-card">
-                <div class="pillar">Phase 4 — Weeks 11-12</div>
-                <h3>📊 Optimize & Scale</h3>
-                <div class="metric">A/B test, tune models, train your team on the new stack</div>
-                <div class="metric">Optional: Monthly retainer for ongoing optimization and new builds</div>
-                <div class="insight">"Your team runs it, I optimize it — or we keep building together."</div>
-            </div>
-        </div>
-        
-        <h2 class="section-title">Portfolio Repositories</h2>
-        <div class="repos">
-            <a href="https://github.com/gosidehustlesisi/sierra-business-intelligence" class="repo-card">
-                <div class="repo-info">
-                    <h3>sierra-business-intelligence</h3>
-                    <p>Netflix, Amazon, Google Trends — SQL + Dashboards for FAANG</p>
+                <div class="service-card">
+                    <h3>📊 BI Consulting</h3>
+                    <p>Your data is only valuable if decision-makers can act on it. I build dashboards, data pipelines, and executive reporting systems that turn raw data into boardroom-ready insights. From ETL to visualization.</p>
+                    <div class="project-metrics" style="margin-top: 1rem;">
+                        <div class="metric"><div class="metric-value">ETL</div><div class="metric-label">Pipelines</div></div>
+                        <div class="metric"><div class="metric-value">Dashboards</div><div class="metric-label">Visualization</div></div>
+                        <div class="metric"><div class="metric-value">KPIs</div><div class="metric-label">Reporting</div></div>
+                    </div>
+                    <div class="price">Project-based or retainer</div>
                 </div>
-                <span class="repo-status">3 Projects</span>
-            </a>
-            <a href="https://github.com/gosidehustlesisi/sierra-applied-ml" class="repo-card">
-                <div class="repo-info">
-                    <h3>sierra-applied-ml</h3>
-                    <p>Predictive Maintenance, NLP Classification, Demand Forecasting</p>
+                <div class="service-card">
+                    <h3>🤖 AI Architecture</h3>
+                    <p>I design and deploy agentic systems that automate complex workflows — customer support triage, content generation, data processing, and decision pipelines. Local LLMs, multi-agent orchestration, and production-grade AI infrastructure.</p>
+                    <div class="project-metrics" style="margin-top: 1rem;">
+                        <div class="metric"><div class="metric-value">Agents</div><div class="metric-label">Orchestration</div></div>
+                        <div class="metric"><div class="metric-value">LLM</div><div class="metric-label">Deployment</div></div>
+                        <div class="metric"><div class="metric-value">Auto</div><div class="metric-label">Workflows</div></div>
+                    </div>
+                    <div class="price">Custom scope</div>
                 </div>
-                <span class="repo-status">3 Projects</span>
-            </a>
-            <a href="https://github.com/gosidehustlesisi/sierra-genai-engineering" class="repo-card">
-                <div class="repo-info">
-                    <h3>sierra-genai-engineering</h3>
-                    <p>RAG Systems, LLM Classification, arXiv/SCOTUS/PubMed NLP</p>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="section-accent"></div>
+            <h2 class="section-title">Portfolio</h2>
+            <p class="section-subtitle">24 production projects with real public data. Zero synthetic records. <a href="https://gosidehustlesisi.github.io/sierra-applied-ml/" style="color:var(--accent-gold);">View full portfolio →</a></p>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">NASA C-MAPSS — Predictive Maintenance</div>
+                        <div class="project-meta">5 sensors · 94% RUL accuracy · XGBoost</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">NASA</span>
+                    </div>
                 </div>
-                <span class="repo-status">5 Projects</span>
-            </a>
-            <a href="https://github.com/gosidehustlesisi/sierra-people-analytics" class="repo-card">
-                <div class="repo-info">
-                    <h3>sierra-people-analytics</h3>
-                    <p>Attrition Prediction, Sentiment NLP, DEI Executive Dashboard</p>
+                <div class="project-body">
+                    <div class="tldr">
+                        <p><strong>You only need 5 sensors</strong> to predict engine failure 25+ cycles before breakdown. Running the full 21-sensor suite is a 75% infrastructure waste.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Failure-prediction pipelines for sensor-monitored assets. I can identify the minimal sensor set that captures 90% of predictive signal, reducing your IoT infrastructure costs by 75% while maintaining 94% accuracy.</p>
+                    </div>
                 </div>
-                <span class="repo-status">3 Projects</span>
-            </a>
-        </div>
-        
-        <div class="links">
-            <a href="https://gosidehustlesisi.github.io">Full Portfolio</a>
-            <a href="https://github.com/gosidehustlesisi">GitHub</a>
-            <a href="https://linkedin.com/in/sierran">LinkedIn</a>
-            <a href="mailto:book@baldbeautymua.com?subject=Fractional%20CMO%20Inquiry">Book a Call</a>
-        </div>
-        
-        <footer>
-            Built with 100% real public data. Zero synthetic records.<br>
-            Sierra Napier — AI Architect & Fractional CMO<br>
-            MPA/MPH | Data Science | GenAI Engineering | Business Intelligence
-        </footer>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">20 Newsgroups — NLP Classification Pipeline</div>
+                        <div class="project-meta">68% accuracy · 400× faster than BERT · CPU-only</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">arXiv</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="tldr">
+                        <p><strong>Simple beats fancy.</strong> A basic TF-IDF + Naive Bayes model scores 68% on 20 categories and runs 400× faster than BERT. For most production text tasks, that's the right trade-off.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Production text classification that runs on CPU with minimal accuracy trade-off. Perfect for customer support ticket routing, content categorization, and document triage — no GPU costs, no cloud dependencies.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Zeus-URSA — Autonomous CEO Agent</div>
+                        <div class="project-meta">7+ roles · 22 MCP tools · ∞ memory</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="tldr">
+                        <p><strong>One agent, infinite capability.</strong> A multi-role AI system that handles strategy, ops, finance, and creative — with persistent memory across sessions and 22 integrated tools.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Agentic automation for repetitive workflows — customer support triage, content generation, data processing, and decision pipelines. I design systems that don't just answer questions; they execute workflows end-to-end.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="contact-section">
+                <h2>Let's Build Something</h2>
+                <p>Available for fractional CMO engagements, BI consulting projects, and AI architecture work. I'll respond within 24 hours.</p>
+                <div class="contact-links">
+                    <a href="mailto:book@baldbeautymua.com">book@baldbeautymua.com</a>
+                    <a href="https://www.linkedin.com/in/sierran/">LinkedIn</a>
+                    <a href="https://github.com/gosidehustlesisi">GitHub</a>
+                    <a href="https://calendly.com">Book a Call</a>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <footer class="container">
+        <p>© 2026 Sierra Napier · <a href="https://gosidehustlesisi.github.io/sierra-applied-ml/" style="color:var(--accent-cyan);text-decoration:none;">Full Portfolio</a> · Built with real data · Zero synthetic records</p>
+    </footer>
+
+    <a href="#contact" class="floating-cta">Contact Sierra</a>
 </body>
 </html>
