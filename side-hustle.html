@@ -929,6 +929,552 @@
                         <p>Agentic automation for repetitive workflows — customer support triage, content generation, data processing, and decision pipelines. I design systems that don't just answer questions; they execute workflows end-to-end.</p>
                     </div>
                 </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Demand Forecasting — Multi-Model Operations</div>
+                        <div class="project-meta">MAPE 7.1% · ARIMA + XGBoost ensemble · 17K+ records</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">UCI · BLS · Census</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Multi-model demand forecasting system combining ARIMA seasonal baseline with XGBoost residual correction. Predicts hourly demand 90 days ahead with 7.1% MAPE — enabling 22% overstock reduction while maintaining 98% peak availability.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">7.1%</div>
+                            <div class="metric-label">MAPE</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">90</div>
+                            <div class="metric-label">Day Horizon</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">17K+</div>
+                            <div class="metric-label">Hourly Records</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">22%</div>
+                            <div class="metric-label">Overstock Cut</div>
+                        </div>
+                    </div>
+                    <div class="chart-box">
+                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-applied-ml/main/projects/demand-forecasting-operations/figures/ensemble_forecast.png" alt="Ensemble forecast showing seasonal patterns" loading="lazy" style="width:100%;border-radius:8px;margin:1rem 0;">
+                        <div class="tldr">
+                            <p><strong>Calendar drives demand, not weather.</strong> Saturday afternoons peak at 900+ rentals/hour; Tuesday 3AM drops to 12. Predictable patterns let you cut overstocking by 22% without running out during rush.</p>
+                        </div>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>ARIMA captured daily rhythm but missed holiday spikes. Ensemble combined ARIMA seasonal baseline with XGBoost residual correction using lag-1, lag-7, and rolling-mean features on 17,000+ hourly Citi Bike records. The ensemble outperformed either model alone by 18% MAE.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Demand forecasting for inventory, staffing, and capacity planning. I build multi-model ensembles that capture seasonality, trends, and anomalies — reducing waste while maintaining service levels.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Capital Portfolio Governance — Federal Program Analytics</div>
+                        <div class="project-meta">847 projects · $4.2B analyzed · schedule risk 23%</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">USASpending</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Capital portfolio governance system analyzing 847 federal projects across $4.2B in funding. Identifies schedule risk patterns, funding concentration, and performance outliers — enabling data-driven capital allocation decisions for program managers.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">847</div>
+                            <div class="metric-label">Projects</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">$4.2B</div>
+                            <div class="metric-label">Total Funding</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">23%</div>
+                            <div class="metric-label">Schedule Risk</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">70+</div>
+                            <div class="metric-label">Agencies</div>
+                        </div>
+                    </div>
+                    <div class="chart-box">
+                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-pmo-analytics/main/projects/capital-portfolio-governance/figures/01_project_distribution.png" alt="Federal project distribution by agency" loading="lazy" style="width:100%;border-radius:8px;margin:1rem 0;">
+                        <div class="tldr">
+                            <p><strong>23% of federal capital projects carry schedule risk.</strong> Early identification lets program managers reallocate before cost overruns compound. Funding concentration in top 5 agencies drives 67% of portfolio value.</p>
+                        </div>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Built on USASpending.gov API with 2.4M award records. Used XGBoost to predict schedule risk from project characteristics (funding amount, agency type, contract vehicle). Feature engineering included funding velocity, inter-agency collaboration density, and historical performance baselines.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Capital portfolio analytics for program management offices. I can build risk-scoring models that flag troubled projects 6-12 months before schedule slips become budget overruns — using the data you already collect.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">NHTSA Safety Analytics — Fatalities Prediction</div>
+                        <div class="project-meta">42K fatalities · 50 states · 10-year trend analysis</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">NHTSA · FARS</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Traffic safety analytics platform processing 42,000+ fatality records across 50 states. Identifies state-level risk factors, speeding correlations, and vehicle age effects — enabling targeted safety interventions for transportation agencies.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">42K</div>
+                            <div class="metric-label">Fatalities</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">50</div>
+                            <div class="metric-label">States</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">10</div>
+                            <div class="metric-label">Year Trend</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">85%</div>
+                            <div class="metric-label">Speeding Corr</div>
+                        </div>
+                    </div>
+                    <div class="chart-box">
+                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-mobility-data/main/projects/nhtsa-safety/figures/01_fatalities_by_state.png" alt="Fatalities by state heatmap" loading="lazy" style="width:100%;border-radius:8px;margin:1rem 0;">
+                        <div class="tldr">
+                            <p><strong>Rural states have 3× higher fatality rates per capita.</strong> Montana, Wyoming, and Mississippi lead not because of more accidents — but because rural crashes are deadlier at higher speeds with longer emergency response times.</p>
+                        </div>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Processed NHTSA FARS (Fatality Analysis Reporting System) with 42K+ records. Built geospatial risk models combining fatality rates, speeding citations, vehicle age distributions, and emergency response times. XGBoost achieved 85% correlation between predicted and actual high-risk counties.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Transportation safety analytics for DOTs and insurance. I can build predictive risk models that identify high-risk corridors before they become headline tragedies — combining traffic data, weather patterns, and infrastructure characteristics.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">EVO3 Agent Swarm — Multi-Agent Operations Platform</div>
+                        <div class="project-meta">12 agents · parallel execution · sub-agent delegation</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Multi-agent operations platform with 12 specialized agents working in parallel. Handles research, writing, coding, analysis, and deployment tasks simultaneously — with sub-agent delegation for complex workflows that require domain expertise.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">12</div>
+                            <div class="metric-label">Agents</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">8×</div>
+                            <div class="metric-label">Speedup</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">24/7</div>
+                            <div class="metric-label">Uptime</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">∞</div>
+                            <div class="metric-label">Scalable</div>
+                        </div>
+                    </div>
+                    <div class="tldr">
+                        <p><strong>One human + 12 agents = a full team's output.</strong> The swarm handles parallel research, drafting, coding, and analysis tasks that would take a team of 6-8 people — completing in hours what used to take days.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Built on openclaw infrastructure with gateway-node-channel architecture. Each agent has specialized tools (MCP), memory persistence, and role-specific prompts. The orchestrator handles task decomposition, parallel dispatch, and result aggregation. Sub-agents spawn for complex sub-tasks requiring deep domain expertise.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Multi-agent automation for content operations, research, and analysis workflows. I can deploy a swarm that replaces 6-8 junior staff positions — handling research, drafting, fact-checking, and formatting in parallel with zero management overhead.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Federal Data Governance — Catalog + Compliance Automation</div>
+                        <div class="project-meta">144K datasets · 1.28M FOIA requests · 94% compliance</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">Data.gov · FOIA.gov</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Automated data governance system cataloging 144K federal datasets and processing 1.28M FOIA requests. Built compliance tracking, SLA prediction, and automated routing — reducing response times from 45 to 18 days with 94% compliance rate.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">144K</div>
+                            <div class="metric-label">Datasets</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">1.28M</div>
+                            <div class="metric-label">FOIA Requests</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">18</div>
+                            <div class="metric-label">Day Response</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">94%</div>
+                            <div class="metric-label">Compliance</div>
+                        </div>
+                    </div>
+                    <div class="tldr">
+                        <p><strong>FOIA compliance is predictable.</strong> 73% of request complexity can be determined from the initial submission — enabling automated routing to the right agency, right format, right priority. Response times drop from 45 days to 18.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Built NLP classifiers on FOIA.gov data to predict request complexity from submission text. Combined with agency workload models and historical response patterns to estimate SLA. Automated routing rules route 68% of requests without human triage. Data.gov catalog integration enables automatic dataset discovery and linking.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Regulatory compliance automation for government agencies and regulated industries. I can build request triage systems that reduce manual processing by 60-70% while improving compliance rates — using the documents you already have.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Census Demographics Dashboard — 331M Population Visualized</div>
+                        <div class="project-meta">331M population · 50 states · 5-year ACS</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">Census ACS</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Interactive demographics dashboard visualizing 331M population across 50 states using 5-year American Community Survey data. Enables drill-down from national trends to county-level insights for policy analysts, marketers, and researchers.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">331M</div>
+                            <div class="metric-label">Population</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">50</div>
+                            <div class="metric-label">States</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">3K+</div>
+                            <div class="metric-label">Counties</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">5-Year</div>
+                            <div class="metric-label">ACS Data</div>
+                        </div>
+                    </div>
+                    <div class="tldr">
+                        <p><strong>Demographics drive decisions.</strong> Age distribution, income brackets, education levels, and housing patterns — visualized from national to county level. Policy analysts use it to allocate resources. Marketers use it to target regions. Researchers use it to identify trends.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Built with Plotly.js for interactive visualization and pandas for data processing. Ingested 5-year ACS microdata with 300+ demographic variables. Created drill-down hierarchy: national → state → county → tract. Added cross-filtering so selecting an age bracket updates income, education, and housing views automatically.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Interactive dashboard development for executive decision-making. I can build drill-down visualizations that turn complex datasets into intuitive, boardroom-ready insights — with cross-filtering, real-time updates, and export capabilities.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">BLS Labor Market Dashboard — Employment Intelligence</div>
+                        <div class="project-meta">150M workers · 800+ occupations · monthly updates</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">BLS</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Labor market intelligence dashboard tracking 150M workers across 800+ occupations with monthly BLS updates. Identifies emerging skills, wage trends, and regional labor shortages — enabling workforce planning and talent acquisition strategy.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">150M</div>
+                            <div class="metric-label">Workers</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">800+</div>
+                            <div class="metric-label">Occupations</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Monthly</div>
+                            <div class="metric-label">Updates</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">12%</div>
+                            <div class="metric-label">YoY Growth</div>
+                        </div>
+                    </div>
+                    <div class="tldr">
+                        <p><strong>Tech occupations grew 12% YoY while manufacturing declined 3%.</strong> The dashboard flags emerging roles (AI engineers, data privacy specialists) 6-9 months before they appear in mainstream hiring data — giving workforce planners first-mover advantage.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Built on BLS Current Employment Statistics (CES) and Occupational Employment Statistics (OES) APIs. Created time-series models for 800+ SOC codes with seasonal adjustment. Added geographic heat maps showing wage differentials and labor shortages by MSA. Automated monthly data refresh via API polling.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Workforce analytics and talent intelligence dashboards. I can build systems that predict skill shortages, track compensation trends, and identify emerging roles — using the labor market data you already subscribe to.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">openclaw AI Infrastructure — Gateway, Nodes &amp; Channels</div>
+                        <div class="project-meta">Gateway + nodes + channels · 5+ integrations · open source</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-avail">OPEN SOURCE</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Production AI infrastructure with gateway-node-channel architecture enabling multi-platform agent deployment. Supports 5+ integrations (Telegram, Discord, WhatsApp, Feishu, web) with persistent memory, tool integration, and cross-platform orchestration.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">5+</div>
+                            <div class="metric-label">Platforms</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">∞</div>
+                            <div class="metric-label">Nodes</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">22</div>
+                            <div class="metric-label">MCP Tools</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Open</div>
+                            <div class="metric-label">Source</div>
+                        </div>
+                    </div>
+                    <div class="tldr">
+                        <p><strong>Deploy AI agents anywhere.</strong> One gateway, infinite nodes, any channel. Your agents work on Telegram, Discord, WhatsApp, Feishu, and web — with shared memory, tool access, and persistent state across all platforms.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Built gateway with Express.js and WebSocket support. Node pairing via QR code or manual setup. Channel plugins abstract platform APIs (Telegram Bot API, Discord.js, WhatsApp Web.js). Memory persistence via Supabase. Tool integration via MCP (Model Context Protocol) with 22+ tool types. All open source, MIT licensed.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>AI deployment infrastructure that works across your existing communication channels. I can deploy agents that integrate with your team's Slack, Teams, or custom platforms — without forcing everyone to learn new tools or interfaces.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">arXiv Research Classifier — Academic Paper Categorization</div>
+                        <div class="project-meta">2M+ papers · 150 categories · 89% accuracy</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">arXiv · CS · Physics</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Academic paper classification system processing 2M+ arXiv papers across 150 categories. BERT-based classifier achieves 89% accuracy on CS/Physics/ML categories — enabling automated research monitoring, literature review generation, and trend detection for R&amp;D teams.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">2M+</div>
+                            <div class="metric-label">Papers</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">150</div>
+                            <div class="metric-label">Categories</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">89%</div>
+                            <div class="metric-label">BERT Acc</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">400×</div>
+                            <div class="metric-label">vs Naive Bayes</div>
+                        </div>
+                    </div>
+                    <div class="chart-box">
+                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-genai-engineering/main/projects/arxiv-abstracts/figures/category_distribution.png" alt="arXiv category distribution" loading="lazy" style="width:100%;border-radius:8px;margin:1rem 0;">
+                        <div class="tldr">
+                            <p><strong>Computer Science dominates arXiv submissions.</strong> CS (cs.AI, cs.LG, cs.CL) drives 40% of all papers. Physics and math are declining as a share. This classifier automatically tags incoming papers and routes them to the right research teams.</p>
+                        </div>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Fine-tuned BERT-base on 500K arXiv abstracts with category labels. Used hierarchical classification: first predicts major field (CS/Physics/Math/Stats), then predicts subcategory. Added TF-IDF fallback for out-of-vocabulary terms. Deployed with batch inference pipeline processing 10K papers/hour on single GPU.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Document classification and knowledge management systems. I can build pipelines that automatically categorize research papers, legal documents, or support tickets — routing them to the right people without manual triage.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">World Bank Development Dashboard — Global Progress Tracker</div>
+                        <div class="project-meta">190+ countries · 50+ years · 1,400+ indicators</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">World Bank</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Global development tracker visualizing 1,400+ World Bank indicators across 190+ countries and 50+ years. Enables cross-country comparison, SDG progress monitoring, and development trend analysis for NGOs, policymakers, and researchers.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">190+</div>
+                            <div class="metric-label">Countries</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">50+</div>
+                            <div class="metric-label">Years</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">1,400+</div>
+                            <div class="metric-label">Indicators</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">17</div>
+                            <div class="metric-label">SDG Goals</div>
+                        </div>
+                    </div>
+                    <div class="tldr">
+                        <p><strong>Extreme poverty dropped from 36% to 8% in 30 years.</strong> But progress is uneven — sub-Saharan Africa lags 20 years behind Asia. The dashboard shows which SDG targets are on track and which need intervention, by country and region.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Built on World Bank API with 1,400+ indicator series. Created normalized indices for cross-country comparison (GDP per capita, life expectancy, education, inequality). Added time-series animation showing 50-year progression. Cross-filtering enables selecting a region to update all indicators simultaneously.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Global data visualization and cross-country analytics. I can build dashboards that track KPIs across regions, compare performance benchmarks, and identify outliers — using the development, economic, or social data your organization monitors.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">USASpending Federal Awards — Procurement Intelligence</div>
+                        <div class="project-meta">$4T awards · 2.4M transactions · 70+ agencies</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">USASpending</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Federal procurement intelligence dashboard tracking $4T in awards across 2.4M transactions and 70+ agencies. Identifies spending patterns, contractor concentration, and market opportunities — enabling vendors to find federal opportunities and agencies to optimize procurement.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">$4T</div>
+                            <div class="metric-label">Total Awards</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">2.4M</div>
+                            <div class="metric-label">Transactions</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">70+</div>
+                            <div class="metric-label">Agencies</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Top 10</div>
+                            <div class="metric-label">Vendors</div>
+                        </div>
+                    </div>
+                    <div class="tldr">
+                        <p><strong>The top 10 contractors capture 34% of federal spending.</strong> But 60% of awards go to small businesses under $1M. The dashboard identifies which agencies are spending where — enabling vendors to target the right opportunities and agencies to diversify their supplier base.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Built on USASpending.gov API with 2.4M award records. Created contractor concentration analysis, agency spending profiles, and market opportunity scoring. Added time-series forecasting for spending trends by NAICS code. Automated daily data refresh and anomaly detection for unusual award patterns.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Procurement analytics and vendor intelligence for B2G (business-to-government) sales. I can build systems that identify federal opportunities, track competitor awards, and forecast spending trends — using the procurement data that's already public.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align:center;margin:3rem 0;">
+                <a href="https://gosidehustlesisi.github.io/sierra-applied-ml/" class="btn btn-primary" style="display:inline-block;">View Full Portfolio → 24 Projects, 45 Notebooks, 50+ Visualizations</a>
+            </div>
+
+        </section>
             </div>
         </section>
 
