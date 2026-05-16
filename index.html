@@ -1400,7 +1400,7 @@
                                 <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle ARIMA/XGB/RF layers, use 7/14/30 day slider, hover for exact values</span>
                             </div>
                             <!-- Fallback static image -->
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-applied-ml/main/projects/demand-forecasting-operations/figures/ensemble_forecast_interactive.html" alt="Demand Forecast Static" loading="lazy" style="display:none;"
+                            <!-- Hidden fallback removed - chart served via iframe above -->
                             <div class="chart-fallback" style="display:none;align-items:center;justify-content:center;background:var(--bg-elevated);min-height:180px;">
                                 <div style="text-align:center;padding:20px;">
                                     <div style="font-size:48px;margin-bottom:12px;">📊</div>
@@ -1420,7 +1420,7 @@
                                 <p>ARIMA captured daily rhythm but missed holiday spikes. Ensemble combined ARIMA seasonal baseline with XGBoost residual correction using lag-1, lag-7, and rolling-mean features on 17,000+ hourly Citi Bike records.</p>
                             </div>
                             <div class="chart-insight-action">
-                                → <a href="https://github.com/gosidehustlesisi/sierra-applied-ml/blob/main/projects/demand-forecasting-operations/notebooks/demand_forecasting_analysis.ipynb">View forecasting notebook</a>
+                                → <a href="https://github.com/gosidehustlesisi/sierra-applied-ml/blob/main/projects/demand-forecasting-operations/notebooks/demand_forecasting.ipynb">View forecasting notebook</a>
                             </div>
                         </div>
                     </div>
@@ -1484,7 +1484,7 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">cs.AI +27% Growth</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-genai-engineering/main/projects/arxiv-abstracts/figures/category_distribution.png" alt="arXiv Categories" loading="lazy">
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-genai-engineering/main/projects/arxiv-classifier-research-engine/figures/category_distribution.png" alt="arXiv Categories" loading="lazy">
                             <div class="tldr">
                                 <p><strong>Simple beats fancy.</strong> Counting arXiv's own category tags outperformed a machine learning clustering algorithm — because domain experts already sorted the papers better than statistics can.</p>
                             </div>
@@ -1703,7 +1703,7 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">3 Station Archetypes</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-mobility-data/main/projects/wmata-ridership/figures/02_top_stations_ridership.png" alt="WMATA Hourly" loading="lazy">
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-mobility-data/main/projects/wmata-ridership-demand/figures/02_top_stations_ridership.png" alt="WMATA Hourly" loading="lazy">
                             <div class="tldr">
                                 <p><strong>"Busy" is the wrong metric.</strong> Metro Center and Gallery Place have the same ridership but opposite usage patterns — one spikes at 8:30AM, the other at 12:30PM. Scheduling by archetype cuts train-miles by 15% without losing riders.</p>
                             </div>
@@ -1887,7 +1887,7 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">67% from 10 Agencies</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-data-governance/main/projects/data-gov-catalog/figures/datasets_by_agency.png" alt="Data.gov Agencies" loading="lazy">
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-data-governance/main/projects/data-governance-dashboard/figures/datasets_by_agency.png" alt="Data.gov Agencies" loading="lazy">
                             <div class="tldr">
                                 <p><strong>Not every data problem needs AI.</strong> A simple GROUP BY query showed that 10 agencies produce 67% of datasets — and 40+ agencies have fewer than 5. A $50K metadata workshop for small agencies yields more catalog growth than $500K in new sensors for already data-rich ones.</p>
                             </div>
@@ -1900,7 +1900,7 @@
                                 <p>CKAN API queried ~500 datasets across 22 agencies. Simple GROUP BY outperformed clustering approaches because the distribution is naturally power-law — DOI, USDA, and NOAA dominate because they manage physical resources that generate continuous sensor data.</p>
                             </div>
                             <div class="chart-insight-action">
-                                → <a href="https://github.com/gosidehustlesisi/sierra-data-governance/blob/main/projects/data-gov-catalog/notebooks/data_gov_catalog_analysis.ipynb">View catalog assessment notebook</a>
+                                → <a href="https://github.com/gosidehustlesisi/sierra-data-governance/blob/main/projects/data-governance-dashboard/notebooks/governance_dashboard.ipynb">View catalog assessment notebook</a>
                             </div>
                         </div>
                         <div class="chart-box">
@@ -1908,7 +1908,7 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">340% Backlog Growth</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-data-governance/main/projects/foia-compliance/figures/processing_times.png" alt="FOIA Processing" loading="lazy">
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-data-governance/main/projects/foia-compliance-automation/figures/processing_times.png" alt="FOIA Processing" loading="lazy">
                             <div class="tldr">
                                 <p><strong>The FOIA backlog grew 340% since 2008.</strong> DOD and DOJ alone account for 58% of all stalled requests. The bottleneck isn't the FOIA office — it's classification review taking 18+ months. Simple requests can be auto-routed to fast-track queues, cutting backlog by 40%.</p>
                             </div>
@@ -1921,7 +1921,7 @@
                                 <p>Naive Bayes classifier on 48K FOIA requests (FY2008–FY2024) achieved 100% topic accuracy — FOIA request language is formulaic and highly structured, making classical NLP more effective than deep learning. Analyzed processing times, backlogs, and topic distributions via FOIA.gov API.</p>
                             </div>
                             <div class="chart-insight-action">
-                                → <a href="https://github.com/gosidehustlesisi/sierra-data-governance/blob/main/projects/foia-compliance-automation/notebooks/foia_compliance_analysis.ipynb">View FOIA compliance notebook</a>
+                                → <a href="https://github.com/gosidehustlesisi/sierra-data-governance/blob/main/projects/foia-compliance-automation/notebooks/foia_pipeline.ipynb">View FOIA compliance notebook</a>
                             </div>
                         </div>
                         <div class="chart-box">
@@ -1942,7 +1942,7 @@
                                 <p>Simple regex parsing identified 6 categories with 94% accuracy — OMB titles are already structured ("Circular A-XX: [Topic]"). Tracked 170 active docs via OMB API and identified version-control gaps that create compliance ambiguity.</p>
                             </div>
                             <div class="chart-insight-action">
-                                → <a href="https://github.com/gosidehustlesisi/sierra-data-governance/blob/main/projects/omb-guidance/notebooks/omb_guidance_analysis.ipynb">View OMB guidance notebook</a>
+                                → <a href="https://github.com/gosidehustlesisi/sierra-data-governance/blob/main/projects/omb-guidance/notebooks/omb_policy_analysis.ipynb">View OMB guidance notebook</a>
                             </div>
                         </div>
                     </div>
@@ -2058,7 +2058,7 @@
                 <div class="project-footer">
                     <span class="data-sources">Data: Data.gov · FOIA.gov · OMB Guidance</span>
                     <div style="display:flex;gap:1rem;">
-                        <a class="demo-link" href="https://github.com/gosidehustlesisi/sierra-data-governance/blob/main/projects/foia-compliance-automation/notebooks/foia_compliance_analysis.ipynb">▶ Live Demo</a>
+                        <a class="demo-link" href="https://github.com/gosidehustlesisi/sierra-data-governance/blob/main/projects/foia-compliance-automation/notebooks/foia_pipeline.ipynb">▶ Live Demo</a>
                         <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-data-governance">View Repository →</a>
                     </div>
                 </div>
@@ -2608,7 +2608,7 @@
                 </div>
                 <div class="portfolio-cat-grid">
                     <div class="chart-box">
-                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-genai-engineering/main/projects/arxiv-abstracts/figures/category_distribution.png" alt="arXiv" loading="lazy">
+                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-genai-engineering/main/projects/arxiv-classifier-research-engine/figures/category_distribution.png" alt="arXiv" loading="lazy">
                         <div class="chart-caption">arXiv API<span class="source-badge">arXiv</span> — 450 Papers by Category</div>
                     </div>
                     <div class="chart-box">
@@ -2640,7 +2640,7 @@
                 </div>
                 <div class="portfolio-cat-grid">
                     <div class="chart-box">
-                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-mobility-data/main/projects/wmata-ridership/figures/02_top_stations_ridership.png" alt="WMATA" loading="lazy">
+                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-mobility-data/main/projects/wmata-ridership-demand/figures/02_top_stations_ridership.png" alt="WMATA" loading="lazy">
                         <div class="chart-caption">WMATA<span class="source-badge">DC GIS</span> — Top Stations by Ridership</div>
                     </div>
                     <div class="chart-box">
@@ -2672,11 +2672,11 @@
                 </div>
                 <div class="portfolio-cat-grid">
                     <div class="chart-box">
-                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-data-governance/main/projects/data-gov-catalog/figures/datasets_by_agency.png" alt="Data.gov" loading="lazy">
+                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-data-governance/main/projects/data-governance-dashboard/figures/datasets_by_agency.png" alt="Data.gov" loading="lazy">
                         <div class="chart-caption">Data.gov<span class="source-badge">CKAN API</span> — ~500 Datasets by Agency</div>
                     </div>
                     <div class="chart-box">
-                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-data-governance/main/projects/foia-compliance/figures/processing_times.png" alt="FOIA" loading="lazy">
+                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-data-governance/main/projects/foia-compliance-automation/figures/processing_times.png" alt="FOIA" loading="lazy">
                         <div class="chart-caption">FOIA.gov<span class="source-badge">FOIA Tracker</span> — Processing Time Distribution</div>
                     </div>
                     <div class="chart-box">
