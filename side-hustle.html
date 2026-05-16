@@ -902,6 +902,37 @@
                     <div class="tldr">
                         <p><strong>Simple beats fancy.</strong> A basic TF-IDF + Naive Bayes model scores 68% on 20 categories and runs 400× faster than BERT. For most production text tasks, that's the right trade-off.</p>
                     </div>
+                    <div class="chart-box">
+                        <!-- INTERACTIVE: NLP Confusion Matrix -->
+                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/nlp_confusion_matrix.html" 
+                                width="100%" height="500" 
+                                style="border:none;background:var(--bg-deep);"
+                                sandbox="allow-scripts allow-same-origin"
+                                loading="lazy"
+                                title="NLP Confusion Matrix Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center;margin-bottom:8px;">
+                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Hover cells for precision/recall, toggle normalization</span>
+                        </div>
+                        <!-- INTERACTIVE: 20 Newsgroups Accuracy -->
+                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/newsgroups_accuracy.html" 
+                                width="100%" height="500" 
+                                style="border:none;background:var(--bg-deep);"
+                                sandbox="allow-scripts allow-same-origin"
+                                loading="lazy"
+                                title="20 Newsgroups Accuracy Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center;margin-bottom:8px;">
+                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Toggle category filters, sort by F1 score</span>
+                        </div>
+                        <div class="tldr">
+                            <p><strong>Simple beats fancy.</strong> A basic TF-IDF + Naive Bayes model scores 68% on 20 categories and runs 400× faster than BERT. For most production text tasks, that's the right trade-off.</p>
+                        </div>
+                    </div>
                     <div class="technical-detail">
                         <span class="technical-label">How we got there</span>
                         <p>BERT reaches 89% but needs GPU. Naive Bayes runs on CPU with only 21% accuracy trade-off. Tested on 18,846 real Usenet posts from sklearn's 20 Newsgroups dataset. Confusion matrix shows clean diagonal except electronics/crypto overlap.</p>
@@ -1041,7 +1072,19 @@
                         </div>
                     </div>
                     <div class="chart-box">
-                        <!-- No static figure available - interactive chart will be generated -->
+                        <!-- INTERACTIVE: Capital Portfolio Treemap -->
+                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/capital_portfolio.html" 
+                                width="100%" height="500" 
+                                style="border:none;background:var(--bg-deep);"
+                                sandbox="allow-scripts allow-same-origin"
+                                loading="lazy"
+                                title="Capital Portfolio Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center;margin-bottom:8px;">
+                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Drill down by agency, hover for obligation $B</span>
+                        </div>
                         <div class="tldr">
                             <p><strong>23% of federal capital projects carry schedule risk.</strong> Early identification lets program managers reallocate before cost overruns compound. Funding concentration in top 5 agencies drives 67% of portfolio value.</p>
                         </div>
@@ -1206,6 +1249,24 @@
                     <div class="tldr">
                         <p><strong>FOIA compliance is predictable.</strong> 73% of request complexity can be determined from the initial submission — enabling automated routing to the right agency, right format, right priority. Response times drop from 45 days to 18.</p>
                     </div>
+                    <div class="chart-box">
+                        <!-- INTERACTIVE: Data.gov Agency Breakdown -->
+                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/data_gov_agencies.html" 
+                                width="100%" height="500" 
+                                style="border:none;background:var(--bg-deep);"
+                                sandbox="allow-scripts allow-same-origin"
+                                loading="lazy"
+                                title="Data Gov Agencies Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center;margin-bottom:8px;">
+                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Toggle topic view, sort agencies by dataset count</span>
+                        </div>
+                        <div class="tldr">
+                            <p><strong>144K datasets from 21 agencies.</strong> USDA and DOI lead in open data volume. 73% of agencies update quarterly or better. Topic clustering reveals health, environment, and finance as dominant categories.</p>
+                        </div>
+                    </div>
                     <div class="technical-detail">
                         <span class="technical-label">How we got there</span>
                         <p>Built NLP classifiers on FOIA.gov data to predict request complexity from submission text. Combined with agency workload models and historical response patterns to estimate SLA. Automated routing rules route 68% of requests without human triage. Data.gov catalog integration enables automatic dataset discovery and linking.</p>
@@ -1254,6 +1315,24 @@
                     <div class="tldr">
                         <p><strong>Demographics drive decisions.</strong> Age distribution, income brackets, education levels, and housing patterns — visualized from national to county level. Policy analysts use it to allocate resources. Marketers use it to target regions. Researchers use it to identify trends.</p>
                     </div>
+                    <div class="chart-box">
+                        <!-- INTERACTIVE: Census Demographics Scatter -->
+                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/census_demographics.html" 
+                                width="100%" height="500" 
+                                style="border:none;background:var(--bg-deep);"
+                                sandbox="allow-scripts allow-same-origin"
+                                loading="lazy"
+                                title="Census Demographics Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center;margin-bottom:8px;">
+                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Hover states for details, bubble size = population</span>
+                        </div>
+                        <div class="tldr">
+                            <p><strong>Income follows education with R² ≈ 0.72.</strong> Maryland and Massachusetts lead; Mississippi-area states cluster lower-left. Population size explains outliers — small states with high income (Alaska) and large states with moderate income (Florida).</p>
+                        </div>
+                    </div>
                     <div class="technical-detail">
                         <span class="technical-label">How we got there</span>
                         <p>Built with Plotly.js for interactive visualization and pandas for data processing. Ingested 5-year ACS microdata with 300+ demographic variables. Created drill-down hierarchy: national → state → county → tract. Added cross-filtering so selecting an age bracket updates income, education, and housing views automatically.</p>
@@ -1301,6 +1380,24 @@
                     </div>
                     <div class="tldr">
                         <p><strong>Tech occupations grew 12% YoY while manufacturing declined 3%.</strong> The dashboard flags emerging roles (AI engineers, data privacy specialists) 6-9 months before they appear in mainstream hiring data — giving workforce planners first-mover advantage.</p>
+                    </div>
+                    <div class="chart-box">
+                        <!-- INTERACTIVE: BLS Employment Dual-Axis -->
+                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/bls_employment.html" 
+                                width="100%" height="500" 
+                                style="border:none;background:var(--bg-deep);"
+                                sandbox="allow-scripts allow-same-origin"
+                                loading="lazy"
+                                title="BLS Employment Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center;margin-bottom:8px;">
+                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Hover for exact rates, shaded recession periods</span>
+                        </div>
+                        <div class="tldr">
+                            <p><strong>Unemployment and job openings move inversely.</strong> COVID-19 spike to 14.9% (April 2020). Record 11.6M openings (March 2022). The gap between unemployment and openings is a leading indicator of wage pressure.</p>
+                        </div>
                     </div>
                     <div class="technical-detail">
                         <span class="technical-label">How we got there</span>
@@ -1396,9 +1493,27 @@
                         </div>
                     </div>
                     <div class="chart-box">
-                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-genai-engineering/main/projects/arxiv-classifier-research-engine/figures/category_distribution.png" alt="arXiv category distribution" loading="lazy" style="width:100%;border-radius:8px;margin:1rem 0;">
+                        
                         <div class="tldr">
                             <p><strong>Computer Science dominates arXiv submissions.</strong> CS (cs.AI, cs.LG, cs.CL) drives 40% of all papers. Physics and math are declining as a share. This classifier automatically tags incoming papers and routes them to the right research teams.</p>
+                        </div>
+                    </div>
+                    <div class="chart-box">
+                        <!-- INTERACTIVE: arXiv Category Distribution -->
+                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/arxiv_categories.html" 
+                                width="100%" height="500" 
+                                style="border:none;background:var(--bg-deep);"
+                                sandbox="allow-scripts allow-same-origin"
+                                loading="lazy"
+                                title="arXiv Categories Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center;margin-bottom:8px;">
+                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Hover for paper counts, toggle by subfield</span>
+                        </div>
+                        <div class="tldr">
+                            <p><strong>2M+ papers, 150+ categories.</strong> Machine Learning (cs.LG) and Artificial Intelligence (cs.AI) dominate submissions. Publication velocity doubles every 5 years. Cross-disciplinary tags (cs.AI + stat.ML) are the fastest-growing intersection.</p>
                         </div>
                     </div>
                     <div class="technical-detail">
@@ -1449,6 +1564,24 @@
                     <div class="tldr">
                         <p><strong>Extreme poverty dropped from 36% to 8% in 30 years.</strong> But progress is uneven — sub-Saharan Africa lags 20 years behind Asia. The dashboard shows which SDG targets are on track and which need intervention, by country and region.</p>
                     </div>
+                    <div class="chart-box">
+                        <!-- INTERACTIVE: World Bank GDP vs Life Expectancy -->
+                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/world_bank_gdp_life.html" 
+                                width="100%" height="500" 
+                                style="border:none;background:var(--bg-deep);"
+                                sandbox="allow-scripts allow-same-origin"
+                                loading="lazy"
+                                title="World Bank Indicators Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center;margin-bottom:8px;">
+                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Hover countries for details, bubble size = population</span>
+                        </div>
+                        <div class="tldr">
+                            <p><strong>Wealth buys health up to $30K GDP per capita, then diminishing returns.</strong> China and India are population mega-bubbles. Nigeria is the life-expectancy outlier. High-income countries cluster above 80 years regardless of GDP variation.</p>
+                        </div>
+                    </div>
                     <div class="technical-detail">
                         <span class="technical-label">How we got there</span>
                         <p>Built on World Bank API with 1,400+ indicator series. Created normalized indices for cross-country comparison (GDP per capita, life expectancy, education, inequality). Added time-series animation showing 50-year progression. Cross-filtering enables selecting a region to update all indicators simultaneously.</p>
@@ -1496,6 +1629,37 @@
                     </div>
                     <div class="tldr">
                         <p><strong>The top 10 contractors capture 34% of federal spending.</strong> But 60% of awards go to small businesses under $1M. The dashboard identifies which agencies are spending where — enabling vendors to target the right opportunities and agencies to diversify their supplier base.</p>
+                    </div>
+                    <div class="chart-box">
+                        <!-- INTERACTIVE: FOIA Processing Times -->
+                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/foia_processing.html" 
+                                width="100%" height="500" 
+                                style="border:none;background:var(--bg-deep);"
+                                sandbox="allow-scripts allow-same-origin"
+                                loading="lazy"
+                                title="FOIA Processing Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center;margin-bottom:8px;">
+                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Toggle agency view, hover for median days</span>
+                        </div>
+                        <!-- INTERACTIVE: OMB Policy Timeline -->
+                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/omb_policy_timeline.html" 
+                                width="100%" height="500" 
+                                style="border:none;background:var(--bg-deep);"
+                                sandbox="allow-scripts allow-same-origin"
+                                loading="lazy"
+                                title="OMB Policy Timeline Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center;margin-bottom:8px;">
+                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Scroll timeline, hover policy details</span>
+                        </div>
+                        <div class="tldr">
+                            <p><strong>1.28M FOIA requests, 18 OMB policies since 1992.</strong> Processing times vary 10× by agency. OMB guidance issuance correlates with digital modernization waves. Federal transparency data is itself a dataset worth analyzing.</p>
+                        </div>
                     </div>
                     <div class="technical-detail">
                         <span class="technical-label">How we got there</span>
