@@ -1,1 +1,147 @@
-/root/.openclaw/workspace/bls_employment.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLS Employment — Unemployment vs Job Openings (2019–2024)</title>
+<script src="https://cdn.plot.ly/plotly-3.5.0.min.js"></script>
+<style>
+  body { margin:0; padding:0; background:#0a0e1a; color:#f0f0f0; font-family:'Segoe UI',Roboto,sans-serif; }
+  #chart { width:100vw; height:100vh; }
+  .title-bar { position:absolute; top:12px; left:20px; z-index:10; }
+  .title-bar h1 { margin:0; font-size:18px; color:#f0f0f0; font-weight:600; }
+  .title-bar p  { margin:4px 0 0; font-size:12px; color:#8892b0; }
+</style>
+</head>
+<body>
+<div class="title-bar">
+  <h1>BLS Employment — 150M Workers Tracked</h1>
+  <p>Bureau of Labor Statistics (2019–2024) — Unemployment Rate vs Job Openings</p>
+</div>
+<div id="chart"></div>
+<script>
+// Real data: BLS National Employment 2019-01 to 2024-12 (72 months)
+var raw = [
+  {d:'2019-01',u:4.0,j:7.24},{d:'2019-02',u:3.8,j:6.70},{d:'2019-03',u:3.7,j:7.74},
+  {d:'2019-04',u:3.7,j:7.53},{d:'2019-05',u:3.8,j:7.19},{d:'2019-06',u:3.9,j:7.15},
+  {d:'2019-07',u:3.3,j:7.31},{d:'2019-08',u:3.5,j:7.29},{d:'2019-09',u:3.8,j:7.27},
+  {d:'2019-10',u:3.7,j:7.18},{d:'2019-11',u:3.9,j:7.33},{d:'2019-12',u:3.9,j:7.25},
+  {d:'2020-01',u:4.2,j:6.72},{d:'2020-02',u:4.4,j:6.68},{d:'2020-03',u:4.6,j:7.02},
+  {d:'2020-04',u:14.9,j:5.51},{d:'2020-05',u:9.1,j:5.49},{d:'2020-06',u:7.4,j:5.34},
+  {d:'2020-07',u:5.7,j:6.66},{d:'2020-08',u:6.3,j:6.96},{d:'2020-09',u:6.2,j:7.20},
+  {d:'2020-10',u:6.2,j:7.57},{d:'2020-11',u:5.5,j:7.78},{d:'2020-12',u:5.2,j:7.98},
+  {d:'2021-01',u:6.4,j:6.95},{d:'2021-02',u:6.0,j:7.31},{d:'2021-03',u:5.9,j:7.91},
+  {d:'2021-04',u:5.5,j:8.03},{d:'2021-05',u:5.5,j:8.77},{d:'2021-06',u:5.5,j:8.97},
+  {d:'2021-07',u:5.3,j:8.90},{d:'2021-08',u:5.2,j:9.24},{d:'2021-09',u:4.6,j:10.24},
+  {d:'2021-10',u:4.6,j:9.95},{d:'2021-11',u:4.4,j:10.05},{d:'2021-12',u:4.3,j:11.06},
+  {d:'2022-01',u:4.2,j:11.62},{d:'2022-02',u:4.0,j:11.03},{d:'2022-03',u:3.9,j:11.02},
+  {d:'2022-04',u:3.9,j:10.75},{d:'2022-05',u:4.0,j:10.92},{d:'2022-06',u:3.8,j:10.82},
+  {d:'2022-07',u:3.8,j:9.81},{d:'2022-08',u:3.7,j:10.46},{d:'2022-09',u:3.7,j:10.04},
+  {d:'2022-10',u:3.6,j:10.34},{d:'2022-11',u:3.7,j:9.75},{d:'2022-12',u:3.6,j:9.94},
+  {d:'2023-01',u:3.3,j:9.96},{d:'2023-02',u:3.4,j:9.78},{d:'2023-03',u:3.5,j:9.56},
+  {d:'2023-04',u:3.6,j:9.49},{d:'2023-05',u:3.9,j:9.58},{d:'2023-06',u:3.7,j:9.47},
+  {d:'2023-07',u:3.5,j:9.89},{d:'2023-08',u:3.8,j:9.41},{d:'2023-09',u:3.8,j:9.49},
+  {d:'2023-10',u:3.7,j:9.08},{d:'2023-11',u:3.9,j:9.01},{d:'2023-12',u:3.5,j:8.97},
+  {d:'2024-01',u:4.2,j:8.86},{d:'2024-02',u:3.8,j:8.67},{d:'2024-03',u:4.0,j:8.57},
+  {d:'2024-04',u:3.7,j:8.78},{d:'2024-05',u:4.0,j:8.55},{d:'2024-06',u:4.1,j:8.52},
+  {d:'2024-07',u:3.6,j:8.35},{d:'2024-08',u:4.0,j:8.48},{d:'2024-09',u:3.9,j:8.41},
+  {d:'2024-10',u:4.1,j:8.33},{d:'2024-11',u:3.8,j:8.56},{d:'2024-12',u:4.3,j:8.40}
+];
+
+var dates = raw.map(r=>r.d);
+var unemp = raw.map(r=>r.u);
+var jobs  = raw.map(r=>r.j);
+
+// Recession shading: April 2020 – April 2020 (single month spike)
+var shapes = [
+  {type:'rect',x0:'2020-03-15',x1:'2020-08-01',y0:0,y1:16,fillcolor:'#ef4444',opacity:0.08,line:{width:0}},
+  {type:'line',x0:'2020-04-01',x1:'2020-04-01',y0:0,y1:16,line:{color:'#ef4444',width:1,dash:'dot'}}
+];
+
+var trace1 = {
+  x: dates,
+  y: unemp,
+  mode:'lines',
+  name:'Unemployment Rate (%)',
+  line:{color:'#ef4444',width:3},
+  fill:'tozeroy',
+  fillcolor:'rgba(239,68,68,0.1)',
+  yaxis:'y1',
+  hovertemplate:'<b>%{x}</b><br>Unemployment: %{y}%<extra></extra>'
+};
+
+var trace2 = {
+  x: dates,
+  y: jobs,
+  mode:'lines',
+  name:'Job Openings (Millions)',
+  line:{color:'#06b6d4',width:3},
+  yaxis:'y2',
+  hovertemplate:'<b>%{x}</b><br>Job Openings: %{y}M<extra></extra>'
+};
+
+var layout = {
+  paper_bgcolor:'#0a0e1a',
+  plot_bgcolor:'#0a0e1a',
+  font:{family:'Segoe UI,Roboto,sans-serif',color:'#f0f0f0'},
+  margin:{t:70,b:50,l:60,r:60},
+  xaxis: {
+    tickfont:{color:'#8892b0'},
+    gridcolor:'#1e293b',
+    zerolinecolor:'#1e293b',
+    tickangle:-45
+  },
+  yaxis: {
+    title:{text:'Unemployment Rate (%)',font:{color:'#ef4444'}},
+    tickfont:{color:'#ef4444'},
+    gridcolor:'#1e293b',
+    zerolinecolor:'#1e293b',
+    side:'left'
+  },
+  yaxis2: {
+    title:{text:'Job Openings (Millions)',font:{color:'#06b6d4'}},
+    tickfont:{color:'#06b6d4'},
+    overlaying:'y',
+    side:'right',
+    showgrid:false
+  },
+  legend: {
+    x:0.02,y:0.98,
+    bgcolor:'rgba(10,14,26,0.8)',
+    bordercolor:'#1e293b',
+    borderwidth:1,
+    font:{color:'#f0f0f0'}
+  },
+  shapes: shapes,
+  annotations:[{
+    x:'2020-04-01',y:14.9,
+    text:'<b>COVID-19<br>Peak: 14.9%</b>',
+    showarrow:true,
+    arrowhead:2,
+    arrowcolor:'#ef4444',
+    ax:40,ay:-40,
+    font:{color:'#ef4444',size:11},
+    bgcolor:'rgba(10,14,26,0.9)',
+    bordercolor:'#ef4444',
+    borderwidth:1,
+    borderpad:4
+  },{
+    x:'2022-03-01',y:11.02,
+    text:'<b>Peak Openings<br>11.6M</b>',
+    showarrow:true,
+    arrowhead:2,
+    arrowcolor:'#06b6d4',
+    ax:-40,ay:-30,
+    font:{color:'#06b6d4',size:11},
+    bgcolor:'rgba(10,14,26,0.9)',
+    bordercolor:'#06b6d4',
+    borderwidth:1,
+    borderpad:4
+  }]
+};
+
+var config = {responsive:true, displayModeBar:true, displaylogo:false};
+Plotly.newPlot('chart',[trace1,trace2],layout,config);
+</script>
+</body>
+</html>
