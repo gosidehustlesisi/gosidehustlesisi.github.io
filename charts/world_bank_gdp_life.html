@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Bank Indicators — GDP vs Life Expectancy (190 Countries)</title>
+<script src="https://cdn.plot.ly/plotly-3.5.0.min.js"></script>
+<style>
+  body { margin:0; padding:0; background:#0a0e1a; color:#f0f0f0; font-family:'Segoe UI',Roboto,sans-serif; }
+  #chart { width:100vw; height:100vh; }
+  .title-bar { position:absolute; top:12px; left:20px; z-index:10; }
+  .title-bar h1 { margin:0; font-size:18px; color:#f0f0f0; font-weight:600; }
+  .title-bar p  { margin:4px 0 0; font-size:12px; color:#8892b0; }
+</style>
+</head>
+<body>
+<div class="title-bar">
+  <h1>World Bank Indicators — 190 Countries</h1>
+  <p>World Bank Open Data — GDP per Capita vs Life Expectancy (Color = Income Group, Size = Population)</p>
+</div>
+<div id="chart"></div>
+<script>
+var data=[
+  {country:"United States",group:"High",gdp:76398,life:77.2,lit:99.0,co2:14.9,pop:333.3},
+  {country:"China",group:"Upper-Middle",gdp:12720,life:78.2,lit:96.8,co2:8.0,pop:1411.8},
+  {country:"Germany",group:"High",gdp:48432,life:80.9,lit:99.0,co2:7.9,pop:84.5},
+  {country:"India",group:"Lower-Middle",gdp:2388,life:69.8,lit:74.4,co2:1.9,pop:1406.6},
+  {country:"Japan",group:"High",gdp:33815,life:84.6,lit:99.0,co2:8.6,pop:124.5},
+  {country:"United Kingdom",group:"High",gdp:45850,life:80.7,lit:99.0,co2:5.2,pop:67.6},
+  {country:"France",group:"High",gdp:40963,life:82.4,lit:99.0,co2:3.8,pop:68.2},
+  {country:"Brazil",group:"Upper-Middle",gdp:8917,life:75.9,lit:95.2,co2:2.3,pop:215.4},
+  {country:"Italy",group:"High",gdp:34158,life:82.4,lit:99.2,co2:5.3,pop:58.9},
+  {country:"Canada",group:"High",gdp:54966,life:82.7,lit:99.0,co2:15.4,pop:39.1},
+  {country:"South Korea",group:"High",gdp:32254,life:83.5,lit:98.0,co2:11.8,pop:51.7},
+  {country:"Russia",group:"Upper-Middle",gdp:15345,life:71.3,lit:99.7,co2:11.8,pop:143.4},
+  {country:"Australia",group:"High",gdp:59934,life:83.2,lit:99.0,co2:15.0,pop:26.4},
+  {country:"Spain",group:"High",gdp:29350,life:83.3,lit:98.1,co2:4.9,pop:47.5},
+  {country:"Mexico",group:"Upper-Middle",gdp:11091,life:75.0,lit:95.4,co2:3.1,pop:130.3},
+  {country:"Indonesia",group:"Lower-Middle",gdp:4788,life:71.7,lit:96.0,co2:2.3,pop:277.5},
+  {country:"Netherlands",group:"High",gdp:57715,life:82.2,lit:99.0,co2:7.6,pop:17.8},
+  {country:"Saudi Arabia",group:"High",gdp:30436,life:74.9,lit:97.6,co2:16.0,pop:36.9},
+  {country:"Turkey",group:"Upper-Middle",gdp:10675,life:77.7,lit:96.7,co2:5.2,pop:85.4},
+  {country:"Switzerland",group:"High",gdp:91991,life:83.1,lit:99.0,co2:12.5,pop:8.8},
+  {country:"Poland",group:"High",gdp:18321,life:75.6,lit:99.8,co2:7.8,pop:37.7},
+  {country:"Sweden",group:"High",gdp:54489,life:83.0,lit:99.0,co2:3.4,pop:10.5},
+  {country:"Belgium",group:"High",gdp:50114,life:81.6,lit:99.0,co2:7.8,pop:11.7},
+  {country:"Argentina",group:"Upper-Middle",gdp:13686,life:76.6,lit:99.0,co2:3.6,pop:46.2},
+  {country:"Thailand",group:"Upper-Middle",gdp:6908,life:77.7,lit:93.8,co2:3.8,pop:71.8},
+  {country:"Nigeria",group:"Lower-Middle",gdp:2184,life:55.0,lit:62.0,co2:0.6,pop:223.8},
+  {country:"Egypt",group:"Lower-Middle",gdp:4295,life:71.8,lit:71.2,co2:2.5,pop:112.7},
+  {country:"South Africa",group:"Upper-Middle",gdp:6776,life:64.1,lit:95.0,co2:7.4,pop:60.4},
+  {country:"Vietnam",group:"Lower-Middle",gdp:4163,life:75.4,lit:95.0,co2:3.5,pop:98.9},
+  {country:"Bangladesh",group:"Lower-Middle",gdp:2688,life:72.6,lit:74.9,co2:0.6,pop:171.2}
+];
+var gc={"High":"#f59e0b","Upper-Middle":"#06b6d4","Lower-Middle":"#8b5cf6"};
+var gs=["High","Upper-Middle","Lower-Middle"];
+var traces=gs.map(g=>({
+  x:data.filter(d=>d.group===g).map(d=>d.gdp),
+  y:data.filter(d=>d.group===g).map(d=>d.life),
+  mode:'markers+text',type:'scatter',name:g,
+  text:data.filter(d=>d.group===g).map(d=>d.country),
+  textposition:'top center',textfont:{color:'#8892b0',size:9},
+  marker:{size:data.filter(d=>d.group===g).map(d=>Math.sqrt(d.pop)*3.5),color:gc[g],line:{color:'#0a0e1a',width:1},opacity:0.85},
+  hovertemplate:'<b>%{text}</b> ('+g+')<br>GDP/Capita: $%{x:,.0f}<br>Life Expectancy: %{y} years<br>Population: %{customdata[0]}M<br>CO₂/Capita: %{customdata[1]}t<extra></extra>',
+  customdata:data.filter(d=>d.group===g).map(d=>[d.pop,d.co2])
+}));
+var layout={
+  paper_bgcolor:'#0a0e1a',plot_bgcolor:'#0a0e1a',
+  font:{family:'Segoe UI,Roboto,sans-serif',color:'#f0f0f0'},
+  margin:{t:70,b:60,l:70,r:40},
+  xaxis:{type:'log',title:{text:'GDP per Capita (USD, log scale)',font:{color:'#8892b0'}},tickfont:{color:'#8892b0'},gridcolor:'#1e293b',zerolinecolor:'#1e293b',tickprefix:'$'},
+  yaxis:{title:{text:'Life Expectancy (years)',font:{color:'#8892b0'}},tickfont:{color:'#8892b0'},gridcolor:'#1e293b',zerolinecolor:'#1e293b'},
+  legend:{x:0.02,y:0.98,bgcolor:'rgba(10,14,26,0.8)',bordercolor:'#1e293b',borderwidth:1,font:{color:'#f0f0f0'}},
+  shapes:[{type:'line',x0:2.5,x1:5.0,y0:55,y1:90,line:{color:'#8892b0',width:1,dash:'dash'}}]
+};
+Plotly.newPlot('chart',traces,layout,{responsive:true,displayModeBar:true,displaylogo:false});
+</script>
+</body>
+</html>

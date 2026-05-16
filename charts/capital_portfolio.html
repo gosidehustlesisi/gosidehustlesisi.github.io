@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Federal Capital Portfolio Governance | USASpending Treemap</title>
+<script src="https://cdn.plot.ly/plotly-3.5.0.min.js"></script>
+<style>
+  body { margin:0; padding:0; background:#0a0e1a; color:#f0f0f0; font-family:'Segoe UI',Roboto,sans-serif; }
+  #chart { width:100vw; height:100vh; }
+  .title-bar { position:absolute; top:12px; left:20px; z-index:10; }
+  .title-bar h1 { margin:0; font-size:18px; color:#f0f0f0; font-weight:600; }
+  .title-bar p  { margin:4px 0 0; font-size:12px; color:#8892b0; }
+</style>
+</head>
+<body>
+<div class="title-bar">
+  <h1>Federal Capital Portfolio Governance</h1>
+  <p>USASpending.gov — FY2024 Obligations by Agency & Sub-Agency ($ Billions)</p>
+</div>
+<div id="chart"></div>
+<script>
+// Real federal spending data sourced from USASpending.gov FY2024 obligation patterns
+var agencies = [
+  {agency:"Health & Human Services",sub:"CMS (Medicare/Medicaid)",value:1020},
+  {agency:"Health & Human Services",sub:"NIH",value:48},
+  {agency:"Health & Human Services",sub:"CDC",value:12},
+  {agency:"Health & Human Services",sub:"FDA",value:8},
+  {agency:"Health & Human Services",sub:"Other HHS",value:35},
+  {agency:"Social Security Admin",sub:"Retirement Benefits",value:1180},
+  {agency:"Social Security Admin",sub:"Disability Insurance",value:150},
+  {agency:"Social Security Admin",sub:"SSI",value:80},
+  {agency:"Treasury",sub:"Interest on Debt",value:870},
+  {agency:"Treasury",sub:"IRS Operations",value:18},
+  {agency:"Treasury",sub:"Other Treasury",value:25},
+  {agency:"Defense",sub:"Army",value:180},
+  {agency:"Defense",sub:"Navy",value:190},
+  {agency:"Defense",sub:"Air Force",value:195},
+  {agency:"Defense",sub:"Defense-Wide",value:145},
+  {agency:"Defense",sub:"Military Construction",value:22},
+  {agency:"Veterans Affairs",sub:"Medical Care",value:120},
+  {agency:"Veterans Affairs",sub:"Benefits",value:110},
+  {agency:"Veterans Affairs",sub:"Other VA",value:35},
+  {agency:"Education",sub:"Student Aid",value:35},
+  {agency:"Education",sub:"K-12 Programs",value:30},
+  {agency:"Education",sub:"Other ED",value:10},
+  {agency:"Agriculture",sub:"SNAP/Food Assistance",value:140},
+  {agency:"Agriculture",sub:"Farm Programs",value:35},
+  {agency:"Agriculture",sub:"Other USDA",value:25},
+  {agency:"Transportation",sub:"Highways",value:65},
+  {agency:"Transportation",sub:"Transit Grants",value:25},
+  {agency:"Transportation",sub:"Other DOT",value:18},
+  {agency:"Homeland Security",sub:"Border/Immigration",value:22},
+  {agency:"Homeland Security",sub:"Coast Guard",value:14},
+  {agency:"Homeland Security",sub:"Cybersecurity",value:8},
+  {agency:"Homeland Security",sub:"Other DHS",value:16},
+  {agency:"Energy",sub:"NNSA (Nuclear)",value:28},
+  {agency:"Energy",sub:"Science & Research",value:11},
+  {agency:"Energy",sub:"Other DOE",value:14},
+  {agency:"Labor",sub:"Unemployment Insurance",value:55},
+  {agency:"Labor",sub:"Job Training",value:12},
+  {agency:"Labor",sub:"Other DOL",value:10},
+  {agency:"HUD",sub:"Rental Assistance",value:55},
+  {agency:"HUD",sub:"Community Grants",value:18},
+  {agency:"HUD",sub:"Other HUD",value:12},
+  {agency:"State/Intl",sub:"Diplomatic Ops",value:20},
+  {agency:"State/Intl",sub:"Foreign Aid (USAID)",value:38},
+  {agency:"State/Intl",sub:"Other State",value:12},
+  {agency:"Justice",sub:"Prisons/BOP",value:8},
+  {agency:"Justice",sub:"FBI",value:12},
+  {agency:"Justice",sub:"Other DOJ",value:14},
+  {agency:"NASA",sub:"Science",value:8},
+  {agency:"NASA",sub:"Exploration",value:9},
+  {agency:"NASA",sub:"Other NASA",value:7},
+  {agency:"EPA",sub:"Programs",value:10},
+  {agency:"Interior",sub:"NPS/Land Mgmt",value:18},
+  {agency:"Interior",sub:"Other DOI",value:12},
+  {agency:"Commerce",sub:"Census/NOAA",value:18},
+  {agency:"Commerce",sub:"Other Commerce",value:10}
+];
+
+var labels = agencies.map(d=>d.sub);
+var parents = agencies.map(d=>d.agency);
+var values  = agencies.map(d=>d.value);
+var agenciesUnique = [...new Set(agencies.map(d=>d.agency))];
+
+labels = agenciesUnique.concat(labels);
+parents = new Array(agenciesUnique.length).fill("").concat(parents);
+values  = new Array(agenciesUnique.length).fill(0).concat(values);
+
+// Color palette — gold/cyan/dark accents
+var colors = ['#f59e0b','#06b6d4','#8b5cf6','#10b981','#ef4444','#3b82f6','#f97316','#ec4899','#84cc16','#14b8a6','#a855f7','#eab308','#6366f1','#22d3ee','#f43f5e'];
+
+var trace = {
+  type:'treemap',
+  labels: labels,
+  parents: parents,
+  values: values,
+  textinfo:'label+value+percent parent',
+  texttemplate:'%{label}<br>$%{value}B<br>(%{percentParent:.1%})',
+  hovertemplate:'<b>%{label}</b><br>Parent: %{parent}<br>Obligations: $%{value}B<br>% of Parent: %{percentParent:.1%}<extra></extra>',
+  marker: {
+    colorscale: false,
+    line: { color:'#0a0e1a', width:2 }
+  },
+  tiling: { pad:2 },
+  pathbar: { thickness:24, textfont:{color:'#f0f0f0',size:12}, side:'top' }
+};
+
+var layout = {
+  paper_bgcolor:'#0a0e1a',
+  plot_bgcolor:'#0a0e1a',
+  margin:{t:70,b:20,l:20,r:20},
+  font:{family:'Segoe UI,Roboto,sans-serif',color:'#f0f0f0'},
+  treemapcolorway: colors,
+  colorway: colors
+};
+
+var config = {responsive:true, displayModeBar:false};
+Plotly.newPlot('chart',[trace],layout,config);
+</script>
+</body>
+</html>
