@@ -1366,7 +1366,32 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">67.87% Accuracy</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-applied-ml/main/projects/nlp-text-classification-pipeline/figures/nlp_02_confusion_matrix.png" alt="NLP Confusion Matrix" loading="lazy">
+                            <!-- INTERACTIVE: NLP Confusion Matrix -->
+                            <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                                <iframe src="https://gosidehustlesisi.github.io/charts/nlp_confusion_matrix.html" 
+                                    width="100%" height="550" 
+                                    style="border:none; background:var(--bg-deep);"
+                                    loading="lazy"
+                                    title="NLP Confusion Matrix Interactive">
+                                </iframe>
+                            </div>
+                            <div style="text-align:center; margin-bottom:8px;">
+                                <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle normalize view, hover cells for precision/recall</span>
+                            </div>
+                            <!-- INTERACTIVE: 20 Newsgroups Accuracy -->
+                            <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                                <iframe src="https://gosidehustlesisi.github.io/charts/newsgroups_accuracy.html" 
+                                    width="100%" height="550" 
+                                    style="border:none; background:var(--bg-deep);"
+                                    loading="lazy"
+                                    title="20 Newsgroups Accuracy Interactive">
+                                </iframe>
+                            </div>
+                            <div style="text-align:center; margin-bottom:8px;">
+                                <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle category filter, sort by F1 score, hover for metrics</span>
+                            </div>
+                            <!-- Fallback static image -->
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-applied-ml/main/projects/nlp-text-classification-pipeline/figures/nlp_02_confusion_matrix.png" alt="NLP Confusion Matrix" loading="lazy" style="display:none;">
                             <div class="tldr">
                                 <p><strong>Simple beats fancy.</strong> A basic TF-IDF + Naive Bayes model scores 68% on 20 categories and runs 400× faster than BERT. For most production text tasks, that's the right trade-off.</p>
                             </div>
@@ -1484,7 +1509,20 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">cs.AI +27% Growth</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-genai-engineering/main/projects/arxiv-classifier-research-engine/figures/category_distribution.png" alt="arXiv Categories" loading="lazy">
+                            <!-- INTERACTIVE: arXiv Category Distribution -->
+                            <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                                <iframe src="https://gosidehustlesisi.github.io/charts/arxiv_categories.html" 
+                                    width="100%" height="550" 
+                                    style="border:none; background:var(--bg-deep);"
+                                    loading="lazy"
+                                    title="arXiv Categories Interactive">
+                                </iframe>
+                            </div>
+                            <div style="text-align:center; margin-bottom:8px;">
+                                <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Hover for paper counts, toggle by subfield</span>
+                            </div>
+                            <!-- Fallback static image -->
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-genai-engineering/main/projects/arxiv-classifier-research-engine/figures/category_distribution.png" alt="arXiv Categories" loading="lazy" style="display:none;">
                             <div class="tldr">
                                 <p><strong>Simple beats fancy.</strong> Counting arXiv's own category tags outperformed a machine learning clustering algorithm — because domain experts already sorted the papers better than statistics can.</p>
                             </div>
@@ -1703,7 +1741,20 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">3 Station Archetypes</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-mobility-data/main/projects/wmata-ridership-demand/figures/02_top_stations_ridership.png" alt="WMATA Hourly" loading="lazy">
+                            <!-- INTERACTIVE: WMATA Ridership -->
+                            <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                                <iframe src="https://gosidehustlesisi.github.io/charts/wmata_ridership.html" 
+                                    width="100%" height="550" 
+                                    style="border:none; background:var(--bg-deep);"
+                                    loading="lazy"
+                                    title="WMATA Ridership Interactive">
+                                </iframe>
+                            </div>
+                            <div style="text-align:center; margin-bottom:8px;">
+                                <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle station archetypes, view hourly heatmap, compare stations</span>
+                            </div>
+                            <!-- Fallback static image -->
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-mobility-data/main/projects/wmata-ridership-demand/figures/02_top_stations_ridership.png" alt="WMATA Hourly" loading="lazy" style="display:none;">
                             <div class="tldr">
                                 <p><strong>"Busy" is the wrong metric.</strong> Metro Center and Gallery Place have the same ridership but opposite usage patterns — one spikes at 8:30AM, the other at 12:30PM. Scheduling by archetype cuts train-miles by 15% without losing riders.</p>
                             </div>
@@ -1758,7 +1809,20 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">United 24.7min | SW 12.4min</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-mobility-data/main/projects/bts-transit/figures/02_avg_delay_by_airline.png" alt="Airline Delays" loading="lazy">
+                            <!-- INTERACTIVE: BTS Airline Delays -->
+                            <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                                <iframe src="https://gosidehustlesisi.github.io/charts/bts_airline_delays.html" 
+                                    width="100%" height="550" 
+                                    style="border:none; background:var(--bg-deep);"
+                                    loading="lazy"
+                                    title="BTS Airline Delays Interactive">
+                                </iframe>
+                            </div>
+                            <div style="text-align:center; margin-bottom:8px;">
+                                <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle airline filter, select delay metric, hover for route breakdown</span>
+                            </div>
+                            <!-- Fallback static image -->
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-mobility-data/main/projects/bts-transit/figures/02_avg_delay_by_airline.png" alt="Airline Delays" loading="lazy" style="display:none;">
                             <div class="tldr">
                                 <p><strong>United is predictably late; Southwest is unpredictably late.</strong> United averages 24.7 minutes but it's consistent (crew scheduling problems). Southwest averages 12.4 minutes but with 3× the variance — fine until it's a disaster. Business travelers should avoid Southwest for same-day meetings.</p>
                             </div>
@@ -1887,7 +1951,20 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">67% from 10 Agencies</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-data-governance/main/projects/data-governance-dashboard/figures/datasets_by_agency.png" alt="Data.gov Agencies" loading="lazy">
+                            <!-- INTERACTIVE: Data.gov Catalog -->
+                            <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                                <iframe src="https://gosidehustlesisi.github.io/charts/data_gov_agencies.html" 
+                                    width="100%" height="550" 
+                                    style="border:none; background:var(--bg-deep);"
+                                    loading="lazy"
+                                    title="Data.gov Catalog Interactive">
+                                </iframe>
+                            </div>
+                            <div style="text-align:center; margin-bottom:8px;">
+                                <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Scroll agencies, sort by dataset count, hover for details</span>
+                            </div>
+                            <!-- Fallback static image -->
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-data-governance/main/projects/data-governance-dashboard/figures/datasets_by_agency.png" alt="Data.gov Agencies" loading="lazy" style="display:none;">
                             <div class="tldr">
                                 <p><strong>Not every data problem needs AI.</strong> A simple GROUP BY query showed that 10 agencies produce 67% of datasets — and 40+ agencies have fewer than 5. A $50K metadata workshop for small agencies yields more catalog growth than $500K in new sensors for already data-rich ones.</p>
                             </div>
@@ -1908,7 +1985,20 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">340% Backlog Growth</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-data-governance/main/projects/foia-compliance-automation/figures/processing_times.png" alt="FOIA Processing" loading="lazy">
+                            <!-- INTERACTIVE: FOIA Processing -->
+                            <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                                <iframe src="https://gosidehustlesisi.github.io/charts/foia_processing.html" 
+                                    width="100%" height="550" 
+                                    style="border:none; background:var(--bg-deep);"
+                                    loading="lazy"
+                                    title="FOIA Processing Interactive">
+                                </iframe>
+                            </div>
+                            <div style="text-align:center; margin-bottom:8px;">
+                                <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle backlog vs response time, hover for agency breakdown</span>
+                            </div>
+                            <!-- Fallback static image -->
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-data-governance/main/projects/foia-compliance-automation/figures/processing_times.png" alt="FOIA Processing" loading="lazy" style="display:none;">
                             <div class="tldr">
                                 <p><strong>The FOIA backlog grew 340% since 2008.</strong> DOD and DOJ alone account for 58% of all stalled requests. The bottleneck isn't the FOIA office — it's classification review taking 18+ months. Simple requests can be auto-routed to fast-track queues, cutting backlog by 40%.</p>
                             </div>
@@ -1929,7 +2019,20 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">43% Pre-2015</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-data-governance/main/projects/omb-guidance/figures/policy_by_category.png" alt="OMB Scores" loading="lazy">
+                            <!-- INTERACTIVE: OMB Policy Timeline -->
+                            <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                                <iframe src="https://gosidehustlesisi.github.io/charts/omb_policy_timeline.html" 
+                                    width="100%" height="550" 
+                                    style="border:none; background:var(--bg-deep);"
+                                    loading="lazy"
+                                    title="OMB Policy Timeline Interactive">
+                                </iframe>
+                            </div>
+                            <div style="text-align:center; margin-bottom:8px;">
+                                <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Scroll timeline, filter by policy category, click for full text</span>
+                            </div>
+                            <!-- Fallback static image -->
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-data-governance/main/projects/omb-guidance/figures/policy_by_category.png" alt="OMB Scores" loading="lazy" style="display:none;">
                             <div class="tldr">
                                 <p><strong>43% of active OMB guidance was issued before 2015.</strong> Circular A-11 has been revised 7 times but all versions remain "active" — so agencies don't know which one to follow. This creates compliance gaps and audit failures that could be fixed with a simple "current effective policy" dashboard.</p>
                             </div>
@@ -2110,7 +2213,20 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">r=0.72 (Pearson)</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-public-sector-insights/main/projects/census-demographics/figures/income_vs_education.png" alt="Income vs Education" loading="lazy">
+                            <!-- INTERACTIVE: Census Demographics -->
+                            <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                                <iframe src="https://gosidehustlesisi.github.io/charts/census_demographics.html" 
+                                    width="100%" height="550" 
+                                    style="border:none; background:var(--bg-deep);"
+                                    loading="lazy"
+                                    title="Census Demographics Interactive">
+                                </iframe>
+                            </div>
+                            <div style="text-align:center; margin-bottom:8px;">
+                                <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Hover counties, toggle income/education/poverty layers</span>
+                            </div>
+                            <!-- Fallback static image -->
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-public-sector-insights/main/projects/census-demographics/figures/income_vs_education.png" alt="Income vs Education" loading="lazy" style="display:none;">
                             <div class="tldr">
                                 <p><strong>Bachelor's is the sweet spot.</strong> Income jumps $18K going from high school to bachelor's, but only $8K more for graduate degrees. For workforce funding, bachelor's programs have higher ROI than graduate programs for income mobility.</p>
                             </div>
@@ -2131,7 +2247,20 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">18-Month Decoupling</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-public-sector-insights/main/projects/bls-employment/figures/unemployment_vs_openings.png" alt="Unemployment vs Openings" loading="lazy">
+                            <!-- INTERACTIVE: BLS Employment -->
+                            <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                                <iframe src="https://gosidehustlesisi.github.io/charts/bls_employment.html" 
+                                    width="100%" height="550" 
+                                    style="border:none; background:var(--bg-deep);"
+                                    loading="lazy"
+                                    title="BLS Employment Interactive">
+                                </iframe>
+                            </div>
+                            <div style="text-align:center; margin-bottom:8px;">
+                                <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle metric (unemployment/openings/labor force), select state, hover trends</span>
+                            </div>
+                            <!-- Fallback static image -->
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-public-sector-insights/main/projects/bls-employment/figures/unemployment_vs_openings.png" alt="Unemployment vs Openings" loading="lazy" style="display:none;">
                             <div class="tldr">
                                 <p><strong>Unemployment and job openings both went up at the same time.</strong> That shouldn't happen. It means workers exist but don't have the right skills — Massachusetts and Washington are in this "skills-mismatch" quadrant. Stop using unemployment rate as a hiring-difficulty proxy.</p>
                             </div>
@@ -2152,7 +2281,20 @@
                                 <span class="insight-tag">Key Finding</span>
                                 <span class="insight-metric">$15K Threshold</span>
                             </div>
-                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-public-sector-insights/main/projects/world-bank-indicators/figures/gdp_vs_life_expectancy.png" alt="GDP vs Life Expectancy" loading="lazy">
+                            <!-- INTERACTIVE: World Bank Development -->
+                            <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                                <iframe src="https://gosidehustlesisi.github.io/charts/world_bank_gdp_life.html" 
+                                    width="100%" height="550" 
+                                    style="border:none; background:var(--bg-deep);"
+                                    loading="lazy"
+                                    title="World Bank Development Interactive">
+                                </iframe>
+                            </div>
+                            <div style="text-align:center; margin-bottom:8px;">
+                                <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle regions, zoom, hover for country details</span>
+                            </div>
+                            <!-- Fallback static image -->
+                            <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-public-sector-insights/main/projects/world-bank-indicators/figures/gdp_vs_life_expectancy.png" alt="GDP vs Life Expectancy" loading="lazy" style="display:none;">
                             <div class="tldr">
                                 <p><strong>$15,000 per person is the magic number.</strong> Below that GDP threshold, each $1K adds ~2 years of life expectancy. Above it, each $1K adds only 0.3 years. Basic sanitation and nutrition are solved; marginal gains require expensive healthcare infrastructure.</p>
                             </div>
