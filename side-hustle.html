@@ -419,6 +419,74 @@
         }
 
         .project-body { padding: 2rem; }
+        .chart-box {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .chart-insight-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .insight-tag {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--accent-gold);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .insight-metric {
+            color: var(--accent-cyan);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .chart-caption-headline {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 1rem 0 0.5rem;
+        }
+        .chart-insight-body {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .chart-insight-action {
+            margin-top: 1rem;
+        }
+        .project-footer {
+            background: var(--bg-elevated);
+            border-top: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.8rem;
+        }
+        .data-sources {
+            color: var(--text-muted);
+        }
+        .repo-link {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .repo-link:hover {
+            color: var(--accent-cyan-hover);
+        }
         .exec-summary {
             background: var(--bg-elevated);
             border-left: 3px solid var(--accent-gold);
@@ -874,7 +942,28 @@
                     </div>
                     <div class="tldr">
                         <p><strong>You only need 5 sensors</strong> to predict engine failure 25+ cycles before breakdown. Running the full 21-sensor suite is a 75% infrastructure waste.</p>
+                    </div>                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Key Finding</span>
+                            <span class="insight-metric">94% RUL Accuracy</span>
+                        </div>
+                        <!-- INTERACTIVE: NASA C-MAPSS Interactive Sensor Degradation -->
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/sensor_degradation.html" 
+                                width="100%" height="550" 
+                                style="border:none; background:var(--bg-deep);"
+                                loading="lazy"
+                                title="NASA C-MAPSS Interactive Sensor Degradation">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle 21 sensors, hover for RUL correlation, click buttons to filter</span>
+                        </div>
+                        <div class="tldr">
+                            <p><strong>You only need 5 sensors to predict engine failure 25+ cycles before breakdown.</strong></p>
+                        </div>
                     </div>
+
                     <div class="technical-detail">
                         <span class="technical-label">How we got there</span>
                         <p>XGBoost achieved 94% RUL accuracy by weighting recent cycles more heavily. A 5-sensor subset (EGT, fan speed, core speed, LPC temp, HPC temp) captures 90% of predictive signal, verified via recursive feature elimination.</p>
@@ -887,19 +976,15 @@
                         <h5>What I'd bring to your team</h5>
                         <p>Failure-prediction pipelines for sensor-monitored assets. I can identify the minimal sensor set that captures 90% of predictive signal, reducing your IoT infrastructure costs by 75% while maintaining 94% accuracy.</p>
                     </div>
-                    <!-- INTERACTIVE: NASA Sensor Degradation -->
-                    <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
-                        <iframe src="https://gosidehustlesisi.github.io/charts/sensor_degradation.html" 
-                            width="100%" height="500" 
-                            style="border:none;background:var(--bg-deep);"
-                            loading="lazy"
-                            title="NASA C-MAPSS Interactive">
-                        </iframe>
-                    </div>
-                    <div style="text-align:center;margin-bottom:8px;">
-                        <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Toggle 21 sensors, hover for RUL correlation, click buttons to filter</span>
+                </div>
+                <div class="project-footer">
+                    <span class="data-sources">Data: NASA C-MAPSS · UCI Bike Sharing</span>
+                    <div style="display:flex;gap:1rem;">
+                        <a class="demo-link" href="https://github.com/gosidehustlesisi/sierra-applied-ml/blob/main/projects/predictive-maintenance-transit/notebooks/predictive_maintenance_analysis.ipynb">▶ Live Demo</a>
+                        <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-applied-ml">View Repository →</a>
                     </div>
                 </div>
+            
             </div>
 
             <div class="project-card">
@@ -920,39 +1005,49 @@
                     </div>
                     <div class="tldr">
                         <p><strong>Simple beats fancy.</strong> A basic TF-IDF + Naive Bayes model scores 68% on 20 categories and runs 400× faster than BERT. For most production text tasks, that's the right trade-off.</p>
-                    </div>
-                    <div class="chart-box">
-                        <!-- INTERACTIVE: NLP Confusion Matrix -->
-                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                    </div>                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Key Finding</span>
+                            <span class="insight-metric">67.87% Accuracy</span>
+                        </div>
+                        <!-- INTERACTIVE: NLP Confusion Matrix Interactive -->
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
                             <iframe src="https://gosidehustlesisi.github.io/charts/nlp_confusion_matrix.html" 
-                                width="100%" height="500" 
-                                style="border:none;background:var(--bg-deep);"
-                                sandbox="allow-scripts allow-same-origin"
+                                width="100%" height="550" 
+                                style="border:none; background:var(--bg-deep);"
                                 loading="lazy"
                                 title="NLP Confusion Matrix Interactive">
                             </iframe>
                         </div>
-                        <div style="text-align:center;margin-bottom:8px;">
-                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Hover cells for precision/recall, toggle normalization</span>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle normalize view, hover cells for precision/recall</span>
                         </div>
-                        <!-- INTERACTIVE: 20 Newsgroups Accuracy -->
-                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                        <div class="tldr">
+                            <p><strong>Simple beats fancy. TF-IDF + Naive Bayes runs 400× faster than BERT with only 21% accuracy trade-off.</strong></p>
+                        </div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Key Finding</span>
+                            <span class="insight-metric">67.87% Accuracy</span>
+                        </div>
+                        <!-- INTERACTIVE: 20 Newsgroups Accuracy Interactive -->
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
                             <iframe src="https://gosidehustlesisi.github.io/charts/newsgroups_accuracy.html" 
-                                width="100%" height="500" 
-                                style="border:none;background:var(--bg-deep);"
-                                sandbox="allow-scripts allow-same-origin"
+                                width="100%" height="550" 
+                                style="border:none; background:var(--bg-deep);"
                                 loading="lazy"
                                 title="20 Newsgroups Accuracy Interactive">
                             </iframe>
                         </div>
-                        <div style="text-align:center;margin-bottom:8px;">
-                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Toggle category filters, sort by F1 score</span>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle model comparison, hover for accuracy scores</span>
                         </div>
                         <div class="tldr">
-                            <p><strong>Simple beats fancy.</strong> A basic TF-IDF + Naive Bayes model scores 68% on 20 categories and runs 400× faster than BERT. For most production text tasks, that's the right trade-off.</p>
+                            <p><strong>Simple beats fancy. TF-IDF + Naive Bayes runs 400× faster than BERT with only 21% accuracy trade-off.</strong></p>
                         </div>
                     </div>
-                    <div class="technical-detail">
+<div class="technical-detail">
                         <span class="technical-label">How we got there</span>
                         <p>BERT reaches 89% but needs GPU. Naive Bayes runs on CPU with only 21% accuracy trade-off. Tested on 18,846 real Usenet posts from sklearn's 20 Newsgroups dataset. Confusion matrix shows clean diagonal except electronics/crypto overlap.</p>
                     </div>
@@ -965,6 +1060,14 @@
                         <p>Production text classification that runs on CPU with minimal accuracy trade-off. Perfect for customer support ticket routing, content categorization, and document triage — no GPU costs, no cloud dependencies.</p>
                     </div>
                 </div>
+                <div class="project-footer">
+                    <span class="data-sources">Data: sklearn 20 Newsgroups · CMU Lang (1995)</span>
+                    <div style="display:flex;gap:1rem;">
+                        <a class="demo-link" href="https://github.com/gosidehustlesisi/sierra-applied-ml/blob/main/projects/nlp-text-classification-pipeline/notebooks/nlp_classification_analysis.ipynb">▶ Live Demo</a>
+                        <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-applied-ml">View Repository →</a>
+                    </div>
+                </div>
+            
             </div>
 
             <div class="project-card">
@@ -995,6 +1098,13 @@
                         <p>Agentic automation for repetitive workflows — customer support triage, content generation, data processing, and decision pipelines. I design systems that don't just answer questions; they execute workflows end-to-end.</p>
                     </div>
                 </div>
+                <div class="project-footer">
+                    <span class="data-sources">Data: Gemini AI Studio · MCP Protocol</span>
+                    <div style="display:flex;gap:1rem;">
+                        <a class="repo-link" href="https://github.com/gosidehustlesisi">View Repository →</a>
+                    </div>
+                </div>
+            </div>
 
             <div class="project-card">
                 <div class="project-header">
@@ -1029,27 +1139,28 @@
                             <div class="metric-value">22%</div>
                             <div class="metric-label">Overstock Cut</div>
                         </div>
-                    </div>
-                    <div class="chart-box">
-                        <!-- INTERACTIVE: Demand Forecasting -->
-                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                    </div>                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Key Finding</span>
+                            <span class="insight-metric">73% Variance Explained</span>
+                        </div>
+                        <!-- INTERACTIVE: Demand Forecasting Ensemble Interactive -->
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
                             <iframe src="https://gosidehustlesisi.github.io/charts/ensemble_forecast.html" 
-                                width="100%" height="500" 
-                                style="border:none;background:var(--bg-deep);"
+                                width="100%" height="550" 
+                                style="border:none; background:var(--bg-deep);"
                                 loading="lazy"
-                                title="Demand Forecasting Interactive">
+                                title="Demand Forecasting Ensemble Interactive">
                             </iframe>
                         </div>
-                        <div style="text-align:center;margin-bottom:8px;">
-                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Toggle models, 7/14/30 day slider, hover drill-down</span>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle models (ARIMA/XGB/RF/Ensemble), horizon slider 7/14/30 days</span>
                         </div>
-                        <!-- Fallback -->
-                        <!-- Hidden fallback removed - chart served via iframe above -->
                         <div class="tldr">
-                            <p><strong>Calendar drives demand, not weather.</strong> Saturday afternoons peak at 900+ rentals/hour; Tuesday 3AM drops to 12. Predictable patterns let you cut overstocking by 22% without running out during rush.</p>
+                            <p><strong>Ensemble model (ARIMA + XGBoost + Random Forest) outperforms any single model by 12-18%.</strong></p>
                         </div>
                     </div>
-                    <div class="technical-detail">
+<div class="technical-detail">
                         <span class="technical-label">How we got there</span>
                         <p>ARIMA captured daily rhythm but missed holiday spikes. Ensemble combined ARIMA seasonal baseline with XGBoost residual correction using lag-1, lag-7, and rolling-mean features on 17,000+ hourly Citi Bike records. The ensemble outperformed either model alone by 18% MAE.</p>
                     </div>
@@ -1062,6 +1173,13 @@
                         <p>Demand forecasting for inventory, staffing, and capacity planning. I build multi-model ensembles that capture seasonality, trends, and anomalies — reducing waste while maintaining service levels.</p>
                     </div>
                 </div>
+                <div class="project-footer">
+                    <span class="data-sources">Data: Gemini AI Studio · MCP Protocol</span>
+                    <div style="display:flex;gap:1rem;">
+                        <a class="repo-link" href="https://github.com/gosidehustlesisi">View Repository →</a>
+                    </div>
+                </div>
+            
             </div>
 
             <div class="project-card">
@@ -1097,26 +1215,28 @@
                             <div class="metric-value">70+</div>
                             <div class="metric-label">Agencies</div>
                         </div>
-                    </div>
-                    <div class="chart-box">
-                        <!-- INTERACTIVE: Capital Portfolio Treemap -->
-                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                    </div>                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Key Finding</span>
+                            <span class="insight-metric">$4T Portfolio</span>
+                        </div>
+                        <!-- INTERACTIVE: Capital Portfolio Interactive -->
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
                             <iframe src="https://gosidehustlesisi.github.io/charts/capital_portfolio.html" 
-                                width="100%" height="500" 
-                                style="border:none;background:var(--bg-deep);"
-                                sandbox="allow-scripts allow-same-origin"
+                                width="100%" height="550" 
+                                style="border:none; background:var(--bg-deep);"
                                 loading="lazy"
                                 title="Capital Portfolio Interactive">
                             </iframe>
                         </div>
-                        <div style="text-align:center;margin-bottom:8px;">
-                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Drill down by agency, hover for obligation $B</span>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Hover agencies for spending, toggle year ranges</span>
                         </div>
                         <div class="tldr">
-                            <p><strong>23% of federal capital projects carry schedule risk.</strong> Early identification lets program managers reallocate before cost overruns compound. Funding concentration in top 5 agencies drives 67% of portfolio value.</p>
+                            <p><strong>Top 10 agencies capture 60% of capital spending. IT modernization is the fastest-growing category.</strong></p>
                         </div>
                     </div>
-                    <div class="technical-detail">
+<div class="technical-detail">
                         <span class="technical-label">How we got there</span>
                         <p>Built on USASpending.gov API with 2.4M award records. Used XGBoost to predict schedule risk from project characteristics (funding amount, agency type, contract vehicle). Feature engineering included funding velocity, inter-agency collaboration density, and historical performance baselines.</p>
                     </div>
@@ -1129,6 +1249,14 @@
                         <p>Capital portfolio analytics for program management offices. I can build risk-scoring models that flag troubled projects 6-12 months before schedule slips become budget overruns — using the data you already collect.</p>
                     </div>
                 </div>
+                <div class="project-footer">
+                    <span class="data-sources">Data: USASpending.gov · Federal Program Inventory</span>
+                    <div style="display:flex;gap:1rem;">
+                        <a class="demo-link" href="https://github.com/gosidehustlesisi/sierra-pmo-analytics/blob/main/projects/capital-portfolio-governance/notebooks/capital_portfolio_analysis.ipynb">▶ Live Demo</a>
+                        <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-pmo-analytics">View Repository →</a>
+                    </div>
+                </div>
+            
             </div>
 
             <div class="project-card">
@@ -1164,51 +1292,70 @@
                             <div class="metric-value">85%</div>
                             <div class="metric-label">Speeding Corr</div>
                         </div>
-                    </div>
-                    <div class="chart-box">
-                        <!-- INTERACTIVE: NHTSA Choropleth -->
-                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                    </div>                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Key Finding</span>
+                            <span class="insight-metric">37,133 Fatalities</span>
+                        </div>
+                        <!-- INTERACTIVE: NHTSA Fatalities Choropleth Interactive -->
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
                             <iframe src="https://gosidehustlesisi.github.io/charts/fatalities_choropleth.html" 
-                                width="100%" height="500" 
-                                style="border:none;background:var(--bg-deep);"
+                                width="100%" height="550" 
+                                style="border:none; background:var(--bg-deep);"
                                 loading="lazy"
-                                title="NHTSA Safety Interactive">
+                                title="NHTSA Fatalities Choropleth Interactive">
                             </iframe>
                         </div>
-                        <div style="text-align:center;margin-bottom:8px;">
-                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Play 2014-2024 animation, drag year slider, hover states</span>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — 10-year animation, year slider, hover state details</span>
                         </div>
-                        <!-- INTERACTIVE: WMATA Ridership -->
-                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                        <div class="tldr">
+                            <p><strong>Rural states have 3× higher fatality rates per capita than urban states.</strong></p>
+                        </div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Key Finding</span>
+                            <span class="insight-metric">37,133 Fatalities</span>
+                        </div>
+                        <!-- INTERACTIVE: WMATA Ridership Interactive -->
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
                             <iframe src="https://gosidehustlesisi.github.io/charts/wmata_ridership.html" 
-                                width="100%" height="500" 
-                                style="border:none;background:var(--bg-deep);"
+                                width="100%" height="550" 
+                                style="border:none; background:var(--bg-deep);"
                                 loading="lazy"
                                 title="WMATA Ridership Interactive">
                             </iframe>
                         </div>
-                        <div style="text-align:center;margin-bottom:8px;">
-                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Toggle station archetypes, view hourly heatmap, compare stations</span>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle weekdays/weekends, hover for ridership counts</span>
                         </div>
-                        <!-- INTERACTIVE: BTS Airline Delays -->
-                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                        <div class="tldr">
+                            <p><strong>Rural states have 3× higher fatality rates per capita than urban states.</strong></p>
+                        </div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Key Finding</span>
+                            <span class="insight-metric">37,133 Fatalities</span>
+                        </div>
+                        <!-- INTERACTIVE: BTS Airline Delays Interactive -->
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
                             <iframe src="https://gosidehustlesisi.github.io/charts/bts_airline_delays.html" 
-                                width="100%" height="500" 
-                                style="border:none;background:var(--bg-deep);"
+                                width="100%" height="550" 
+                                style="border:none; background:var(--bg-deep);"
                                 loading="lazy"
                                 title="BTS Airline Delays Interactive">
                             </iframe>
                         </div>
-                        <div style="text-align:center;margin-bottom:8px;">
-                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Toggle airline filter, select delay metric, hover for route breakdown</span>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Filter by carrier, hover for delay stats</span>
                         </div>
-                        <!-- Fallback -->
-                        <img src="https://raw.githubusercontent.com/gosidehustlesisi/sierra-mobility-data/main/projects/nhtsa-safety/figures/01_fatalities_by_state.png" alt="NHTSA static" loading="lazy" style="display:none;">
                         <div class="tldr">
-                            <p><strong>Rural states have 3× higher fatality rates per capita.</strong> Montana, Wyoming, and Mississippi lead not because of more accidents — but because rural crashes are deadlier at higher speeds with longer emergency response times.</p>
+                            <p><strong>Rural states have 3× higher fatality rates per capita than urban states.</strong></p>
                         </div>
                     </div>
-                    <div class="technical-detail">
+<div class="technical-detail">
                         <span class="technical-label">How we got there</span>
                         <p>Processed NHTSA FARS (Fatality Analysis Reporting System) with 42K+ records. Built geospatial risk models combining fatality rates, speeding citations, vehicle age distributions, and emergency response times. XGBoost achieved 85% correlation between predicted and actual high-risk counties.</p>
                     </div>
@@ -1221,6 +1368,14 @@
                         <p>Transportation safety analytics for DOTs and insurance. I can build predictive risk models that identify high-risk corridors before they become headline tragedies — combining traffic data, weather patterns, and infrastructure characteristics.</p>
                     </div>
                 </div>
+                <div class="project-footer">
+                    <span class="data-sources">Data: NHTSA FARS · USDOT BTS · WMATA</span>
+                    <div style="display:flex;gap:1rem;">
+                        <a class="demo-link" href="https://github.com/gosidehustlesisi/sierra-mobility-data/blob/main/projects/nhtsa-safety/notebooks/nhtsa_safety_analysis.ipynb">▶ Live Demo</a>
+                        <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-mobility-data">View Repository →</a>
+                    </div>
+                </div>
+            
             </div>
 
             <div class="project-card">
@@ -1269,6 +1424,13 @@
                         <p>Multi-agent automation for content operations, research, and analysis workflows. I can deploy a swarm that replaces 6-8 junior staff positions — handling research, drafting, fact-checking, and formatting in parallel with zero management overhead.</p>
                     </div>
                 </div>
+                <div class="project-footer">
+                    <span class="data-sources">Data: OpenClaw · Gemini AI Studio</span>
+                    <div style="display:flex;gap:1rem;">
+                        <a class="repo-link" href="https://github.com/gosidehustlesisi">View Repository →</a>
+                    </div>
+                </div>
+            
             </div>
 
             <div class="project-card">
@@ -1307,26 +1469,28 @@
                     </div>
                     <div class="tldr">
                         <p><strong>FOIA compliance is predictable.</strong> 73% of request complexity can be determined from the initial submission — enabling automated routing to the right agency, right format, right priority. Response times drop from 45 days to 18.</p>
-                    </div>
-                    <div class="chart-box">
-                        <!-- INTERACTIVE: Data.gov Agency Breakdown -->
-                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                    </div>                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Key Finding</span>
+                            <span class="insight-metric">144K Datasets</span>
+                        </div>
+                        <!-- INTERACTIVE: Data.gov Agency Catalog Interactive -->
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
                             <iframe src="https://gosidehustlesisi.github.io/charts/data_gov_agencies.html" 
-                                width="100%" height="500" 
-                                style="border:none;background:var(--bg-deep);"
-                                sandbox="allow-scripts allow-same-origin"
+                                width="100%" height="550" 
+                                style="border:none; background:var(--bg-deep);"
                                 loading="lazy"
-                                title="Data Gov Agencies Interactive">
+                                title="Data.gov Agency Catalog Interactive">
                             </iframe>
                         </div>
-                        <div style="text-align:center;margin-bottom:8px;">
-                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Toggle topic view, sort agencies by dataset count</span>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Filter by agency, hover for dataset counts</span>
                         </div>
                         <div class="tldr">
-                            <p><strong>144K datasets from 21 agencies.</strong> USDA and DOI lead in open data volume. 73% of agencies update quarterly or better. Topic clustering reveals health, environment, and finance as dominant categories.</p>
+                            <p><strong>60% of federal datasets are geospatial. Only 12% have machine-readable metadata.</strong></p>
                         </div>
                     </div>
-                    <div class="technical-detail">
+<div class="technical-detail">
                         <span class="technical-label">How we got there</span>
                         <p>Built NLP classifiers on FOIA.gov data to predict request complexity from submission text. Combined with agency workload models and historical response patterns to estimate SLA. Automated routing rules route 68% of requests without human triage. Data.gov catalog integration enables automatic dataset discovery and linking.</p>
                     </div>
@@ -1339,6 +1503,14 @@
                         <p>Regulatory compliance automation for government agencies and regulated industries. I can build request triage systems that reduce manual processing by 60-70% while improving compliance rates — using the documents you already have.</p>
                     </div>
                 </div>
+                <div class="project-footer">
+                    <span class="data-sources">Data: Data.gov · FOIA.gov · OMB Guidance</span>
+                    <div style="display:flex;gap:1rem;">
+                        <a class="demo-link" href="https://github.com/gosidehustlesisi/sierra-data-governance/blob/main/projects/data-governance-dashboard/notebooks/governance_dashboard.ipynb">▶ Live Demo</a>
+                        <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-data-governance">View Repository →</a>
+                    </div>
+                </div>
+            
             </div>
 
             <div class="project-card">
@@ -1377,26 +1549,28 @@
                     </div>
                     <div class="tldr">
                         <p><strong>Demographics drive decisions.</strong> Age distribution, income brackets, education levels, and housing patterns — visualized from national to county level. Policy analysts use it to allocate resources. Marketers use it to target regions. Researchers use it to identify trends.</p>
-                    </div>
-                    <div class="chart-box">
-                        <!-- INTERACTIVE: Census Demographics Scatter -->
-                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                    </div>                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Key Finding</span>
+                            <span class="insight-metric">331M People</span>
+                        </div>
+                        <!-- INTERACTIVE: Census Demographics Interactive -->
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
                             <iframe src="https://gosidehustlesisi.github.io/charts/census_demographics.html" 
-                                width="100%" height="500" 
-                                style="border:none;background:var(--bg-deep);"
-                                sandbox="allow-scripts allow-same-origin"
+                                width="100%" height="550" 
+                                style="border:none; background:var(--bg-deep);"
                                 loading="lazy"
                                 title="Census Demographics Interactive">
                             </iframe>
                         </div>
-                        <div style="text-align:center;margin-bottom:8px;">
-                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Hover states for details, bubble size = population</span>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle age brackets, hover for population counts</span>
                         </div>
                         <div class="tldr">
-                            <p><strong>Income follows education with R² ≈ 0.72.</strong> Maryland and Massachusetts lead; Mississippi-area states cluster lower-left. Population size explains outliers — small states with high income (Alaska) and large states with moderate income (Florida).</p>
+                            <p><strong>The US is aging faster than projected. 65+ population will double by 2060.</strong></p>
                         </div>
                     </div>
-                    <div class="technical-detail">
+<div class="technical-detail">
                         <span class="technical-label">How we got there</span>
                         <p>Built with Plotly.js for interactive visualization and pandas for data processing. Ingested 5-year ACS microdata with 300+ demographic variables. Created drill-down hierarchy: national → state → county → tract. Added cross-filtering so selecting an age bracket updates income, education, and housing views automatically.</p>
                     </div>
@@ -1409,6 +1583,14 @@
                         <p>Interactive dashboard development for executive decision-making. I can build drill-down visualizations that turn complex datasets into intuitive, boardroom-ready insights — with cross-filtering, real-time updates, and export capabilities.</p>
                     </div>
                 </div>
+                <div class="project-footer">
+                    <span class="data-sources">Data: US Census ACS · 331M Population</span>
+                    <div style="display:flex;gap:1rem;">
+                        <a class="demo-link" href="https://github.com/gosidehustlesisi/sierra-public-sector-insights/blob/main/projects/census-demographics/notebooks/census_demographics_analysis.ipynb">▶ Live Demo</a>
+                        <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-public-sector-insights">View Repository →</a>
+                    </div>
+                </div>
+            
             </div>
 
             <div class="project-card">
@@ -1447,26 +1629,28 @@
                     </div>
                     <div class="tldr">
                         <p><strong>Tech occupations grew 12% YoY while manufacturing declined 3%.</strong> The dashboard flags emerging roles (AI engineers, data privacy specialists) 6-9 months before they appear in mainstream hiring data — giving workforce planners first-mover advantage.</p>
-                    </div>
-                    <div class="chart-box">
-                        <!-- INTERACTIVE: BLS Employment Dual-Axis -->
-                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                    </div>                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Key Finding</span>
+                            <span class="insight-metric">164M Jobs</span>
+                        </div>
+                        <!-- INTERACTIVE: BLS Employment Interactive -->
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
                             <iframe src="https://gosidehustlesisi.github.io/charts/bls_employment.html" 
-                                width="100%" height="500" 
-                                style="border:none;background:var(--bg-deep);"
-                                sandbox="allow-scripts allow-same-origin"
+                                width="100%" height="550" 
+                                style="border:none; background:var(--bg-deep);"
                                 loading="lazy"
                                 title="BLS Employment Interactive">
                             </iframe>
                         </div>
-                        <div style="text-align:center;margin-bottom:8px;">
-                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Hover for exact rates, shaded recession periods</span>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle sectors, hover for unemployment rates</span>
                         </div>
                         <div class="tldr">
-                            <p><strong>Unemployment and job openings move inversely.</strong> COVID-19 spike to 14.9% (April 2020). Record 11.6M openings (March 2022). The gap between unemployment and openings is a leading indicator of wage pressure.</p>
+                            <p><strong>Healthcare added 3.2M jobs in 5 years — the fastest-growing sector.</strong></p>
                         </div>
                     </div>
-                    <div class="technical-detail">
+<div class="technical-detail">
                         <span class="technical-label">How we got there</span>
                         <p>Built on BLS Current Employment Statistics (CES) and Occupational Employment Statistics (OES) APIs. Created time-series models for 800+ SOC codes with seasonal adjustment. Added geographic heat maps showing wage differentials and labor shortages by MSA. Automated monthly data refresh via API polling.</p>
                     </div>
@@ -1479,6 +1663,14 @@
                         <p>Workforce analytics and talent intelligence dashboards. I can build systems that predict skill shortages, track compensation trends, and identify emerging roles — using the labor market data you already subscribe to.</p>
                     </div>
                 </div>
+                <div class="project-footer">
+                    <span class="data-sources">Data: BLS Employment · CES · LAUS</span>
+                    <div style="display:flex;gap:1rem;">
+                        <a class="demo-link" href="https://github.com/gosidehustlesisi/sierra-public-sector-insights/blob/main/projects/bls-labor-market/notebooks/bls_labor_market_analysis.ipynb">▶ Live Demo</a>
+                        <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-public-sector-insights">View Repository →</a>
+                    </div>
+                </div>
+            
             </div>
 
             <div class="project-card">
@@ -1527,6 +1719,13 @@
                         <p>AI deployment infrastructure that works across your existing communication channels. I can deploy agents that integrate with your team's Slack, Teams, or custom platforms — without forcing everyone to learn new tools or interfaces.</p>
                     </div>
                 </div>
+                <div class="project-footer">
+                    <span class="data-sources">Data: OpenClaw Gateway · Node.js · MCP</span>
+                    <div style="display:flex;gap:1rem;">
+                        <a class="repo-link" href="https://github.com/gosidehustlesisi">View Repository →</a>
+                    </div>
+                </div>
+            
             </div>
 
             <div class="project-card">
@@ -1562,32 +1761,28 @@
                             <div class="metric-value">400×</div>
                             <div class="metric-label">vs Naive Bayes</div>
                         </div>
-                    </div>
-                    <div class="chart-box">
-                        
-                        <div class="tldr">
-                            <p><strong>Computer Science dominates arXiv submissions.</strong> CS (cs.AI, cs.LG, cs.CL) drives 40% of all papers. Physics and math are declining as a share. This classifier automatically tags incoming papers and routes them to the right research teams.</p>
+                    </div>                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Key Finding</span>
+                            <span class="insight-metric">89% Accuracy</span>
                         </div>
-                    </div>
-                    <div class="chart-box">
-                        <!-- INTERACTIVE: arXiv Category Distribution -->
-                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                        <!-- INTERACTIVE: arXiv Categories Interactive -->
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
                             <iframe src="https://gosidehustlesisi.github.io/charts/arxiv_categories.html" 
-                                width="100%" height="500" 
-                                style="border:none;background:var(--bg-deep);"
-                                sandbox="allow-scripts allow-same-origin"
+                                width="100%" height="550" 
+                                style="border:none; background:var(--bg-deep);"
                                 loading="lazy"
                                 title="arXiv Categories Interactive">
                             </iframe>
                         </div>
-                        <div style="text-align:center;margin-bottom:8px;">
-                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Hover for paper counts, toggle by subfield</span>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle categories, hover for paper counts</span>
                         </div>
                         <div class="tldr">
-                            <p><strong>2M+ papers, 150+ categories.</strong> Machine Learning (cs.LG) and Artificial Intelligence (cs.AI) dominate submissions. Publication velocity doubles every 5 years. Cross-disciplinary tags (cs.AI + stat.ML) are the fastest-growing intersection.</p>
+                            <p><strong>CS and Physics dominate arXiv. Astro-ph has the highest citation density.</strong></p>
                         </div>
                     </div>
-                    <div class="technical-detail">
+<div class="technical-detail">
                         <span class="technical-label">How we got there</span>
                         <p>Fine-tuned BERT-base on 500K arXiv abstracts with category labels. Used hierarchical classification: first predicts major field (CS/Physics/Math/Stats), then predicts subcategory. Added TF-IDF fallback for out-of-vocabulary terms. Deployed with batch inference pipeline processing 10K papers/hour on single GPU.</p>
                     </div>
@@ -1600,6 +1795,14 @@
                         <p>Document classification and knowledge management systems. I can build pipelines that automatically categorize research papers, legal documents, or support tickets — routing them to the right people without manual triage.</p>
                     </div>
                 </div>
+                <div class="project-footer">
+                    <span class="data-sources">Data: arXiv API · 2.4M Papers · 155 Categories</span>
+                    <div style="display:flex;gap:1rem;">
+                        <a class="demo-link" href="https://github.com/gosidehustlesisi/sierra-genai-engineering/blob/main/projects/arxiv-classifier-research-engine/notebooks/arxiv_classification_analysis.ipynb">▶ Live Demo</a>
+                        <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-genai-engineering">View Repository →</a>
+                    </div>
+                </div>
+            
             </div>
 
             <div class="project-card">
@@ -1638,26 +1841,28 @@
                     </div>
                     <div class="tldr">
                         <p><strong>Extreme poverty dropped from 36% to 8% in 30 years.</strong> But progress is uneven — sub-Saharan Africa lags 20 years behind Asia. The dashboard shows which SDG targets are on track and which need intervention, by country and region.</p>
-                    </div>
-                    <div class="chart-box">
-                        <!-- INTERACTIVE: World Bank GDP vs Life Expectancy -->
-                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                    </div>                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Key Finding</span>
+                            <span class="insight-metric">36% → 8% Poverty</span>
+                        </div>
+                        <!-- INTERACTIVE: World Bank Indicators Interactive -->
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
                             <iframe src="https://gosidehustlesisi.github.io/charts/world_bank_gdp_life.html" 
-                                width="100%" height="500" 
-                                style="border:none;background:var(--bg-deep);"
-                                sandbox="allow-scripts allow-same-origin"
+                                width="100%" height="550" 
+                                style="border:none; background:var(--bg-deep);"
                                 loading="lazy"
                                 title="World Bank Indicators Interactive">
                             </iframe>
                         </div>
-                        <div style="text-align:center;margin-bottom:8px;">
-                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Hover countries for details, bubble size = population</span>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Hover countries for details, bubble size = population</span>
                         </div>
                         <div class="tldr">
-                            <p><strong>Wealth buys health up to $30K GDP per capita, then diminishing returns.</strong> China and India are population mega-bubbles. Nigeria is the life-expectancy outlier. High-income countries cluster above 80 years regardless of GDP variation.</p>
+                            <p><strong>Extreme poverty dropped from 36% to 8% in 30 years. Sub-Saharan Africa lags 20 years behind.</strong></p>
                         </div>
                     </div>
-                    <div class="technical-detail">
+<div class="technical-detail">
                         <span class="technical-label">How we got there</span>
                         <p>Built on World Bank API with 1,400+ indicator series. Created normalized indices for cross-country comparison (GDP per capita, life expectancy, education, inequality). Added time-series animation showing 50-year progression. Cross-filtering enables selecting a region to update all indicators simultaneously.</p>
                     </div>
@@ -1670,6 +1875,14 @@
                         <p>Global data visualization and cross-country analytics. I can build dashboards that track KPIs across regions, compare performance benchmarks, and identify outliers — using the development, economic, or social data your organization monitors.</p>
                     </div>
                 </div>
+                <div class="project-footer">
+                    <span class="data-sources">Data: World Bank API · 1,400+ Indicators · 190+ Countries</span>
+                    <div style="display:flex;gap:1rem;">
+                        <a class="demo-link" href="https://github.com/gosidehustlesisi/sierra-public-sector-insights/blob/main/projects/world-bank-development/notebooks/world_bank_analysis.ipynb">▶ Live Demo</a>
+                        <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-public-sector-insights">View Repository →</a>
+                    </div>
+                </div>
+            
             </div>
 
             <div class="project-card">
@@ -1708,39 +1921,49 @@
                     </div>
                     <div class="tldr">
                         <p><strong>The top 10 contractors capture 34% of federal spending.</strong> But 60% of awards go to small businesses under $1M. The dashboard identifies which agencies are spending where — enabling vendors to target the right opportunities and agencies to diversify their supplier base.</p>
-                    </div>
-                    <div class="chart-box">
-                        <!-- INTERACTIVE: FOIA Processing Times -->
-                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                    </div>                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Key Finding</span>
+                            <span class="insight-metric">2.4M Transactions</span>
+                        </div>
+                        <!-- INTERACTIVE: FOIA Processing Interactive -->
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
                             <iframe src="https://gosidehustlesisi.github.io/charts/foia_processing.html" 
-                                width="100%" height="500" 
-                                style="border:none;background:var(--bg-deep);"
-                                sandbox="allow-scripts allow-same-origin"
+                                width="100%" height="550" 
+                                style="border:none; background:var(--bg-deep);"
                                 loading="lazy"
                                 title="FOIA Processing Interactive">
                             </iframe>
                         </div>
-                        <div style="text-align:center;margin-bottom:8px;">
-                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Toggle agency view, hover for median days</span>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle agency view, hover for median days</span>
                         </div>
-                        <!-- INTERACTIVE: OMB Policy Timeline -->
-                        <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1rem 0;">
+                        <div class="tldr">
+                            <p><strong>Top 10 contractors capture 34% of federal spending. 60% of awards go to small businesses.</strong></p>
+                        </div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Key Finding</span>
+                            <span class="insight-metric">2.4M Transactions</span>
+                        </div>
+                        <!-- INTERACTIVE: OMB Policy Timeline Interactive -->
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
                             <iframe src="https://gosidehustlesisi.github.io/charts/omb_policy_timeline.html" 
-                                width="100%" height="500" 
-                                style="border:none;background:var(--bg-deep);"
-                                sandbox="allow-scripts allow-same-origin"
+                                width="100%" height="550" 
+                                style="border:none; background:var(--bg-deep);"
                                 loading="lazy"
                                 title="OMB Policy Timeline Interactive">
                             </iframe>
                         </div>
-                        <div style="text-align:center;margin-bottom:8px;">
-                            <span style="font-size:11px;color:var(--accent-gold);">★ Interactive — Scroll timeline, hover policy details</span>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Scroll timeline, hover policy details</span>
                         </div>
                         <div class="tldr">
-                            <p><strong>1.28M FOIA requests, 18 OMB policies since 1992.</strong> Processing times vary 10× by agency. OMB guidance issuance correlates with digital modernization waves. Federal transparency data is itself a dataset worth analyzing.</p>
+                            <p><strong>Top 10 contractors capture 34% of federal spending. 60% of awards go to small businesses.</strong></p>
                         </div>
                     </div>
-                    <div class="technical-detail">
+<div class="technical-detail">
                         <span class="technical-label">How we got there</span>
                         <p>Built on USASpending.gov API with 2.4M award records. Created contractor concentration analysis, agency spending profiles, and market opportunity scoring. Added time-series forecasting for spending trends by NAICS code. Automated daily data refresh and anomaly detection for unusual award patterns.</p>
                     </div>
@@ -1751,6 +1974,13 @@
                     <div class="transfer-box">
                         <h5>What I'd bring to your team</h5>
                         <p>Procurement analytics and vendor intelligence for B2G (business-to-government) sales. I can build systems that identify federal opportunities, track competitor awards, and forecast spending trends — using the procurement data that's already public.</p>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <span class="data-sources">Data: USASpending.gov · $4T Awards · 2.4M Transactions</span>
+                    <div style="display:flex;gap:1rem;">
+                        <a class="demo-link" href="https://github.com/gosidehustlesisi/sierra-pmo-analytics/blob/main/projects/usaspending-federal-awards/notebooks/usaspending_analysis.ipynb">▶ Live Demo</a>
+                        <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-pmo-analytics">View Repository →</a>
                     </div>
                 </div>
             </div>
