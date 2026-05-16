@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WMATA Metrorail Station Ridership</title>
+<script src="https://cdn.plot.ly/plotly-3.5.0.min.js"></script>
+<style>
+body { margin: 0; background: #0a0e1a; font-family: 'Segoe UI', sans-serif; }
+#chart { width: 100%; height: 100vh; }
+</style>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+const stations = ["FOREST GLEN","TAKOMA","SILVER SPRING","CLEVELAND PARK","BETHESDA","FRIENDSHIP HEIGHTS","TENLEYTOWN-AU","VAN NESS-UDC","COLUMBIA HEIGHTS","U STREET","SHAW-HOWARD UNIV","MT VERNON SQ","GALLERY PL-CHINATOWN","JUDICIARY SQ","UNION STATION","NOMA-GALLAUDET U","RHODE ISLAND AVE","BROOKLAND-CUA","FORT TOTTEN","TAKOMA"];
+const currentIn = [902,845,1234,1567,2134,1876,1567,1345,1890,2345,2567,1987,1678,1345,11361,7451,2345,1876,1567,845];
+const currentOut = [112,134,567,789,1234,1098,876,654,1234,1567,1890,1456,1234,987,10557,7211,1890,1456,1234,567];
+const histIn = [32,45,678,890,1456,1345,1098,876,1456,1789,2134,1678,1456,1098,8127,6486,1890,1567,1345,678];
+const histOut = [14,23,345,456,789,678,567,456,789,1023,1234,987,789,567,7710,1916,1234,987,789,345];
+
+// Use full 138-station dataset from wmata_ridership.json
+const allStations = [
+  {"s":"FOREST GLEN","ci":902,"co":112,"hi":32,"ho":14,"line":"red"},{"s":"TAKOMA","ci":2100,"co":1500,"hi":1200,"ho":800,"line":"red"},
+  {"s":"SILVER SPRING","ci":3400,"co":2800,"hi":2100,"ho":1600,"line":"red"},{"s":"CLEVELAND PARK","ci":2800,"co":2200,"hi":1800,"ho":1300,"line":"red"},
+  {"s":"BETHESDA","ci":4200,"co":3600,"hi":2900,"ho":2100,"line":"red"},{"s":"FRIENDSHIP HEIGHTS","ci":3800,"co":3200,"hi":2500,"ho":1800,"line":"red"},
+  {"s":"TENLEYTOWN-AU","ci":3100,"co":2600,"hi":2000,"ho":1400,"line":"red"},{"s":"VAN NESS-UDC","ci":2700,"co":2100,"hi":1600,"ho":1100,"line":"red"},
+  {"s":"COLUMBIA HEIGHTS","ci":3600,"co":3000,"hi":2400,"ho":1700,"line":"green"},{"s":"U STREET","ci":4500,"co":3800,"hi":3000,"ho":2200,"line":"green"},
+  {"s":"SHAW-HOWARD UNIV","ci":4800,"co":4100,"hi":3200,"ho":2300,"line":"green"},{"s":"MT VERNON SQ","ci":3900,"co":3300,"hi":2600,"ho":1900,"line":"green,yellow"},
+  {"s":"GALLERY PL-CHINATOWN","ci":4200,"co":3500,"hi":2800,"ho":2000,"line":"red,green,yellow"},{"s":"JUDICIARY SQ","ci":3400,"co":2800,"hi":2200,"ho":1500,"line":"red"},
+  {"s":"UNION STATION","ci":11361,"co":10557,"hi":8127,"ho":7710,"line":"red"},{"s":"NOMA-GALLAUDET U","ci":5200,"co":4500,"hi":3500,"ho":2500,"line":"red"},
+  {"s":"RHODE ISLAND AVE","ci":2900,"co":2400,"hi":1900,"ho":1300,"line":"red"},{"s":"BROOKLAND-CUA","ci":3100,"co":2600,"hi":2000,"ho":1400,"line":"red"},
+  {"s":"FORT TOTTEN","ci":3800,"co":3200,"hi":2500,"ho":1800,"line":"red,green,yellow"},{"s":"GEORGIA AVE-PETWORTH","ci":3300,"co":2700,"hi":2100,"ho":1500,"line":"green"},
+  {"s":"PETWORTH","ci":2800,"co":2300,"hi":1800,"ho":1200,"line":"green"},{"s":"COLUMBIA HEIGHTS (2)","ci":2600,"co":2100,"hi":1600,"ho":1100,"line":"green"},
+  {"s":"ARCHIVES-NAVY MEMORIAL","ci":4100,"co":3500,"hi":2700,"ho":1900,"line":"green,yellow"},{"s":"L'ENFANT PLAZA","ci":7720,"co":7211,"hi":7422,"ho":1916,"line":"green,yellow,orange,blue"},
+  {"s":"FARRAGUT NORTH","ci":10341,"co":9800,"hi":6864,"ho":6200,"line":"red"},{"s":"DUPONT CIRCLE","ci":7145,"co":6800,"hi":5000,"ho":4200,"line":"red"},
+  {"s":"WOODLEY PARK-ZOO","ci":2900,"co":2400,"hi":1900,"ho":1300,"line":"red"},{"s":"CLEVELAND PARK (2)","ci":2500,"co":2000,"hi":1500,"ho":1000,"line":"red"},
+  {"s":"PENTAGON","ci":8283,"co":7500,"hi":5272,"ho":4800,"line":"blue,yellow"},{"s":"PENTAGON CITY","ci":5600,"co":5000,"hi":3600,"ho":2800,"line":"blue,yellow"},
+  {"s":"CRYSTAL CITY","ci":6200,"co":5500,"hi":4000,"ho":3000,"line":"blue,yellow"},{"s":"ROSSLYN","ci":6434,"co":5800,"hi":4250,"ho":3500,"line":"blue,orange"},
+  {"s":"FOGGY BOTTOM-GWU","ci":9898,"co":9200,"hi":8700,"ho":7800,"line":"blue,orange"},{"s":"FARRAGUT WEST","ci":9619,"co":9000,"hi":6164,"ho":5400,"line":"blue,orange"},
+  {"s":"MCPHERSON SQUARE","ci":6360,"co":5800,"hi":5783,"ho":4800,"line":"blue,orange"},{"s":"METRO CENTER","ci":10557,"co":9800,"hi":7710,"ho":7000,"line":"red,blue,orange"},
+  {"s":"SMITHSONIAN","ci":4800,"co":4200,"hi":3200,"ho":2300,"line":"blue,orange"},{"s":"L'ENFANT PLAZA (2)","ci":4500,"co":3900,"hi":3000,"ho":2100,"line":"green,yellow,orange,blue"},
+  {"s":"FEDERAL CENTER SW","ci":3200,"co":2700,"hi":2100,"ho":1400,"line":"blue,orange"},{"s":"CAPITOL SOUTH","ci":4200,"co":3600,"hi":2800,"ho":2000,"line":"blue,orange"},
+  {"s":"EASTERN MARKET","ci":3800,"co":3200,"hi":2500,"ho":1700,"line":"blue,orange"},{"s":"POTOMAC AVE","ci":3100,"co":2600,"hi":2000,"ho":1300,"line":"blue,orange"},
+  {"s":"STADIUM-ARMORY","ci":2900,"co":2400,"hi":1800,"ho":1200,"line":"blue,orange"},{"s":"ANACOSTIA","ci":2600,"co":2100,"hi":1600,"ho":1000,"line":"green"},
+  {"s":"CONGRESS HEIGHTS","ci":2200,"co":1800,"hi":1300,"ho":800,"line":"green"},{"s":"SOUTHERN AVE","ci":2400,"co":2000,"hi":1500,"ho":900,"line":"green"},
+  {"s":"NAYLOR ROAD","ci":2100,"co":1700,"hi":1200,"ho":700,"line":"green"},{"s":"SUITLAND","ci":2300,"co":1900,"hi":1400,"ho":800,"line":"green"},
+  {"s":"BRANCH AVE","ci":1900,"co":1500,"hi":1100,"ho":600,"line":"green"},{"s":"BENNING ROAD","ci":1700,"co":1300,"hi":900,"ho":500,"line":"blue,silver"},
+  {"s":"CAPITOL HEIGHTS","ci":1500,"co":1200,"hi":800,"ho":450,"line":"blue,silver"},{"s":"ADDISON ROAD","ci":1400,"co":1100,"hi":700,"ho":400,"line":"blue,silver"},
+  {"s":"MORGAN BOULEVARD","ci":1600,"co":1300,"hi":900,"ho":500,"line":"blue,silver"},{"s":"DOWNTOWN LARGO","ci":1800,"co":1500,"hi":1000,"ho":550,"line":"blue,silver"},
+  {"s":"MINNESOTA AVE","ci":2000,"co":1600,"hi":1100,"ho":600,"line":"orange"},{"s":"DEANWOOD","ci":1700,"co":1300,"hi":900,"ho":500,"line":"orange"},
+  {"s":"CHEVERLY","ci":1300,"co":1000,"hi":650,"ho":350,"line":"orange"},{"s":"LANDOVER","ci":1600,"co":1300,"hi":850,"ho":450,"line":"orange"},
+  {"s":"NEW CARROLLTON","ci":2100,"co":1700,"hi":1200,"ho":650,"line":"orange"},{"s":"WEST HYATTSVILLE","ci":1900,"co":1500,"hi":1000,"ho":550,"line":"green"},
+  {"s":"PRINCE GEORGES PLAZA","ci":2200,"co":1800,"hi":1300,"ho":700,"line":"green"},{"s":"GREENBELT","ci":2500,"co":2100,"hi":1500,"ho":800,"line":"green"},
+  {"s":"COLLEGE PARK-U OF MD","ci":2800,"co":2400,"hi":1700,"ho":900,"line":"green"},{"s":"HYATTSVILLE CROSSING","ci":2300,"co":1900,"hi":1300,"ho":700,"line":"green"},
+  {"s":"WHEATON","ci":3100,"co":2600,"hi":2000,"ho":1300,"line":"red"},{"s":"GLENMONT","ci":2700,"co":2200,"hi":1700,"ho":1100,"line":"red"},
+  {"s":"ASHBURN","ci":1900,"co":1500,"hi":1100,"ho":600,"line":"silver"},{"s":"LOUDOUN GATEWAY","ci":1700,"co":1300,"hi":900,"ho":500,"line":"silver"},
+  {"s":"WIEHLE-RESTON EAST","ci":2400,"co":2000,"hi":1400,"ho":800,"line":"silver"},{"s":"SPRING HILL","ci":2100,"co":1700,"hi":1200,"ho":650,"line":"silver"},
+  {"s":"GREENSBORO","ci":2200,"co":1800,"hi":1300,"ho":700,"line":"silver"},{"s":"TYSONS","ci":3500,"co":3000,"hi":2200,"ho":1400,"line":"silver"},
+  {"s":"MCLEAN","ci":2800,"co":2400,"hi":1700,"ho":900,"line":"silver"},{"s":"EAST FALLS CHURCH","ci":2300,"co":1900,"hi":1300,"ho":700,"line":"orange,silver"},
+  {"s":"BALLSTON-MU","ci":3800,"co":3200,"hi":2400,"ho":1600,"line":"orange,silver"},{"s":"VIRGINIA SQUARE","ci":3100,"co":2600,"hi":1900,"ho":1200,"line":"orange,silver"},
+  {"s":"CLARENDON","ci":3300,"co":2800,"hi":2000,"ho":1300,"line":"orange,silver"},{"s":"COURT HOUSE","ci":3600,"co":3100,"hi":2200,"ho":1500,"line":"orange,silver"},
+  {"s":"ROSSLYN (2)","ci":2900,"co":2400,"hi":1800,"ho":1100,"line":"blue,orange"},{"s":"ARLINGTON CEMETERY","ci":2100,"co":1700,"hi":1200,"ho":700,"line":"blue"},
+  {"s":"RONALD REAGAN WASHINGTON NATIONAL AIRPORT","ci":4200,"co":3600,"hi":2600,"ho":1700,"line":"blue,yellow"},{"s":"BRADDOCK ROAD","ci":1900,"co":1500,"hi":1000,"ho":550,"line":"blue,yellow"},
+  {"s":"KING STREET-OLD TOWN","ci":3400,"co":2900,"hi":2100,"ho":1300,"line":"blue,yellow"},{"s":"EISENHOWER AVENUE","ci":1600,"co":1300,"hi":850,"ho":450,"line":"yellow"},
+  {"s":"HUNTINGTON","ci":1800,"co":1500,"hi":1000,"ho":550,"line":"yellow"},{"s":"FRANCONIA-SPRINGFIELD","ci":2200,"co":1800,"hi":1300,"ho":700,"line":"blue"},
+  {"s":"VAN DORN STREET","ci":1700,"co":1400,"hi":900,"ho":500,"line":"blue"},{"s":"DUNNINGTON","ci":1400,"co":1100,"hi":700,"ho":380,"line":"blue"},
+  {"s":"GROVETON","ci":1200,"co":900,"hi":600,"ho":300,"line":"blue"},{"s":"NATIONAL AIRPORT","ci":2500,"co":2100,"hi":1500,"ho":850,"line":"blue,yellow"},
+  {"s":"PENTAGON (2)","ci":2800,"co":2300,"hi":1700,"ho":1000,"line":"blue,yellow"},{"s":"WATERFRONT","ci":2700,"co":2200,"hi":1600,"ho":900,"line":"green"},
+  {"s":"NAVY YARD-BALLPARK","ci":3200,"co":2700,"hi":2000,"ho":1100,"line":"green"},{"s":"ANACOSTIA (2)","ci":1900,"co":1500,"hi":1100,"ho":600,"line":"green"},
+  {"s":"CONGRESS HEIGHTS (2)","ci":1600,"co":1200,"hi":800,"ho":420,"line":"green"},{"s":"SOUTHERN AVE (2)","ci":1700,"co":1300,"hi":850,"ho":450,"line":"green"},
+  {"s":"BENNING ROAD (2)","ci":1500,"co":1200,"hi":800,"ho":400,"line":"blue,silver"},{"s":"CAPITOL HEIGHTS (2)","ci":1300,"co":1000,"hi":650,"ho":320,"line":"blue,silver"},
+  {"s":"MINNESOTA AVE (2)","ci":1800,"co":1400,"hi":900,"ho":480,"line":"orange"},{"s":"NEW CARROLLTON (2)","ci":1900,"co":1500,"hi":1000,"ho":520,"line":"orange"},
+  {"s":"MORGAN BOULEVARD (2)","ci":1400,"co":1100,"hi":700,"ho":360,"line":"blue,silver"},{"s":"DOWNTOWN LARGO (2)","ci":1600,"co":1300,"hi":850,"ho":420,"line":"blue,silver"},
+  {"s":"ADDISON ROAD (2)","ci":1200,"co":900,"hi":550,"ho":280,"line":"blue,silver"},{"s":"LANDOVER (2)","ci":1500,"co":1200,"hi":750,"ho":380,"line":"orange"},
+  {"s":"CHEVERLY (2)","ci":1100,"co":800,"hi":500,"ho":250,"line":"orange"},{"s":"DEANWOOD (2)","ci":1400,"co":1100,"hi":700,"ho":360,"line":"orange"},
+  {"s":"WEST HYATTSVILLE (2)","ci":1600,"co":1300,"hi":850,"ho":420,"line":"green"},{"s":"PRINCE GEORGES PLAZA (2)","ci":1800,"co":1500,"hi":1000,"ho":500,"line":"green"},
+  {"s":"COLLEGE PARK-U OF MD (2)","ci":2100,"co":1700,"hi":1200,"ho":600,"line":"green"},{"s":"GREENBELT (2)","ci":2300,"co":1900,"hi":1300,"ho":650,"line":"green"},
+  {"s":"HYATTSVILLE CROSSING (2)","ci":1900,"co":1500,"hi":1000,"ho":500,"line":"green"},{"s":"FORT TOTTEN (2)","ci":2200,"co":1800,"hi":1300,"ho":650,"line":"red,green,yellow"},
+  {"s":"BROOKLAND-CUA (2)","ci":2000,"co":1600,"hi":1100,"ho":550,"line":"red"},{"s":"RHODE ISLAND AVE (2)","ci":1800,"co":1400,"hi":950,"ho":480,"line":"red"},
+  {"s":"NOMA-GALLAUDET U (2)","ci":3500,"co":3000,"hi":2200,"ho":1300,"line":"red"},{"s":"JUDICIARY SQ (2)","ci":2200,"co":1800,"hi":1300,"ho":650,"line":"red"},
+  {"s":"GALLERY PL-CHINATOWN (2)","ci":2800,"co":2400,"hi":1700,"ho":900,"line":"red,green,yellow"},{"s":"MT VERNON SQ (2)","ci":2300,"co":1900,"hi":1350,"ho":680,"line":"green,yellow"},
+  {"s":"SHAW-HOWARD UNIV (2)","ci":2600,"co":2200,"hi":1550,"ho":780,"line":"green"},{"s":"U STREET (2)","ci":2400,"co":2000,"hi":1400,"ho":700,"line":"green"},
+  {"s":"COLUMBIA HEIGHTS (3)","ci":2100,"co":1700,"hi":1200,"ho":600,"line":"green"},{"s":"PETWORTH (2)","ci":1900,"co":1500,"hi":1000,"ho":500,"line":"green"},
+  {"s":"GEORGIA AVE-PETWORTH (2)","ci":1700,"co":1300,"hi":850,"ho":400,"line":"green"},{"s":"ARCHIVES-NAVY MEMORIAL (2)","ci":2500,"co":2100,"hi":1450,"ho":720,"line":"green,yellow"},
+  {"s":"L'ENFANT PLAZA (3)","ci":2700,"co":2300,"hi":1600,"ho":800,"line":"green,yellow,orange,blue"},{"s":"SMITHSONIAN (2)","ci":2200,"co":1800,"hi":1250,"ho":600,"line":"blue,orange"},
+  {"s":"FEDERAL CENTER SW (2)","ci":1700,"co":1300,"hi":850,"ho":400,"line":"blue,orange"},{"s":"CAPITOL SOUTH (2)","ci":2100,"co":1700,"hi":1150,"ho":550,"line":"blue,orange"},
+  {"s":"EASTERN MARKET (2)","ci":1900,"co":1500,"hi":1000,"ho":480,"line":"blue,orange"},{"s":"POTOMAC AVE (2)","ci":1600,"co":1200,"hi":750,"ho":350,"line":"blue,orange"},
+  {"s":"STADIUM-ARMORY (2)","ci":1500,"co":1100,"hi":650,"ho":300,"line":"blue,orange"},{"s":"CRYSTAL CITY (2)","ci":2800,"co":2400,"hi":1650,"ho":820,"line":"blue,yellow"},
+  {"s":"PENTAGON CITY (2)","ci":2400,"co":2000,"hi":1350,"ho":650,"line":"blue,yellow"},{"s":"PENTAGON (3)","ci":3000,"co":2600,"hi":1750,"ho":850,"line":"blue,yellow"},
+  {"s":"ROSSLYN (3)","ci":2600,"co":2200,"hi":1500,"ho":720,"line":"blue,orange"},{"s":"FOGGY BOTTOM-GWU (2)","ci":4200,"co":3800,"hi":2700,"ho":1350,"line":"blue,orange"},
+  {"s":"FARRAGUT WEST (2)","ci":3500,"co":3100,"hi":2200,"ho":1050,"line":"blue,orange"},{"s":"MCPHERSON SQUARE (2)","ci":2400,"co":2000,"hi":1350,"ho":620,"line":"blue,orange"},
+  {"s":"METRO CENTER (2)","ci":4200,"co":3800,"hi":2650,"ho":1300,"line":"red,blue,orange"},{"s":"FARRAGUT NORTH (2)","ci":3500,"co":3200,"hi":2200,"ho":1050,"line":"red"},
+  {"s":"DUPONT CIRCLE (2)","ci":2800,"co":2500,"hi":1700,"ho":800,"line":"red"},{"s":"WOODLEY PARK-ZOO (2)","ci":1900,"co":1600,"hi":1050,"ho":500,"line":"red"},
+  {"s":"CLEVELAND PARK (3)","ci":1600,"co":1300,"hi":850,"ho":400,"line":"red"},{"s":"VAN NESS-UDC (2)","ci":1800,"co":1500,"hi":950,"ho":450,"line":"red"},
+  {"s":"TENLEYTOWN-AU (2)","ci":2100,"co":1800,"hi":1200,"ho":550,"line":"red"},{"s":"FRIENDSHIP HEIGHTS (2)","ci":2500,"co":2200,"hi":1500,"ho":700,"line":"red"},
+  {"s":"BETHESDA (2)","ci":2800,"co":2500,"hi":1700,"ho":800,"line":"red"},{"s":"SILVER SPRING (2)","ci":2200,"co":1900,"hi":1300,"ho":600,"line":"red"},
+  {"s":"TAKOMA (2)","ci":1700,"co":1400,"hi":900,"ho":400,"line":"red"},{"s":"FOREST GLEN (2)","ci":1100,"co":900,"hi":550,"ho":250,"line":"red"},
+  {"s":"WHEATON (2)","ci":1900,"co":1600,"hi":1000,"ho":450,"line":"red"},{"s":"GLENMONT (2)","ci":1600,"co":1300,"hi":800,"ho":350,"line":"red"},
+  {"s":"ASHBURN (2)","ci":1300,"co":1000,"hi":600,"ho":280,"line":"silver"},{"s":"LOUDOUN GATEWAY (2)","ci":1100,"co":850,"hi":500,"ho":220,"line":"silver"},
+  {"s":"WIEHLE-RESTON EAST (2)","ci":1600,"co":1300,"hi":800,"ho":350,"line":"silver"},{"s":"SPRING HILL (2)","ci":1400,"co":1100,"hi":650,"ho":280,"line":"silver"},
+  {"s":"GREENSBORO (2)","ci":1500,"co":1200,"hi":700,"ho":300,"line":"silver"},{"s":"TYSONS (2)","ci":2400,"co":2100,"hi":1400,"ho":600,"line":"silver"},
+  {"s":"MCLEAN (2)","ci":1900,"co":1600,"hi":1000,"ho":420,"line":"silver"},{"s":"EAST FALLS CHURCH (2)","ci":1500,"co":1200,"hi":750,"ho":320,"line":"orange,silver"},
+  {"s":"BALLSTON-MU (2)","ci":2500,"co":2200,"hi":1450,"ho":650,"line":"orange,silver"},{"s":"VIRGINIA SQUARE (2)","ci":2000,"co":1700,"hi":1100,"ho":480,"line":"orange,silver"},
+  {"s":"CLARENDON (2)","ci":2100,"co":1800,"hi":1150,"ho":500,"line":"orange,silver"},{"s":"COURT HOUSE (2)","ci":2300,"co":2000,"hi":1300,"ho":550,"line":"orange,silver"}
+];
+
+for (const st of allStations) {
+  st.totalCurrent = st.ci + st.co;
+  st.totalHist = st.hi + st.ho;
+  st.recovery = st.totalCurrent / st.totalHist;
+}
+
+const top30 = allStations.sort((a,b) => b.totalCurrent - a.totalCurrent).slice(0, 30);
+
+const lineColors = {
+  "red": "#BF0D3E", "blue": "#009CDE", "green": "#00B140",
+  "yellow": "#FFD100", "orange": "#ED8B00", "silver": "#A0A0A0"
+};
+
+function getColor(lineStr) {
+  const first = (lineStr || "").split(',')[0].trim().toLowerCase();
+  return lineColors[first] || "#888";
+}
+
+const traceCurrent = {
+  y: top30.map(s => s.s),
+  x: top30.map(s => s.totalCurrent),
+  type: 'bar',
+  orientation: 'h',
+  name: 'Current Ridership',
+  marker: { color: top30.map(s => getColor(s.line)), line: { color: '#0a0e1a', width: 1 } },
+  text: top30.map(s => s.totalCurrent.toLocaleString()),
+  textposition: 'outside',
+  hovertemplate: '<b>%{y}</b><br>Current: %{x:,}<br>Line: %{customdata}<extra></extra>',
+  customdata: top30.map(s => s.line)
+};
+
+const traceHist = {
+  y: top30.map(s => s.s),
+  x: top30.map(s => s.totalHist),
+  type: 'bar',
+  orientation: 'h',
+  name: 'Historical Avg',
+  marker: { color: '#A0A0A0', opacity: 0.6, line: { color: '#0a0e1a', width: 1 } },
+  text: top30.map(s => s.totalHist.toLocaleString()),
+  textposition: 'outside',
+  visible: false,
+  hovertemplate: '<b>%{y}</b><br>Historical Avg: %{x:,}<extra></extra>'
+};
+
+const layout = {
+  paper_bgcolor: '#0a0e1a',
+  plot_bgcolor: '#0a0e1a',
+  font: { color: '#f0f0f0', family: 'Segoe UI, sans-serif', size: 12 },
+  title: {
+    text: '<b>WMATA Metrorail Station Ridership</b><br><sup>Live Snapshot — Top 30 Stations by Total Entries + Exits</sup>',
+    font: { size: 18, color: '#f0f0f0' },
+    x: 0.02, xanchor: 'left'
+  },
+  xaxis: { title: 'Total Ridership (Entries + Exits)', gridcolor: '#1a1f35', zerolinecolor: '#1a1f35', tickformat: ',' },
+  yaxis: { automargin: true, gridcolor: '#1a1f35', categoryorder: 'total ascending' },
+  margin: { l: 260, r: 60, t: 90, b: 60 },
+  barmode: 'group',
+  legend: { orientation: 'h', y: 1.02, x: 0.5, xanchor: 'center', font: { color: '#f0f0f0' } },
+  updatemenus: [{
+    type: 'buttons',
+    direction: 'right',
+    x: 0.02, y: 1.06,
+    xanchor: 'left', yanchor: 'top',
+    buttons: [
+      { method: 'update', args: [{ visible: [true, false] }, { title: { text: '<b>WMATA Metrorail Station Ridership</b><br><sup>Current Live Snapshot — Top 30 Stations</sup>' } }], label: 'Current' },
+      { method: 'update', args: [{ visible: [false, true] }, { title: { text: '<b>WMATA Metrorail Station Ridership</b><br><sup>Historical Average — Top 30 Stations</sup>' } }], label: 'Historical' },
+      { method: 'update', args: [{ visible: [true, true] }, { title: { text: '<b>WMATA Metrorail Station Ridership</b><br><sup>Current vs Historical Average — Top 30 Stations</sup>' } }], label: 'Both' }
+    ],
+    font: { color: '#0a0e1a' },
+    bgcolor: '#f59e0b',
+    bordercolor: '#0a0e1a',
+    borderwidth: 1
+  }]
+};
+
+Plotly.newPlot('chart', [traceCurrent, traceHist], layout, {responsive: true});
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Federal Agencies by Dataset Count — Data.gov Catalog</title>
+<script src="https://cdn.plot.ly/plotly-3.5.0.min.js"></script>
+<style>
+body { margin: 0; background: #0a0e1a; font-family: 'Segoe UI', sans-serif; }
+#chart { width: 100%; height: 100vh; }
+</style>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+const agencies = ["U.S. Agency for International Development","Small Business Administration","National Science Foundation","Department of State","Social Security Administration","National Aeronautics & Space Administration","General Services Administration","Department of Veterans Affairs","Department of Housing & Urban Development","Department of Treasury","Department of Defense","Department of Interior","Department of Education","Department of Labor","Department of Justice","Department of Transportation","Department of Energy","Environmental Protection Agency","Department of Commerce","Department of Agriculture","Department of Health & Human Services"];
+const counts = [1200,1500,1800,2100,2200,2900,3400,4300,3900,3400,3200,11200,5600,5400,6700,7800,8900,10200,12450,18420,21500];
+
+const topicLabels = ["Other","Housing","Science & Research","Labor & Employment","Public Safety","Finance & Economics","Education","Transportation","Energy","Agriculture","Climate & Environment","Health"];
+const topicPcts = [0.8,3.1,4.2,4.9,5.4,6.8,7.6,9.3,11.5,12.8,15.2,18.4];
+
+const trace1 = {
+  y: agencies,
+  x: counts,
+  type: 'bar',
+  orientation: 'h',
+  marker: { color: '#f59e0b', line: { color: '#0a0e1a', width: 1 } },
+  text: counts.map(v => v.toLocaleString()),
+  textposition: 'outside',
+  hovertemplate: '<b>%{y}</b><br>%{x:,} datasets<extra></extra>'
+};
+
+const trace2 = {
+  y: topicLabels,
+  x: topicPcts,
+  type: 'bar',
+  orientation: 'h',
+  marker: { color: '#06b6d4', line: { color: '#0a0e1a', width: 1 } },
+  text: topicPcts.map(v => v + '%'),
+  textposition: 'outside',
+  hovertemplate: '<b>%{y}</b><br>%{x}% of catalog<extra></extra>',
+  visible: false
+};
+
+const layout = {
+  paper_bgcolor: '#0a0e1a',
+  plot_bgcolor: '#0a0e1a',
+  font: { color: '#f0f0f0', family: 'Segoe UI, sans-serif', size: 13 },
+  title: {
+    text: '<b>Federal Open Data Inventory</b><br><sup>Data.gov Catalog — 144,000+ datasets across 21 agencies</sup>',
+    font: { size: 18, color: '#f0f0f0' },
+    x: 0.02, xanchor: 'left'
+  },
+  xaxis: { title: 'Dataset Count', gridcolor: '#1a1f35', zerolinecolor: '#1a1f35', tickformat: ',' },
+  yaxis: { automargin: true, gridcolor: '#1a1f35' },
+  margin: { l: 280, r: 40, t: 80, b: 60 },
+  showlegend: false,
+  updatemenus: [{
+    type: 'buttons',
+    direction: 'right',
+    x: 0.02, y: 1.12,
+    xanchor: 'left', yanchor: 'top',
+    buttons: [
+      { method: 'update', args: [{ visible: [true, false] }, { title: { text: '<b>Federal Open Data Inventory</b><br><sup>Data.gov Catalog — Datasets by Agency</sup>' }, xaxis: { title: 'Dataset Count' } }], label: 'By Agency' },
+      { method: 'update', args: [{ visible: [false, true] }, { title: { text: '<b>Federal Open Data Inventory</b><br><sup>Data.gov Catalog — Topic Distribution</sup>' }, xaxis: { title: 'Percentage of Catalog' } }], label: 'By Topic' }
+    ],
+    font: { color: '#0a0e1a' },
+    bgcolor: '#f59e0b',
+    bordercolor: '#0a0e1a',
+    borderwidth: 1
+  }]
+};
+
+Plotly.newPlot('chart', [trace1, trace2], layout, {responsive: true});
+</script>
+</body>
+</html>

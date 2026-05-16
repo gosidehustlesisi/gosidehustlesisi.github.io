@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>FOIA Processing Analytics — FY2024</title>
+<script src="https://cdn.plot.ly/plotly-3.5.0.min.js"></script>
+<style>
+body { margin: 0; background: #0a0e1a; font-family: 'Segoe UI', sans-serif; }
+#chart { width: 100%; height: 100vh; }
+</style>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+const agencies = ["Social Security Administration","Department of Veterans Affairs","Department of Health & Human Services","Department of Justice","Department of Labor","Department of Treasury","Environmental Protection Agency","Department of Homeland Security","Department of Transportation","Department of Energy","Department of Defense","Department of State"];
+const simpleDays = [8,10,14,12,15,16,20,18,16,15,22,28];
+const complexDays = [45,52,78,98,88,95,110,142,88,110,185,210];
+
+const fyYears = ["FY2020","FY2021","FY2022","FY2023","FY2024"];
+const backlog = [142300,168500,195800,221400,248600];
+
+const traceSimple = {
+  x: agencies,
+  y: simpleDays,
+  type: 'bar',
+  name: 'Simple Requests (days)',
+  marker: { color: '#06b6d4' },
+  hovertemplate: '<b>%{x}</b><br>Simple: %{y} days<extra></extra>'
+};
+
+const traceComplex = {
+  x: agencies,
+  y: complexDays,
+  type: 'bar',
+  name: 'Complex Requests (days)',
+  marker: { color: '#f59e0b' },
+  hovertemplate: '<b>%{x}</b><br>Complex: %{y} days<extra></extra>'
+};
+
+const traceBacklog = {
+  x: fyYears,
+  y: backlog,
+  type: 'scatter',
+  mode: 'lines+markers',
+  name: 'Pending Backlog',
+  line: { color: '#ef4444', width: 3 },
+  marker: { size: 10, color: '#ef4444' },
+  fill: 'tozeroy',
+  fillcolor: 'rgba(239,68,68,0.15)',
+  yaxis: 'y2',
+  hovertemplate: '<b>%{x}</b><br>Backlog: %{y:,} requests<extra></extra>'
+};
+
+const layout = {
+  paper_bgcolor: '#0a0e1a',
+  plot_bgcolor: '#0a0e1a',
+  font: { color: '#f0f0f0', family: 'Segoe UI, sans-serif', size: 12 },
+  title: {
+    text: '<b>FOIA Compliance Analytics</b><br><sup>FY2024 — 1.28M requests processed across federal agencies</sup>',
+    font: { size: 18, color: '#f0f0f0' },
+    x: 0.02, xanchor: 'left'
+  },
+  grid: { rows: 2, columns: 1, pattern: 'independent', rowgap: 0.15 },
+  xaxis: { domain: [0, 1], tickangle: -35, gridcolor: '#1a1f35', automargin: true },
+  yaxis: { title: 'Processing Days', gridcolor: '#1a1f35', zerolinecolor: '#1a1f35' },
+  xaxis2: { domain: [0, 1], anchor: 'y2', tickangle: 0, gridcolor: '#1a1f35', automargin: true },
+  yaxis2: { title: 'Pending Requests', gridcolor: '#1a1f35', zerolinecolor: '#1a1f35', anchor: 'x2' },
+  margin: { l: 60, r: 40, t: 100, b: 80 },
+  legend: { orientation: 'h', y: 1.02, x: 0.5, xanchor: 'center', font: { color: '#f0f0f0' } },
+  barmode: 'group'
+};
+
+Plotly.newPlot('chart', [
+  {...traceSimple, xaxis: 'x', yaxis: 'y'},
+  {...traceComplex, xaxis: 'x', yaxis: 'y'},
+  {...traceBacklog, xaxis: 'x2', yaxis: 'y2'}
+], layout, {responsive: true});
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>BTS Airline On-Time Performance — January 2024</title>
+<script src="https://cdn.plot.ly/plotly-3.5.0.min.js"></script>
+<style>
+body { margin: 0; background: #0a0e1a; font-family: 'Segoe UI', sans-serif; }
+#chart { width: 100%; height: 100vh; }
+</style>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+const airlines = ["Southwest Airlines","American Airlines","Delta Air Lines","SkyWest Airlines","United Airlines","Republic Airways","Spirit Airlines","Envoy Air","JetBlue Airways","Endeavor Air","PSA Airlines","Alaska Airlines","Frontier Airlines","Allegiant Air","Hawaiian Airlines"];
+const avgDelays = [6.42,19.17,4.36,15.20,8.86,0.32,9.68,13.35,13.52,10.56,14.99,10.38,14.72,10.53,10.66];
+const onTimeRates = [74.97,70.34,81.29,73.37,72.76,79.62,73.45,70.05,70.69,74.20,76.24,67.87,74.03,74.78,81.30];
+const flightCounts = [111613,75889,73722,54206,54003,21805,20081,19740,19172,16219,15624,14678,14087,8407,6486];
+
+const traceDelay = {
+  x: airlines,
+  y: avgDelays,
+  type: 'bar',
+  name: 'Avg Arrival Delay (min)',
+  marker: {
+    color: avgDelays.map(v => v > 15 ? '#ef4444' : v > 10 ? '#f59e0b' : '#10b981'),
+    line: { color: '#0a0e1a', width: 1 }
+  },
+  text: avgDelays.map(v => v.toFixed(1)),
+  textposition: 'outside',
+  hovertemplate: '<b>%{x}</b><br>Avg Delay: %{y:.1f} min<br>Flights: %{customdata:,}<extra></extra>',
+  customdata: flightCounts
+};
+
+const traceOnTime = {
+  x: airlines,
+  y: onTimeRates,
+  type: 'scatter',
+  mode: 'lines+markers',
+  name: 'On-Time Rate (%)',
+  yaxis: 'y2',
+  line: { color: '#06b6d4', width: 3 },
+  marker: { size: 10, color: '#06b6d4', symbol: 'diamond' },
+  hovertemplate: '<b>%{x}</b><br>On-Time: %{y:.1f}%<extra></extra>',
+  visible: false
+};
+
+const layout = {
+  paper_bgcolor: '#0a0e1a',
+  plot_bgcolor: '#0a0e1a',
+  font: { color: '#f0f0f0', family: 'Segoe UI, sans-serif', size: 12 },
+  title: {
+    text: '<b>BTS Airline On-Time Performance</b><br><sup>January 2024 — 547,271 flight records from USDOT BTS</sup>',
+    font: { size: 18, color: '#f0f0f0' },
+    x: 0.02, xanchor: 'left'
+  },
+  xaxis: { tickangle: -30, gridcolor: '#1a1f35', automargin: true },
+  yaxis: { title: 'Average Arrival Delay (min)', gridcolor: '#1a1f35', zerolinecolor: '#1a1f35' },
+  yaxis2: { title: 'On-Time Rate (%)', overlaying: 'y', side: 'right', range: [50, 100], gridcolor: '#1a1f35', zerolinecolor: '#1a1f35' },
+  margin: { l: 60, r: 70, t: 100, b: 100 },
+  legend: { orientation: 'h', y: 1.02, x: 0.5, xanchor: 'center', font: { color: '#f0f0f0' } },
+  updatemenus: [{
+    type: 'buttons',
+    direction: 'right',
+    x: 0.02, y: 1.06,
+    xanchor: 'left', yanchor: 'top',
+    buttons: [
+      { method: 'update', args: [{ visible: [true, false] }, { title: { text: '<b>BTS Airline On-Time Performance</b><br><sup>Average Arrival Delay by Airline — Jan 2024</sup>' }, yaxis: { title: 'Avg Arrival Delay (min)' } }], label: 'Delay' },
+      { method: 'update', args: [{ visible: [false, true] }, { title: { text: '<b>BTS Airline On-Time Performance</b><br><sup>On-Time Arrival Rate by Airline — Jan 2024</sup>' }, yaxis: { title: 'On-Time Rate (%)' } }], label: 'On-Time %' },
+      { method: 'update', args: [{ visible: [true, true] }, { title: { text: '<b>BTS Airline On-Time Performance</b><br><sup>Delay + On-Time Rate — Dual Axis — Jan 2024</sup>' } }], label: 'Both' }
+    ],
+    font: { color: '#0a0e1a' },
+    bgcolor: '#f59e0b',
+    bordercolor: '#0a0e1a',
+    borderwidth: 1
+  }]
+};
+
+Plotly.newPlot('chart', [traceDelay, traceOnTime], layout, {responsive: true});
+</script>
+</body>
+</html>

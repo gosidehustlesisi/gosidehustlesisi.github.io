@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>OMB Policy Timeline — Federal Data Governance</title>
+<script src="https://cdn.plot.ly/plotly-3.5.0.min.js"></script>
+<style>
+body { margin: 0; background: #0a0e1a; font-family: 'Segoe UI', sans-serif; }
+#chart { width: 100%; height: 100vh; }
+</style>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+const policies = [
+  {title:"A-94", year:1992, category:"Economic Analysis", type:"OMB Circular"},
+  {title:"A-76", year:2003, category:"Commercial Activities & Procurement", type:"OMB Circular"},
+  {title:"Data.gov Platform", year:2009, category:"Open Data Platform", type:"Federal Platform"},
+  {title:"M-13-13", year:2013, category:"Open Data & Transparency", type:"OMB Memorandum"},
+  {title:"A-119", year:2016, category:"Standards & Technology", type:"OMB Circular"},
+  {title:"A-123", year:2016, category:"Risk Management", type:"OMB Circular"},
+  {title:"A-130", year:2016, category:"Information Management", type:"OMB Circular"},
+  {title:"A-108", year:2016, category:"Privacy & Records", type:"OMB Circular"},
+  {title:"M-19-14", year:2019, category:"Grants & Assistance", type:"OMB Memorandum"},
+  {title:"FDS Principles", year:2019, category:"Data Strategy", type:"Federal Strategy"},
+  {title:"M-19-18", year:2019, category:"Data Strategy", type:"OMB Memorandum"},
+  {title:"FDS Practices", year:2019, category:"Data Strategy", type:"Federal Strategy"},
+  {title:"FDS 2020", year:2020, category:"Data Strategy", type:"Federal Strategy"},
+  {title:"FDS 2021", year:2021, category:"Data Strategy", type:"Federal Strategy"},
+  {title:"A-136", year:2021, category:"Financial Management Systems", type:"OMB Circular"},
+  {title:"M-23-22", year:2023, category:"Digital Experience & Accessibility", type:"OMB Memorandum"},
+  {title:"A-11", year:2024, category:"Budget & Performance", type:"OMB Circular"},
+  {title:"M-24-04", year:2024, category:"Artificial Intelligence", type:"OMB Memorandum"}
+];
+
+const catCounts = {
+  "Data Strategy": 5, "OMB Circular": 6, "OMB Memorandum": 5,
+  "Federal Platform": 1, "Open Data & Transparency": 1,
+  "Commercial Activities & Procurement": 1, "Economic Analysis": 1,
+  "Information Management": 1, "Privacy & Records": 1, "Risk Management": 1,
+  "Standards & Technology": 1, "Grants & Assistance": 1,
+  "Financial Management Systems": 1, "Digital Experience & Accessibility": 1,
+  "Budget & Performance": 1, "Artificial Intelligence": 1, "Open Data Platform": 1
+};
+
+const yearly = {"1992":1,"2003":1,"2009":1,"2013":1,"2016":4,"2019":4,"2020":1,"2021":2,"2023":1,"2024":2};
+
+const colors = {
+  "OMB Circular": "#f59e0b", "OMB Memorandum": "#06b6d4",
+  "Federal Platform": "#10b981", "Federal Strategy": "#8b5cf6",
+  "Open Data & Transparency": "#ec4899", "Commercial Activities & Procurement": "#6366f1",
+  "Economic Analysis": "#f97316", "Information Management": "#14b8a6",
+  "Privacy & Records": "#ef4444", "Risk Management": "#84cc16",
+  "Standards & Technology": "#a855f7", "Grants & Assistance": "#22c55e",
+  "Financial Management Systems": "#eab308", "Digital Experience & Accessibility": "#3b82f6",
+  "Budget & Performance": "#f43f5e", "Artificial Intelligence": "#06b6d4",
+  "Data Strategy": "#8b5cf6", "Open Data Platform": "#10b981"
+};
+
+const typeMap = {"OMB Circular":"circle","OMB Memorandum":"diamond","Federal Platform":"square","Federal Strategy":"cross"};
+
+const traceTimeline = {
+  x: policies.map(p=>p.year),
+  y: policies.map((p,i)=>i),
+  mode: 'markers+text',
+  type: 'scatter',
+  name: 'Policies',
+  marker: {
+    size: 16,
+    color: policies.map(p=>colors[p.type] || '#888'),
+    symbol: policies.map(p=>typeMap[p.type] || 'circle')
+  },
+  text: policies.map(p=>p.title),
+  textposition: 'right',
+  hovertemplate: '<b>%{text}</b><br>Year: %{x}<br>Category: %{customdata}<extra></extra>',
+  customdata: policies.map(p=>p.category)
+};
+
+const catLabels = Object.keys(catCounts).sort((a,b)=>catCounts[b]-catCounts[a]);
+const catValues = catLabels.map(c=>catCounts[c]);
+
+const traceCategory = {
+  x: catLabels,
+  y: catValues,
+  type: 'bar',
+  marker: { color: catLabels.map(c=>colors[c] || '#888') },
+  text: catValues,
+  textposition: 'outside',
+  hovertemplate: '<b>%{x}</b><br>%{y} policies<extra></extra>',
+  visible: false
+};
+
+const yearLabels = Object.keys(yearly).sort();
+const yearValues = yearLabels.map(y=>yearly[y]);
+
+const traceYearly = {
+  x: yearLabels,
+  y: yearValues,
+  type: 'bar',
+  marker: { color: '#f59e0b' },
+  text: yearValues,
+  textposition: 'outside',
+  hovertemplate: '<b>%{x}</b><br>%{y} policies issued<extra></extra>',
+  visible: false
+};
+
+const layout = {
+  paper_bgcolor: '#0a0e1a',
+  plot_bgcolor: '#0a0e1a',
+  font: { color: '#f0f0f0', family: 'Segoe UI, sans-serif', size: 12 },
+  title: {
+    text: '<b>OMB Policy Timeline</b><br><sup>Federal Data Governance — 1992 to 2024</sup>',
+    font: { size: 18, color: '#f0f0f0' },
+    x: 0.02, xanchor: 'left'
+  },
+  xaxis: { title: 'Year', gridcolor: '#1a1f35', zerolinecolor: '#1a1f35', dtick: 2 },
+  yaxis: { showgrid: false, zeroline: false, showticklabels: false },
+  margin: { l: 40, r: 160, t: 90, b: 60 },
+  showlegend: false,
+  updatemenus: [{
+    type: 'buttons',
+    direction: 'right',
+    x: 0.02, y: 1.08,
+    xanchor: 'left', yanchor: 'top',
+    buttons: [
+      { method: 'update', args: [{ visible: [true, false, false] }, { title: { text: '<b>OMB Policy Timeline</b><br><sup>Chronological View — 18 policies across 32 years</sup>' }, xaxis: { title: 'Year', dtick: 2 }, yaxis: { showticklabels: false } }], label: 'Timeline' },
+      { method: 'update', args: [{ visible: [false, true, false] }, { title: { text: '<b>OMB Policy Distribution</b><br><sup>Policies by Category</sup>' }, xaxis: { title: 'Category', tickangle: -35 }, yaxis: { title: 'Count', showticklabels: true } }], label: 'By Category' },
+      { method: 'update', args: [{ visible: [false, false, true] }, { title: { text: '<b>OMB Policy Activity</b><br><sup>Policies Issued by Year</sup>' }, xaxis: { title: 'Year' }, yaxis: { title: 'Count', showticklabels: true } }], label: 'By Year' }
+    ],
+    font: { color: '#0a0e1a' },
+    bgcolor: '#f59e0b',
+    bordercolor: '#0a0e1a',
+    borderwidth: 1
+  }]
+};
+
+Plotly.newPlot('chart', [traceTimeline, traceCategory, traceYearly], layout, {responsive: true});
+</script>
+</body>
+</html>
