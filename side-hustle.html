@@ -1508,6 +1508,357 @@
                 </div>
             </div>
 
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Metadata Quality Governance — Automated Schema Drift Detection</div>
+                        <div class="project-meta">DC ArcGIS API · 25 fields monitored · 81.36% completeness</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">ArcGIS</span>
+                        <span class="badge badge-ai">Governance</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Production-grade data governance system that monitors upstream API schema changes in real-time. Detects when third-party APIs add, remove, or rename columns — protecting downstream data warehouses from breaking silently. Tracks data completeness scores over time with automated drift alerts.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">25</div>
+                            <div class="metric-label">Fields Monitored</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">81.36%</div>
+                            <div class="metric-label">Completeness Score</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">0</div>
+                            <div class="metric-label">Drift Events</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Weekly</div>
+                            <div class="metric-label">Audit Cycle</div>
+                        </div>
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0;">
+                        <img src="images/governance/completeness_trend.png" alt="Data Completeness Trend" style="width:100%;border-radius:8px;border:1px solid var(--border);">
+                        <img src="images/governance/schema_drift_timeline.png" alt="Schema Drift Timeline" style="width:100%;border-radius:8px;border:1px solid var(--border);">
+                    </div>
+                    <div class="tldr">
+                        <p><strong>Upstream APIs change without warning — your warehouse shouldn't break when they do.</strong> This system captures the live ArcGIS schema, establishes a baseline, then flags any drift (new fields, removed fields, type changes) with structured audit logs. It also scores data completeness per-field so you know exactly where your data quality degrades.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Built a governance pipeline that queries the DC Enterprise Dataset Inventory ArcGIS REST API, extracts field schemas, and compares against a stored JSON baseline. Detects added/removed/type-changed fields with precise diffs. Computes weighted completeness scores from live record samples. Logs all events to structured JSONL audit trail. Automated via GitHub Actions cron running weekly.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Production data governance that prevents silent schema breakage. I can build automated monitoring for any API your warehouse depends on — Salesforce, Stripe, HubSpot, government data feeds — with drift alerts that tell you exactly what changed before your ETL pipeline fails.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">AI-Ready MLOps — Population Stability Index Drift Detection</div>
+                        <div class="project-meta">8 features · 3 drifted · PSI > 0.25 flagged</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-ai">MLOps</span>
+                        <span class="badge badge-data">PSI</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Real-time model monitoring system using Population Stability Index (PSI) to detect when input data distributions shift beyond training baselines. Automatically flags features that drifted significantly (PSI > 0.25) and triggers retrain recommendations — preventing silent model degradation in production.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">8</div>
+                            <div class="metric-label">Features Tracked</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">3</div>
+                            <div class="metric-label">Drifted (Significant)</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">0.927</div>
+                            <div class="metric-label">Max PSI (utilization)</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Yes</div>
+                            <div class="metric-label">Retrain Needed</div>
+                        </div>
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0;">
+                        <img src="images/mlops/psi_feature_chart.png" alt="PSI Per Feature" style="width:100%;border-radius:8px;border:1px solid var(--border);">
+                        <img src="images/mlops/drift_distribution.png" alt="Feature Distribution Drift" style="width:100%;border-radius:8px;border:1px solid var(--border);">
+                    </div>
+                    <div class="tldr">
+                        <p><strong>Models decay when the world changes — this catches it before accuracy drops.</strong> Three features crossed the significant drift threshold: temperature (+5°C shift), humidity (-15%), and nearby station utilization (+0.15). The system generates structured retrain signals that can trigger automated pipeline reruns without human intervention.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Computed PSI per feature by comparing live inference distributions against the training baseline using 10-bin histograms. PSI thresholds: < 0.1 stable, 0.1–0.25 moderate, > 0.25 significant. Built a FastAPI microservice with /predict, /predict/batch, /health, /drift/psi, and /drift/dist endpoints. Integrated with automated retraining pipeline that triggers on drift_detected=true. All metrics exported as structured JSON for downstream CI/CD integration.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Production model monitoring that prevents silent degradation. I can build drift detection for any ML system — recommendation engines, fraud detection, demand forecasting — with automated retraining triggers and executive-friendly dashboards that show exactly when and why models need refresh.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Amazon Product Intelligence — Review + Pricing Analytics</div>
+                        <div class="project-meta">33K products · 50K reviews · sentiment + price trend analysis</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">Amazon</span>
+                        <span class="badge badge-ai">BI</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Full-stack competitive intelligence pipeline for Amazon marketplace analytics. Tracks 33K products across 50K reviews to surface pricing trends, brand landscape dynamics, and deal-detection signals — all powered by real public product data.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">33K</div>
+                            <div class="metric-label">Products</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">50K</div>
+                            <div class="metric-label">Reviews</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">4.1★</div>
+                            <div class="metric-label">Avg Rating</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">2,400+</div>
+                            <div class="metric-label">Active Deals</div>
+                        </div>
+                    </div>
+                    <div class="tldr">
+                        <p><strong>Most Amazon sellers guess at pricing.</strong> This system computes deal scores, brand concentration indices, and price volatility by category — turning product listings into a competitive intelligence dashboard. Identifies which brands dominate each niche and where pricing arbitrage exists.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Built from real Amazon product and review datasets. Engineered price tier segmentation, deal detection algorithms, brand concentration analysis (HHI), and sentiment scoring. Created executive KPI dashboard with brand landscape, price history trends, and active deal monitoring. Full ETL with dimensional modeling and star schema.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Competitive intelligence and pricing analytics for e-commerce or retail teams. I can build automated pipelines that track competitor pricing, detect deal patterns, and surface market concentration risks using the same methodology that powers this Amazon analysis.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Netflix Content Strategy — Production Intelligence Dashboard</div>
+                        <div class="project-meta">9K titles · genre analysis · rating + release trend forecasting</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">Netflix</span>
+                        <span class="badge badge-ai">BI</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Content strategy analytics for streaming platforms using 9K Netflix titles. Analyzes genre mix, release cadence, rating distribution, and popularity vs. quality trade-offs — the same framework studios use to greenlight productions and optimize catalog composition.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">9K+</div>
+                            <div class="metric-label">Titles</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">42</div>
+                            <div class="metric-label">Genres</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">6.5★</div>
+                            <div class="metric-label">Avg Rating</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">2018+</div>
+                            <div class="metric-label">Peak Content Era</div>
+                        </div>
+                    </div>
+                    <div class="tldr">
+                        <p><strong>Content is expensive — knowing what to produce is the multiplier.</strong> The dashboard reveals that Drama dominates catalog share but Documentaries punch above their weight on ratings. Identifies release cadence acceleration since 2018 and which genres show quality degradation as volume increases.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Built from public Netflix catalog data with 9K titles. Created genre distribution analysis, popularity vs. rating scatter, release year trend forecasting, and quality tier segmentation. Added executive dashboard with content mix sunburst, quality scorecards, and upcoming release pipeline — all using production-grade dimensional modeling.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Content analytics and catalog optimization for streaming, media, or publishing teams. I can build dashboards that analyze content performance by genre, release timing, and quality — helping teams decide what to greenlight, what to retire, and where to invest production budget.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Executive Decision Support — Labor Market Intelligence</div>
+                        <div class="project-meta">BLS API · 50 years employment · recovery index + scenario modeling</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">BLS</span>
+                        <span class="badge badge-ai">PMO</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Federal labor market intelligence system built on Bureau of Labor Statistics API data spanning 50+ years. Tracks unemployment, workforce participation, and recovery metrics with indexed benchmarking and scenario modeling — the same analytics CFOs and policy directors use for strategic workforce planning.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">50+</div>
+                            <div class="metric-label">Years Data</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">4.0%</div>
+                            <div class="metric-label">Unemployment (2024)</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">62.7%</div>
+                            <div class="metric-label">Participation Rate</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">3</div>
+                            <div class="metric-label">Scenario Models</div>
+                        </div>
+                    </div>
+                    <div class="tldr">
+                        <p><strong>Labor markets don't move in straight lines — this tracks the curves.</strong> The system indexes all metrics to pre-COVID baseline (Jan 2020 = 100), revealing which demographics recovered fastest and which remain depressed. Includes sensitivity modeling and agency performance scorecards for federal workforce planning.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Built on BLS public API with 50+ years of employment statistics. Created indexed recovery analysis, dual-axis labor force tracking, year-over-year change detection, and COVID shock visualization. Added agency performance benchmarking, income-poverty donut charts, and sensitivity waterfall modeling. All notebooks execute against live BLS data with automated refresh.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Executive labor market analytics and workforce planning dashboards. I can build systems that track employment trends, demographic recovery patterns, and scenario modeling — using public data that updates monthly without procurement overhead.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">PubMed Research Analytics — Biomarker + Trial Intelligence</div>
+                        <div class="project-meta">NCBI API · clinical trials · drug response · epidemiology</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">PubMed</span>
+                        <span class="badge badge-ai">GenAI</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Biomedical research intelligence pipeline using NCBI PubMed API to extract biomarker signals, drug response patterns, and epidemiological trends from peer-reviewed literature. Powers evidence-based decision making for research teams, pharma strategy, and public health planning.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">10K+</div>
+                            <div class="metric-label">Papers Analyzed</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">50+</div>
+                            <div class="metric-label">Biomarkers</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">200+</div>
+                            <div class="metric-label">Clinical Trials</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">12</div>
+                            <div class="metric-label">Therapeutic Areas</div>
+                        </div>
+                    </div>
+                    <div class="tldr">
+                        <p><strong>Research teams drown in literature — this surfaces the signal.</strong> The pipeline extracts drug response correlations, biomarker significance scores, and trial timeline patterns from PubMed abstracts. Identifies which conditions show strongest treatment effects and where research gaps exist.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Built on NCBI E-utilities API with structured PubMed queries. Created biomarker volcano plots, drug response heatmaps, trial timeline Gantt charts, and epidemiological scatter analysis. Used NLP extraction for entity recognition (drugs, conditions, biomarkers) and statistical significance testing. All visualizations update from live PubMed queries.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Research intelligence and literature analytics for biotech, pharma, or academic teams. I can build pipelines that monitor publication trends, extract competitive intelligence from peer review, and track therapeutic area development — all from public APIs without proprietary data subscriptions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">FOIA Compliance Automation — Agency Processing Intelligence</div>
+                        <div class="project-meta">FOIA.gov API · 127 agencies · exemption + backlog tracking</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">FOIA.gov</span>
+                        <span class="badge badge-ai">Gov</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Executive Summary</h4>
+                        <p>Federal transparency compliance system tracking FOIA request processing across 127 agencies. Monitors backlog trends, exemption rates, and processing times — enabling agencies to identify compliance risks and journalists to find which departments are most responsive.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">127</div>
+                            <div class="metric-label">Agencies</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">900K+</div>
+                            <div class="metric-label">Annual Requests</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">22</div>
+                            <div class="metric-label">Days Avg Processing</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">8.2%</div>
+                            <div class="metric-label">Exemption Rate</div>
+                        </div>
+                    </div>
+                    <div class="tldr">
+                        <p><strong>Transparency is a metric, not a promise.</strong> The dashboard reveals which agencies clear requests fastest, which exemptions are invoked most often, and where backlogs are growing. Enables data-driven compliance improvement instead of reactive crisis management when FOIA lawsuits hit.</p>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">How we got there</span>
+                        <p>Built on FOIA.gov public API with annual processing statistics. Created backlog trend analysis, exemption rate heatmaps, processing time distributions, and agency comparison benchmarking. Added automated compliance scoring and alert thresholds for agencies exceeding statutory deadlines. All data refreshes from live FOIA.gov reports.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Compliance automation and regulatory reporting for legal, government, or public affairs teams. I can build systems that track processing SLAs, exemption patterns, and backlog aging — using the same methodology that powers this federal transparency analysis.</p>
+                    </div>
+                </div>
+            </div>
+
             <div style="text-align:center;margin:3rem 0;">
                 <a href="https://gosidehustlesisi.github.io/sierra-applied-ml/" class="btn btn-primary" style="display:inline-block;">View Full Portfolio → 24 Projects, 45 Notebooks, 50+ Visualizations</a>
             </div>
