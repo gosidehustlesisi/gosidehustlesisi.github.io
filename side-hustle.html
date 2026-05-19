@@ -1,1167 +1,705 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sierra Napier — Fractional CMO & BI Consulting. MPA/MPH. Data Scientist | AI Architect | Analytics Viz. Available for fractional leadership, BI consulting, and AI architecture engagements.">
-    <meta property="og:title" content="Sierra Napier — Fractional CMO & BI Consulting">
-    <meta property="og:description" content="Fractional CMO | BI Consulting | AI Architecture. 743K+ records analyzed. 14 production projects. Real data, real systems, real results.">
-    <meta property="og:url" content="https://gosidehustlesisi.github.io/side-hustle.html">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sierra Napier — Fractional CMO & BI Consulting">
-    <meta name="twitter:description" content="Fractional CMO | BI Consulting | AI Architecture. 743K+ records. 14 projects. Real data, real results.">
-    <title>Sierra Napier — Fractional CMO & BI Consulting</title>
-    <style>
-        :root {
-            --bg-deep: #0a0e1a;
-            --bg-surface: #111827;
-            --bg-elevated: #1a2234;
-            --border: #1f2d44;
-            --text-primary: #f0f0f0;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --accent-gold: #f59e0b;
-            --accent-cyan: #06b6d4;
-            --accent-gold-hover: #fbbf24;
-            --accent-cyan-hover: #22d3ee;
-            --success: #22c55e;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: var(--bg-deep);
-            color: var(--text-primary);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(10, 14, 26, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            z-index: 100;
-            padding: 1rem 0;
-        }
-        .nav-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-        .nav-brand img {
-            width: 32px;
-            height: 32px;
-            border-radius: 6px;
-            object-fit: contain;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--accent-gold); }
-
-        header {
-            padding: 6rem 0 4rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(ellipse at 50% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
-                        radial-gradient(ellipse at 30% 20%, rgba(245, 158, 11, 0.06) 0%, transparent 40%);
-            pointer-events: none;
-        }
-        .avatar-wrap {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-        .avatar-wrap img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 3px solid var(--accent-gold);
-            box-shadow: 0 0 40px rgba(245, 158, 11, 0.3), 0 0 80px rgba(6, 182, 212, 0.15);
-            object-fit: cover;
-            background: var(--bg-elevated);
-        }
-        .avatar-ring {
-            position: absolute;
-            inset: -8px;
-            border-radius: 50%;
-            border: 2px solid transparent;
-            border-top-color: var(--accent-cyan);
-            border-right-color: var(--accent-gold);
-            animation: spin 8s linear infinite;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero-badges {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin: 1rem 0;
-            flex-wrap: wrap;
-        }
-        .hero-badge {
-            display: inline-block;
-            padding: 0.5rem 1.25rem;
-            border-radius: 999px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border: 1px solid var(--border);
-            background: var(--bg-elevated);
-            color: var(--text-secondary);
-        }
-        .tagline {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto;
-            font-weight: 300;
-        }
-        .tagline strong {
-            color: var(--accent-gold);
-            font-weight: 600;
-        }
-
-        .hero-cta {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: all 0.2s;
-            border: 2px solid transparent;
-            cursor: pointer;
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent-gold), #d97706);
-            color: #0a0e1a;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
-        }
-        .btn-secondary {
-            background: transparent;
-            border-color: var(--border);
-            color: var(--text-secondary);
-        }
-        .btn-secondary:hover {
-            border-color: var(--accent-cyan);
-            color: var(--accent-cyan-hover);
-        }
-        .btn-accent {
-            background: var(--accent-cyan);
-            color: var(--bg-deep);
-            border-color: var(--accent-cyan);
-        }
-        .btn-accent:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(6, 182, 212, 0.35);
-        }
-
-        .hero-metrics-strip {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-            flex-wrap: wrap;
-        }
-        .hero-metric {
-            text-align: center;
-        }
-        .hero-metric-number {
-            display: block;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-            line-height: 1;
-        }
-        .hero-metric-label {
-            display: block;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 0.25rem;
-        }
-        .hero-metric-divider {
-            color: var(--border);
-            font-size: 1.5rem;
-            font-weight: 300;
-        }
-
-        .trust-bar {
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1rem 1.5rem;
-            margin: 2rem 0;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        .trust-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-weight: 600;
-        }
-        .trust-logos {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-        .trust-logo {
-            background: var(--bg-elevated);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 0.35rem 0.75rem;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-        .trust-logo:hover {
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1rem;
-            margin: 4rem 0;
-        }
-        .stat-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.2s;
-        }
-        .stat-card:hover {
-            border-color: var(--accent-cyan);
-            transform: translateY(-4px);
-        }
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--accent-gold);
-            line-height: 1;
-        }
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
-        }
-
-        section { padding: 4rem 0; }
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-        .section-subtitle {
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 2rem;
-        }
-        .section-accent {
-            width: 48px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan));
-            border-radius: 2px;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-        .about-text {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-        }
-        .about-text p { margin-bottom: 1rem; }
-        .about-text strong { color: var(--accent-gold); }
-        .career-arc {
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-        .career-step {
-            display: flex;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .career-step:last-child { border-bottom: none; }
-        .career-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent-cyan);
-            margin-top: 4px;
-            flex-shrink: 0;
-        }
-        .career-step:first-child .career-dot { background: var(--accent-gold); }
-        .career-step h4 {
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-        }
-        .career-step p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .project-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            margin: 2rem 0;
-            overflow: hidden;
-            transition: border-color 0.3s;
-        }
-        .project-card:hover { border-color: var(--accent-cyan); }
-        .project-header {
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-        .project-title { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); }
-        .project-meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem; }
-        .badges { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-        .badge {
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-        .badge-live { background: rgba(34, 197, 94, 0.15); color: var(--success); border: 1px solid rgba(34, 197, 94, 0.3); }
-        .badge-data { background: var(--bg-elevated); color: var(--accent-cyan); border: 1px solid var(--border); }
-        .badge-avail { background: rgba(245, 158, 11, 0.15); color: var(--accent-gold); border: 1px solid rgba(245, 158, 11, 0.3); }
-        .demo-link {
-            background: linear-gradient(135deg, var(--accent-cyan), #0891b2);
-            color: var(--bg-deep);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-        .demo-link:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.35);
-        }
-
-        .project-body { padding: 2rem; }
-        .chart-box {
-            background: var(--bg-elevated);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        .chart-insight-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .insight-tag {
-            background: rgba(245, 158, 11, 0.15);
-            color: var(--accent-gold);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .insight-metric {
-            color: var(--accent-cyan);
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-        .chart-caption-headline {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin: 1rem 0 0.5rem;
-        }
-        .chart-insight-body {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-        .chart-insight-action {
-            margin-top: 1rem;
-        }
-        .project-footer {
-            background: var(--bg-elevated);
-            border-top: 1px solid var(--border);
-            padding: 1rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            font-size: 0.8rem;
-        }
-        .data-sources {
-            color: var(--text-muted);
-        }
-        .repo-link {
-            color: var(--accent-cyan);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-        .repo-link:hover {
-            color: var(--accent-cyan-hover);
-        }
-        .exec-summary {
-            background: var(--bg-elevated);
-            border-left: 3px solid var(--accent-gold);
-            padding: 1.25rem 1.5rem;
-            border-radius: 0 8px 8px 0;
-            margin-bottom: 1.5rem;
-        }
-        .exec-summary h4 {
-            color: var(--accent-gold);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .exec-summary p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .project-metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        .metric {
-            background: var(--bg-deep);
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid var(--border);
-        }
-        .metric-value {
-            font-size: 1.4rem;
-            color: var(--accent-gold);
-            font-weight: 700;
-        }
-        .metric-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 0.25rem;
-        }
-
-        .tldr {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(6, 182, 212, 0.08));
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            border-radius: 10px;
-            padding: 1rem 1.25rem;
-            margin: 0.75rem 0;
-            position: relative;
-        }
-        .tldr::before {
-            content: "TL;DR";
-            position: absolute;
-            top: -9px;
-            left: 12px;
-            background: var(--accent-gold);
-            color: var(--bg-deep);
-            font-size: 0.65rem;
-            font-weight: 800;
-            padding: 2px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .tldr p {
-            margin: 0;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-            line-height: 1.5;
-            font-weight: 500;
-        }
-        .tldr strong {
-            color: var(--accent-gold);
-            font-weight: 700;
-        }
-
-        .technical-detail {
-            background: var(--bg-deep);
-            border-left: 3px solid var(--accent-cyan);
-            border-radius: 0 8px 8px 0;
-            padding: 0.75rem 1rem;
-            margin-top: 0.75rem;
-        }
-        .technical-detail p {
-            margin: 0 0 0.5rem 0;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            line-height: 1.5;
-        }
-        .technical-detail p:last-child { margin-bottom: 0; }
-        .technical-label {
-            font-size: 0.65rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 0.4rem;
-            display: block;
-        }
-
-        .transfer-box {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(6, 182, 212, 0.05));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1rem 1.25rem;
-            margin-top: 1rem;
-        }
-        .transfer-box h5 {
-            color: var(--accent-cyan);
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.4rem;
-        }
-        .transfer-box p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .contact-section {
-            text-align: center;
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, var(--bg-surface), var(--bg-elevated));
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            margin: 4rem 0;
-        }
-        .contact-section h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        .contact-section p {
-            color: var(--text-muted);
-            max-width: 500px;
-            margin: 0 auto 2rem;
-        }
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        .contact-links a {
-            color: var(--accent-cyan);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: color 0.2s;
-        }
-        .contact-links a:hover { color: var(--accent-cyan-hover); }
-
-        .floating-cta {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 100;
-            background: linear-gradient(135deg, var(--accent-gold), #d97706);
-            color: var(--bg-deep);
-            padding: 0.875rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-decoration: none;
-            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
-            transition: all 0.3s;
-        }
-        .floating-cta:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.5);
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 0;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border);
-            font-size: 0.9rem;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        .service-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.2s;
-        }
-        .service-card:hover {
-            border-color: var(--accent-cyan);
-            transform: translateY(-4px);
-        }
-        .service-card h3 {
-            font-size: 1.1rem;
-            color: var(--text-primary);
-            margin-bottom: 0.75rem;
-        }
-        .service-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-        .service-card .price {
-            color: var(--accent-gold);
-            font-weight: 700;
-            font-size: 0.95rem;
-            margin-top: 1rem;
-        }
-
-        .logo-hero {
-            max-width: 400px;
-            width: 100%;
-            height: auto;
-            margin: 0 auto 1.5rem;
-            display: block;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .about-grid { grid-template-columns: 1fr; }
-            .nav-links { gap: 1rem; }
-            .nav-links a { font-size: 0.8rem; }
-            .hero-metrics-strip { gap: 0.75rem; }
-            .hero-metric-number { font-size: 1.5rem; }
-            .hero-metric-divider { display: none; }
-            .trust-bar { flex-direction: column; align-items: flex-start; }
-            .stats { grid-template-columns: repeat(2, 1fr); }
-            .floating-cta {
-                bottom: 1rem;
-                right: 1rem;
-                padding: 0.75rem 1rem;
-                font-size: 0.8rem;
-            }
-            .logo-hero { max-width: 280px; }
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <div class="container">
-            <div class="nav-inner">
-                <a href="/" class="nav-brand">
-                    <img src="assets/logo.png" alt="Sierra Napier" onerror="this.style.display='none';this.parentNode.innerHTML='\u003cspan style=\'width:32px;height:32px;background:var(--bg-elevated);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--accent-gold);font-weight:700;font-size:0.8rem;\'\u003eSierra Napier\u003c/span\u003e Sierra Napier'">
-                    <span id="nav-text">Sierra Napier</span>
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <header>
-        <div class="container">
-            <div class="avatar-wrap">
-                <div class="avatar-ring"></div>
-                <img src="assets/avatar.png" alt="Sierra Napier" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'160\' height=\'160\'%3E%3Crect fill=\'%23111827\' width=\'160\' height=\'160\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23f59e0b\' font-size=\'48\' font-weight=\'700\' font-family=\'system-ui\'%3ESierra Napier%3C/text%3E%3C/svg%3E'">
-            </div>
-            <h1>Sierra Napier</h1>
-            <div class="hero-badges">
-                <span class="hero-badge">Fractional CMO</span>
-                <span class="hero-badge">BI Consulting</span>
-                <span class="hero-badge">AI Architecture</span>
-            </div>
-            <div class="hero-metrics-strip">
-                <div class="hero-metric">
-                    <span class="hero-metric-number">743K+</span>
-                    <span class="hero-metric-label">Records Analyzed</span>
-                </div>
-                <span class="hero-metric-divider">|</span>
-                <div class="hero-metric">
-                    <span class="hero-metric-number">14</span>
-                    <span class="hero-metric-label">Production Projects</span>
-                </div>
-                <span class="hero-metric-divider">|</span>
-                <div class="hero-metric">
-                    <span class="hero-metric-number">Real</span>
-                    <span class="hero-metric-label">Public Data</span>
-                </div>
-            </div>
-            <p class="tagline">
-                I <strong>architect growth systems</strong> for companies that need senior marketing leadership without the full-time hire. 
-                I <strong>build BI infrastructure</strong> that turns your data into decisions. 
-                I <strong>deploy AI agents</strong> that automate what used to take teams.
-            </p>
-            <div class="hero-cta">
-                <a href="#services" class="btn btn-primary">View Services</a>
-                <a href="https://gosidehustlesisi.github.io/sierra-applied-ml/" class="btn btn-secondary">See Portfolio</a>
-                <a href="#contact" class="btn btn-accent">Book a Call</a>
-            </div>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="trust-bar">
-            <span class="trust-label">Verified Data Sources:</span>
-            <div class="trust-logos">
-                <span class="trust-logo">NASA</span>
-                <span class="trust-logo">Census ACS</span>
-                <span class="trust-logo">BLS</span>
-                <span class="trust-logo">World Bank</span>
-                <span class="trust-logo">USASpending</span>
-                <span class="trust-logo">arXiv</span>
-                <span class="trust-logo">Data.gov</span>
-                <span class="trust-logo">NHTSA</span>
-            </div>
-        </div>
-
-        <div class="stats">
-            <div class="stat-card">
-                <div class="stat-number">743K+</div>
-                <div class="stat-label">Records Analyzed</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">12</div>
-                <div class="stat-label">Gov APIs</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">14</div>
-                <div class="stat-label">Projects</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">45</div>
-                <div class="stat-label">Notebooks</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">5</div>
-                <div class="stat-label">Categories</div>
-            </div>
-        </div>
-
-        <section id="about">
-            <div class="section-accent"></div>
-            <h2 class="section-title">About Sierra</h2>
-            <p class="section-subtitle">MPA/MPH. Data Scientist. AI Architect. Analytics Viz Specialist. I don't just analyze data — I build the systems that process it and the visuals that make it land.</p>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>Most analysts stop at the report. Most engineers stop at the model. I do <strong>all three</strong> — from raw data to deployed system to boardroom-ready visualization.</p>
-                    <p>My foundation is <strong>MPA/MPH</strong> — policy analysis, regulatory environments, and public health data. I spent years working with <strong>Census ACS, BLS employment data, CMS drug utilization, and USASpending procurement records</strong> at scale.</p>
-                    <p>That deep federal data expertise led me to <strong>machine learning</strong> — NASA turbofan predictive maintenance, arXiv NLP classification, transit demand forecasting. Then to <strong>AI architecture</strong> — building agentic systems, local LLM deployments, and automation pipelines.</p>
-                    <p>Now I offer that expertise as <strong>fractional leadership</strong> — whether you need a CMO to own your growth, a BI consultant to make your data talk, or an AI architect to automate what used to take teams.</p>
-                </div>
-                <div class="career-arc">
-                    <div class="career-step">
-                        <div class="career-dot"></div>
-                        <div>
-                            <h4>MPA / MPH — Policy Analytics</h4>
-                            <p>Public sector data analysis, regulatory frameworks, government operations</p>
-                        </div>
-                    </div>
-                    <div class="career-step">
-                        <div class="career-dot"></div>
-                        <div>
-                            <h4>Federal Data at Scale</h4>
-                            <p>Census, BLS, CMS, USASpending — $4T procurement, 1.28M FOIA requests, 144K datasets</p>
-                        </div>
-                    </div>
-                    <div class="career-step">
-                        <div class="career-dot"></div>
-                        <div>
-                            <h4>Machine Learning Engineering</h4>
-                            <p>Predictive maintenance, NLP pipelines, time series forecasting — 50+ real visualizations</p>
-                        </div>
-                    </div>
-                    <div class="career-step">
-                        <div class="career-dot"></div>
-                        <div>
-                            <h4>AI Architecture & Automation</h4>
-                            <p>Agentic systems, local LLMs, multi-agent orchestration, AI automation pipelines</p>
-                        </div>
-                    </div>
-                    <div class="career-step">
-                        <div class="career-dot"></div>
-                        <div>
-                            <h4>Fractional Leadership & Consulting</h4>
-                            <p>Growth strategy, BI infrastructure, AI deployment — for companies that need senior talent without the full-time hire</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services">
-            <div class="section-accent"></div>
-            <h2 class="section-title">Services</h2>
-            <p class="section-subtitle">Three ways I help companies grow, understand their data, and automate what matters.</p>
-
-            <div class="service-grid">
-                <div class="service-card">
-                    <h3>🔥 Fractional CMO</h3>
-                    <p>Strategic growth leadership without the $200K+ full-time salary. I own your GTM strategy, content engine, paid acquisition, and funnel optimization. You get senior marketing leadership at a fraction of the cost.</p>
-                    <div class="project-metrics" style="margin-top: 1rem;">
-                        <div class="metric"><div class="metric-value">GTM</div><div class="metric-label">Strategy</div></div>
-                        <div class="metric"><div class="metric-value">Content</div><div class="metric-label">Engine</div></div>
-                        <div class="metric"><div class="metric-value">Paid</div><div class="metric-label">Acquisition</div></div>
-                    </div>
-                    <div class="price">Starting at $5,000/month</div>
-                </div>
-                <div class="service-card">
-                    <h3>📊 BI Consulting</h3>
-                    <p>Your data is only valuable if decision-makers can act on it. I build dashboards, data pipelines, and executive reporting systems that turn raw data into boardroom-ready insights. From ETL to visualization.</p>
-                    <div class="project-metrics" style="margin-top: 1rem;">
-                        <div class="metric"><div class="metric-value">ETL</div><div class="metric-label">Pipelines</div></div>
-                        <div class="metric"><div class="metric-value">Dashboards</div><div class="metric-label">Visualization</div></div>
-                        <div class="metric"><div class="metric-value">KPIs</div><div class="metric-label">Reporting</div></div>
-                    </div>
-                    <div class="price">Project-based or retainer</div>
-                </div>
-                <div class="service-card">
-                    <h3>🤖 AI Architecture</h3>
-                    <p>I design and deploy agentic systems that automate complex workflows — customer support triage, content generation, data processing, and decision pipelines. Local LLMs, multi-agent orchestration, and production-grade AI infrastructure.</p>
-                    <div class="project-metrics" style="margin-top: 1rem;">
-                        <div class="metric"><div class="metric-value">Agents</div><div class="metric-label">Orchestration</div></div>
-                        <div class="metric"><div class="metric-value">LLM</div><div class="metric-label">Deployment</div></div>
-                        <div class="metric"><div class="metric-value">Auto</div><div class="metric-label">Workflows</div></div>
-                    </div>
-                    <div class="price">Custom scope</div>
-                </div>
-            </div>
-        </section>
-
         <section id="portfolio">
             <div class="section-accent"></div>
             <h2 class="section-title">Portfolio</h2>
             <p class="section-subtitle">14 production projects with real public data and benchmark datasets. <a href="https://gosidehustlesisi.github.io/sierra-applied-ml/" style="color:var(--accent-gold);">View full portfolio →</a></p>
 
+            <!-- === 1. NASA C-MAPSS Predictive Maintenance === -->
             <div class="project-card">
                 <div class="project-header">
                     <div>
-                        <div class="project-title">Predictive Maintenance — NASA Turbofan</div>
-                        <div class="project-meta">Sensor optimization · RUL prediction · 94% accuracy</div>
+                        <div class="project-title">NASA C-MAPSS — Predictive Maintenance</div>
+                        <div class="project-meta">Historical simulation data · Sensor subset analysis · Benchmark dataset</div>
                     </div>
                     <div class="badges">
-                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">● SIMULATION ARCHITECTURE</span>
                         <span class="badge badge-data">NASA</span>
                         <span class="badge badge-avail">BENCHMARK</span>
-                        <a href="https://gosidehustlesisi.github.io/sierra-applied-ml/projects/predictive-maintenance-transit" class="demo-link">View Demo</a>
                     </div>
                 </div>
                 <div class="project-body">
                     <div class="exec-summary">
-                        <h4>Executive Summary</h4>
-                        <p>Predictive maintenance system for jet engines using NASA C-MAPSS data. Identifies optimal sensor subset (5 of 21) to predict failure 25+ cycles in advance — reducing IoT infrastructure costs by 75% while maintaining 94% accuracy.</p>
+                        <h4>Technical Reality</h4>
+                        <p>Ingests historical NASA turbofan engine simulation datasets to map remaining useful life (RUL). Embedded frontend layout demonstrating 90% signal capture using a highly optimized 5-sensor subset vs. the full 21-sensor suite.</p>
                     </div>
-                    <div class="tldr"><p><strong>You only need 5 sensors</strong> to predict engine failure 25+ cycles before breakdown. Running the full 21-sensor suite is a 75% infrastructure waste.</p></div>
                     <div class="chart-box">
                         <div class="chart-insight-header">
-                            <span class="insight-tag">KEY INSIGHT</span>
-                            <span class="insight-metric">94% RUL Accuracy</span>
+                            <span class="insight-tag">Architecture</span>
+                            <span class="insight-metric">5-Sensor Subset</span>
                         </div>
-                        <p class="chart-insight-body">XGBoost achieved 94% RUL accuracy by weighting recent cycles more heavily. A 5-sensor subset (EGT, fan speed, core speed, LPC temp, HPC temp) captures 90% of predictive signal, verified via recursive feature elimination.</p>
-                        <div class="technical-detail">
-                            <span class="technical-label">Technical Stack</span>
-                            <p>XGBoost · Random Forest · Survival Analysis · Recursive Feature Elimination · 21-sensor time series</p>
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/sensor_degradation.html"
+                                width="100%" height="550"
+                                style="border:none; background:var(--bg-deep);"
+                                loading="lazy"
+                                title="NASA C-MAPSS Interactive Sensor Degradation">
+                            </iframe>
                         </div>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle 21 sensors, hover for RUL correlation, click buttons to filter</span>
+                        </div>
+                        <div class="chart-caption-headline">Engine Sensor Degradation Pipeline (XGBoost / Random Forest)</div>
+                        <div class="chart-insight-body">Ingests historical NASA turbofan engine simulation datasets to map remaining useful life (RUL).</div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Architecture</span>
+                            <span class="insight-metric">90% Signal Capture</span>
+                        </div>
+                        <div class="chart-caption-headline">Interactive Feature Reduction Workbench</div>
+                        <div class="chart-insight-body">Embedded frontend layout demonstrating 90% signal capture using a highly optimized 5-sensor subset vs. the full 21-sensor suite.</div>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">Dataset limitations</span>
+                        <p>NASA C-MAPSS provides simulated degradation trajectories, not live operational telemetry. Models are validated against held-out simulation folds, not physical engine test data. Results demonstrate pipeline architecture and feature selection methodology on benchmark data.</p>
                     </div>
                     <div class="transfer-box">
                         <h5>What I'd bring to your team</h5>
-                        <p>Failure-prediction pipelines for sensor-monitored assets. I can identify the minimal sensor set that captures 90% of predictive signal, reducing your IoT infrastructure costs by 75% while maintaining 94% accuracy.</p>
+                        <p>Failure-prediction pipeline architecture for sensor-monitored assets. I can build the ingestion, feature selection, and model evaluation framework — ready to swap in your live sensor streams when operational data becomes available.</p>
                     </div>
                 </div>
                 <div class="project-footer">
-                    <span class="data-sources">Data: NASA C-MAPSS Turbofan Benchmark · Simulated Sensor Readings · 100 units</span>
-                    <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-applied-ml/tree/main/projects/predictive-maintenance-transit">View Repository →</a>
+                    <span class="data-sources">Data: NASA C-MAPSS Simulation (synthetic degradation trajectories) · UCI Repository · Historical benchmark, not live telemetry</span>
+                    <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-applied-ml">View Repository →</a>
                 </div>
             </div>
 
+            <!-- === 2. 20 Newsgroups NLP Classification Pipeline === -->
             <div class="project-card">
                 <div class="project-header">
                     <div>
-                        <div class="project-title">NLP Text Classification — 20 Newsgroups</div>
-                        <div class="project-meta">18,846 documents · 20 categories · CPU-deployable</div>
+                        <div class="project-title">20 Newsgroups — NLP Classification Pipeline</div>
+                        <div class="project-meta">18,846 historical posts · 20 vintage categories · CPU-only inference</div>
                     </div>
                     <div class="badges">
-                        <span class="badge badge-live">● LIVE</span>
-                        <span class="badge badge-data">arXiv</span>
-                        <a href="https://gosidehustlesisi.github.io/sierra-applied-ml/projects/nlp-text-classification-pipeline" class="demo-link">View Demo</a>
+                        <span class="badge badge-data">● HIGH-THROUGHPUT ENGINE</span>
+                        <span class="badge badge-data">sklearn</span>
+                        <span class="badge badge-avail">BENCHMARK</span>
                     </div>
                 </div>
                 <div class="project-body">
                     <div class="exec-summary">
-                        <h4>Executive Summary</h4>
-                        <p>Production text classification pipeline using TF-IDF + Naive Bayes on 18,846 real Usenet posts. 68% accuracy across 20 categories with 400× inference speed advantage over BERT — deployable on CPU without GPU costs.</p>
+                        <h4>Technical Reality</h4>
+                        <p>High-speed pipeline processing 18,846 historical Usenet posts from 1995. Embedded frontend confusion matrix displaying per-category recall across 20 distinct vintage text groups.</p>
                     </div>
-                    <div class="tldr"><p><strong>Simple beats fancy.</strong> A basic TF-IDF + Naive Bayes model scores 68% on 20 categories and runs 400× faster than BERT. For most production text tasks, that's the right trade-off.</p></div>
                     <div class="chart-box">
                         <div class="chart-insight-header">
-                            <span class="insight-tag">KEY INSIGHT</span>
-                            <span class="insight-metric">68% Accuracy | 400× Speed</span>
+                            <span class="insight-tag">Engine</span>
+                            <span class="insight-metric">TF-IDF + Naive Bayes</span>
                         </div>
-                        <p class="chart-insight-body">BERT reaches 89% but needs GPU. Naive Bayes runs on CPU with only 21% accuracy trade-off. Tested on 18,846 real Usenet posts from sklearn's 20 Newsgroups dataset. Confusion matrix shows clean diagonal except electronics/crypto overlap.</p>
-                        <div class="technical-detail">
-                            <span class="technical-label">Technical Stack</span>
-                            <p>TF-IDF · Naive Bayes · BERT Fine-tuning · LLM Prompt Engineering · sklearn · pandas</p>
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/nlp_confusion_matrix.html"
+                                width="100%" height="550"
+                                style="border:none; background:var(--bg-deep);"
+                                loading="lazy"
+                                title="NLP Confusion Matrix Interactive">
+                            </iframe>
                         </div>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle normalize view, hover cells for precision/recall</span>
+                        </div>
+                        <div class="chart-caption-headline">CPU-Optimized Inference Engine (TF-IDF + Naive Bayes)</div>
+                        <div class="chart-insight-body">High-speed pipeline processing 18,846 historical Usenet posts from 1995.</div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Engine</span>
+                            <span class="insight-metric">Per-Category Recall</span>
+                        </div>
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/newsgroups_accuracy.html"
+                                width="100%" height="550"
+                                style="border:none; background:var(--bg-deep);"
+                                loading="lazy"
+                                title="20 Newsgroups Accuracy Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle model comparison, hover for accuracy scores</span>
+                        </div>
+                        <div class="chart-caption-headline">Interactive Model Comparison &amp; Recall Matrix</div>
+                        <div class="chart-insight-body">Embedded frontend confusion matrix displaying per-category recall across 20 distinct vintage text groups.</div>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">Dataset limitations</span>
+                        <p>20 Newsgroups is a 1995 Usenet archive. Vocabulary, writing style, and topical categories do not reflect modern web content, customer support tickets, or contemporary documents. Performance metrics are benchmark scores on historical text, not validated on production corpora.</p>
                     </div>
                     <div class="transfer-box">
                         <h5>What I'd bring to your team</h5>
-                        <p>Production text classification that runs on CPU with minimal accuracy trade-off. Perfect for customer support ticket routing, content categorization, and document triage — no GPU costs, no cloud dependencies.</p>
+                        <p>Production text classification that runs on CPU with minimal infrastructure. Perfect for prototype pipelines and proof-of-concept document triage — architecture is ready to upgrade to modern embeddings when your use case demands it.</p>
                     </div>
                 </div>
                 <div class="project-footer">
-                    <span class="data-sources">Data: sklearn 20 Newsgroups · 18,846 Real Usenet Posts · 20 Categories</span>
-                    <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-applied-ml/tree/main/projects/nlp-text-classification-pipeline">View Repository →</a>
+                    <span class="data-sources">Data: sklearn 20 Newsgroups · CMU Lang (1995) · Historical Usenet archive, not contemporary text</span>
+                    <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-applied-ml">View Repository →</a>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="project-header">
-                    <div>
-                        <div class="project-title">Zeus-URSA — Autonomous CEO Agent</div>
-                        <div class="project-meta">Multi-role agent system · 22 MCP tools · Persistent memory</div>
-                    </div>
-                    <div class="badges">
-                        <span class="badge badge-live">● LIVE</span>
-                        <span class="badge badge-data">AI Architecture</span>
-                        <a href="#" class="demo-link">Live System</a>
-                    </div>
-                </div>
-                <div class="project-body">
-                    <div class="exec-summary">
-                        <h4>Executive Summary</h4>
-                        <p>Multi-role AI agent system handling strategy, operations, finance, and creative — with persistent memory across sessions, 22 integrated MCP tools, and autonomous sub-agent delegation for parallel execution.</p>
-                    </div>
-                    <div class="tldr"><p><strong>One agent, infinite capability.</strong> A multi-role AI system that handles strategy, ops, finance, and creative — with persistent memory across sessions and 22 integrated tools.</p></div>
-                    <div class="chart-box">
-                        <div class="chart-insight-header">
-                            <span class="insight-tag">KEY INSIGHT</span>
-                            <span class="insight-metric">22 Tools · 5 Roles · ∞ Scalable</span>
-                        </div>
-                        <p class="chart-insight-body">Built in Gemini AI Studio with goal-oriented planning, tool selection via MCP, memory persistence across sessions, and sub-agent orchestration for parallel task execution. Not a chatbot — true agentic architecture.</p>
-                        <div class="technical-detail">
-                            <span class="technical-label">Technical Stack</span>
-                            <p>Gemini AI Studio · MCP (Model Context Protocol) · Multi-agent orchestration · Memory persistence · Sub-agent delegation</p>
-                        </div>
-                    </div>
-                    <div class="transfer-box">
-                        <h5>What I'd bring to your team</h5>
-                        <p>Agentic automation for repetitive workflows — customer support triage, content generation, data processing, and decision pipelines. I design systems that don't just answer questions; they execute workflows end-to-end.</p>
-                    </div>
-                </div>
-                <div class="project-footer">
-                    <span class="data-sources">System: Gemini AI Studio · OpenClaw Gateway · 22 MCP Tools · Live Deployment</span>
-                    <a class="repo-link" href="https://github.com/gosidehustlesisi">View System →</a>
-                </div>
-            </div>
-
+            <!-- === 3. Demand Forecasting Operations === -->
             <div class="project-card">
                 <div class="project-header">
                     <div>
                         <div class="project-title">Demand Forecasting — Multi-Model Operations</div>
-                        <div class="project-meta">7.1% MAPE · 90-day horizon · 17K+ hourly records</div>
+                        <div class="project-meta">Archived bikeshare records · Batch backtesting · 2011–2012 historical window</div>
                     </div>
                     <div class="badges">
-                        <span class="badge badge-live">● LIVE</span>
-                        <span class="badge badge-data">Citi Bike</span>
-                        <a href="https://gosidehustlesisi.github.io/sierra-applied-ml/projects/demand-forecasting-operations" class="demo-link">View Demo</a>
+                        <span class="badge badge-data">● BATCH BACKTESTING FRAMEWORK</span>
+                        <span class="badge badge-data">UCI</span>
+                        <span class="badge badge-avail">HISTORICAL</span>
                     </div>
                 </div>
                 <div class="project-body">
                     <div class="exec-summary">
-                        <h4>Executive Summary</h4>
-                        <p>Multi-model demand forecasting system combining ARIMA seasonal baseline with XGBoost residual correction. Predicts hourly demand 90 days ahead with 7.1% MAPE — enabling 22% overstock reduction while maintaining 98% peak availability.</p>
+                        <h4>Technical Reality</h4>
+                        <p>Automated script utilizing retry logic to draw archived D.C. Capital Bikeshare records spanning 2011-01-01 to 2012-12-31. Batch backtesting engine combining time-series seasonal baselines with residual error correction. Embedded interactive chart comparing forecast horizons against actual historical counts.</p>
                     </div>
-                    <div class="tldr"><p><strong>Ensemble model (ARIMA + XGBoost + Random Forest) outperforms any single model by 12-18%.</strong></p></div>
                     <div class="chart-box">
                         <div class="chart-insight-header">
-                            <span class="insight-tag">KEY INSIGHT</span>
-                            <span class="insight-metric">7.1% MAPE | 90-Day Horizon</span>
+                            <span class="insight-tag">Framework</span>
+                            <span class="insight-metric">fetch_bike_data.py</span>
                         </div>
-                        <p class="chart-insight-body">ARIMA captured daily rhythm but missed holiday spikes. Ensemble combined ARIMA seasonal baseline with XGBoost residual correction using lag-1, lag-7, and rolling-mean features on 17,000+ hourly Citi Bike records. The ensemble outperformed either model alone by 18% MAE.</p>
-                        <div class="technical-detail">
-                            <span class="technical-label">Technical Stack</span>
-                            <p>ARIMA · XGBoost · Random Forest · Ensemble Methods · Time Series Cross-Validation · pandas · scikit-learn</p>
+                        <div class="chart-caption-headline">Seasonal Baseline Ingestion Pipeline</div>
+                        <div class="chart-insight-body">Automated script utilizing retry logic to draw archived D.C. Capital Bikeshare records spanning 2011-01-01 to 2012-12-31.</div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Framework</span>
+                            <span class="insight-metric">ARIMA + XGBoost + RF</span>
                         </div>
+                        <div class="chart-caption-headline">Multi-Model Ensemble Forecast Engine</div>
+                        <div class="chart-insight-body">Batch backtesting engine combining time-series seasonal baselines with residual error correction.</div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Framework</span>
+                            <span class="insight-metric">7 / 14 / 30 Day Horizons</span>
+                        </div>
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/ensemble_forecast.html"
+                                width="100%" height="550"
+                                style="border:none; background:var(--bg-deep);"
+                                loading="lazy"
+                                title="Demand Forecasting Ensemble Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle models (ARIMA/XGB/RF/Ensemble), horizon slider 7/14/30 days</span>
+                        </div>
+                        <div class="chart-caption-headline">30-Day Demand Forecast Interactive Timeline</div>
+                        <div class="chart-insight-body">Embedded interactive chart comparing forecast horizons (7, 14, and 30 days) against actual historical counts.</div>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">Dataset limitations</span>
+                        <p>Capital Bikeshare data is static CSV archives from 2011–2012. No live API feed, no real-time station status, no weather integration beyond historical lookups. Forecasts are backtested on historical holdout folds, not validated against post-deployment demand.</p>
                     </div>
                     <div class="transfer-box">
                         <h5>What I'd bring to your team</h5>
-                        <p>Demand forecasting for inventory, staffing, and capacity planning. I build multi-model ensembles that capture seasonality, trends, and anomalies — reducing waste while maintaining service levels.</p>
+                        <p>Batch forecasting architecture for inventory and capacity planning. I can build the ensemble pipeline, backtesting framework, and horizon comparison — ready to connect to your live operational data stream when available.</p>
                     </div>
                 </div>
                 <div class="project-footer">
-                    <span class="data-sources">Data: Citi Bike NYC · 17K+ Hourly Records · 2022-2023 Season</span>
-                    <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-applied-ml/tree/main/projects/demand-forecasting-operations">View Repository →</a>
+                    <span class="data-sources">Data: UCI Bike Sharing Dataset · D.C. Capital Bikeshare 2011–2012 · Historical CSV archive, no live feed</span>
+                    <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-applied-ml">View Repository →</a>
                 </div>
             </div>
 
+            <!-- === 4. Capital Portfolio Governance & Federal Awards === -->
             <div class="project-card">
                 <div class="project-header">
                     <div>
                         <div class="project-title">Capital Portfolio Governance — Federal Program Analytics</div>
-                        <div class="project-meta">847 projects · Federal capital · schedule risk 23%</div>
+                        <div class="project-meta">Historical USASpending logs · FY2024 obligations · 1.28M FOIA records</div>
                     </div>
                     <div class="badges">
-                        <span class="badge badge-live">● LIVE</span>
+                        <span class="badge badge-data">● HISTORICAL AUDIT VISUALIZATION</span>
                         <span class="badge badge-data">USASpending</span>
-                        <a href="https://gosidehustlesisi.github.io/sierra-applied-ml/projects/capital-portfolio-governance" class="demo-link">View Demo</a>
+                        <span class="badge badge-avail">PUBLIC DATA</span>
                     </div>
                 </div>
                 <div class="project-body">
                     <div class="exec-summary">
-                        <h4>Executive Summary</h4>
-                        <p>Capital portfolio governance system analyzing 847 federal projects across major funding programs. Identifies schedule risk patterns, funding concentration, and performance outliers — enabling data-driven capital allocation decisions for program managers.</p>
+                        <h4>Technical Reality</h4>
+                        <p>Ingestion model mapping contractor dominance and award velocities using historical USASpending logs. Embedded hierarchical treemap visualizing historical FY2024 agency and sub-agency financial obligations. Interactive chart processing 1.28M historical federal requests, tracking median processing timelines and backlogs across 12 federal departments.</p>
                     </div>
-                    <div class="tldr"><p><strong>Top 10 agencies capture 60% of capital spending. IT modernization is the fastest-growing category.</strong></p></div>
                     <div class="chart-box">
                         <div class="chart-insight-header">
-                            <span class="insight-tag">KEY INSIGHT</span>
-                            <span class="insight-metric">Federal Capital</span>
+                            <span class="insight-tag">Visualization</span>
+                            <span class="insight-metric">USASpending API</span>
                         </div>
-                        <p class="chart-insight-body">Built on USASpending.gov API with multi-year award records. Used XGBoost to predict schedule risk from project characteristics (funding amount, agency type, contract vehicle). Feature engineering included funding velocity, inter-agency collaboration density, and historical performance baselines.</p>
-                        <div class="technical-detail">
-                            <span class="technical-label">Technical Stack</span>
-                            <p>XGBoost · Feature Engineering · Risk Scoring · USASpending API · pandas · Plotly</p>
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/capital_portfolio.html"
+                                width="100%" height="550"
+                                style="border:none; background:var(--bg-deep);"
+                                loading="lazy"
+                                title="Capital Portfolio Interactive">
+                            </iframe>
                         </div>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Hover agencies for spending, toggle year ranges</span>
+                        </div>
+                        <div class="chart-caption-headline">Federal Procurement Anomaly &amp; Concentration Engine</div>
+                        <div class="chart-insight-body">Ingestion model mapping contractor dominance and award velocities using historical USASpending logs.</div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Visualization</span>
+                            <span class="insight-metric">FY2024 Obligations</span>
+                        </div>
+                        <div class="chart-caption-headline">USASpending Agency Obligations Treemap</div>
+                        <div class="chart-insight-body">Embedded hierarchical treemap visualizing historical FY2024 agency and sub-agency financial obligations.</div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Visualization</span>
+                            <span class="insight-metric">1.28M Requests</span>
+                        </div>
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/foia_processing.html"
+                                width="100%" height="550"
+                                style="border:none; background:var(--bg-deep);"
+                                loading="lazy"
+                                title="FOIA Processing Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle agency view, hover for median days</span>
+                        </div>
+                        <div class="chart-caption-headline">FOIA Processing Compliance Analytics</div>
+                        <div class="chart-insight-body">Interactive chart processing 1.28M historical federal requests, tracking median processing timelines and backlogs across 12 federal departments.</div>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">Dataset limitations</span>
+                        <p>USASpending.gov data is reported quarterly with 90-day lag. FOIA.gov data reflects historical processing snapshots, not real-time queue status. Contract award values are self-reported by agencies and may not reconcile with Treasury disbursements. Analysis is retrospective, not predictive.</p>
                     </div>
                     <div class="transfer-box">
                         <h5>What I'd bring to your team</h5>
-                        <p>Capital portfolio analytics for program management offices. I can build risk-scoring models that flag troubled projects 6-12 months before schedule slips become budget overruns — using the data you already collect.</p>
+                        <p>Public-sector procurement analytics and compliance dashboards. I can build ingestion pipelines, anomaly detection, and historical visualization from government open-data APIs — architecture ready for your internal contract data.</p>
                     </div>
                 </div>
                 <div class="project-footer">
-                    <span class="data-sources">Data: USASpending.gov · Federal Capital Programs · Multi-Year Records</span>
-                    <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-pmo-analytics/tree/main/projects/capital-portfolio-governance">View Repository →</a>
+                    <span class="data-sources">Data: USASpending.gov (quarterly lag, self-reported) · FOIA.gov (historical snapshots) · Federal Program Inventory</span>
+                    <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-pmo-analytics">View Repository →</a>
                 </div>
             </div>
 
+            <!-- === 5. Federal Data Governance & Compliance Automation === -->
             <div class="project-card">
                 <div class="project-header">
                     <div>
-                        <div class="project-title">NHTSA Safety Analytics — Fatalities Prediction</div>
-                        <div class="project-meta">42K fatalities · 50 states · 10-year trend</div>
+                        <div class="project-title">Federal Data Governance — Catalog + Compliance Automation</div>
+                        <div class="project-meta">144K datasets · Data.gov catalog · OMB policy mandates 1992–2024</div>
                     </div>
                     <div class="badges">
-                        <span class="badge badge-live">● LIVE</span>
-                        <span class="badge badge-data">NHTSA FARS</span>
-                        <a href="https://gosidehustlesisi.github.io/sierra-applied-ml/projects/nhtsa-safety" class="demo-link">View Demo</a>
+                        <span class="badge badge-data">● REPOSITORY COMPLIANCE METRICS</span>
+                        <span class="badge badge-data">Data.gov</span>
+                        <span class="badge badge-avail">HISTORICAL</span>
                     </div>
                 </div>
                 <div class="project-body">
                     <div class="exec-summary">
-                        <h4>Executive Summary</h4>
-                        <p>Traffic safety analytics platform processing 42,000+ fatality records across 50 states. Identifies state-level risk factors, speeding correlations, and vehicle age effects — enabling targeted safety interventions for transportation agencies.</p>
+                        <h4>Technical Reality</h4>
+                        <p>Architecture parsing dataset profiles to map government open-data repository distributions. Embedded chart organizing 144,000 datasets by managing agency and core topical category. Interactive scrollable historical roadmap charting Office of Management and Budget data policy mandates from 1992 to 2024.</p>
                     </div>
-                    <div class="tldr"><p><strong>Rural states have 3× higher fatality rates per capita than urban states.</strong></p></div>
                     <div class="chart-box">
                         <div class="chart-insight-header">
-                            <span class="insight-tag">KEY INSIGHT</span>
-                            <span class="insight-metric">85% Speeding Correlation</span>
+                            <span class="insight-tag">Metrics</span>
+                            <span class="insight-metric">144K Datasets</span>
                         </div>
-                        <p class="chart-insight-body">Processed NHTSA FARS (Fatality Analysis Reporting System) with 42K+ records. Built geospatial risk models combining fatality rates, speeding citations, vehicle age distributions, and emergency response times. XGBoost achieved 85% correlation between predicted and actual high-risk counties.</p>
-                        <div class="technical-detail">
-                            <span class="technical-label">Technical Stack</span>
-                            <p>XGBoost · Geospatial Analysis · Risk Modeling · NHTSA FARS API · pandas · Plotly</p>
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/data_gov_agencies.html"
+                                width="100%" height="550"
+                                style="border:none; background:var(--bg-deep);"
+                                loading="lazy"
+                                title="Data.gov Agency Catalog Interactive">
+                            </iframe>
                         </div>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Filter by agency, hover for dataset counts</span>
+                        </div>
+                        <div class="chart-caption-headline">Data.gov Catalog Automation Engine</div>
+                        <div class="chart-insight-body">Architecture parsing dataset profiles to map government open-data repository distributions.</div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Metrics</span>
+                            <span class="insight-metric">By Agency &amp; Category</span>
+                        </div>
+                        <div class="chart-caption-headline">Federal Open Data Inventory Metrics</div>
+                        <div class="chart-insight-body">Embedded chart organizing 144,000 datasets by managing agency and core topical category.</div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Metrics</span>
+                            <span class="insight-metric">1992–2024</span>
+                        </div>
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/omb_policy_timeline.html"
+                                width="100%" height="550"
+                                style="border:none; background:var(--bg-deep);"
+                                loading="lazy"
+                                title="OMB Policy Timeline Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Scroll timeline, hover policy details</span>
+                        </div>
+                        <div class="chart-caption-headline">OMB Federal Data Strategy Policy Timeline</div>
+                        <div class="chart-insight-body">Interactive scrollable historical roadmap charting Office of Management and Budget data policy mandates from 1992 to 2024.</div>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">Dataset limitations</span>
+                        <p>Data.gov catalog is agency self-reported with inconsistent metadata quality. Dataset counts reflect catalog entries, not validated data availability. OMB policy timeline is manually curated from public guidance documents, not an exhaustive legal review. 60% of entries are geospatial; only 12% have machine-readable metadata.</p>
                     </div>
                     <div class="transfer-box">
                         <h5>What I'd bring to your team</h5>
-                        <p>Transportation safety analytics for DOTs and insurance. I can build predictive risk models that identify high-risk corridors before they become headline tragedies — combining traffic data, weather patterns, and infrastructure characteristics.</p>
+                        <p>Data catalog governance and compliance tracking. I can build automated metadata scoring, policy timeline visualization, and repository health dashboards — adaptable to your internal data catalog or compliance framework.</p>
                     </div>
                 </div>
                 <div class="project-footer">
-                    <span class="data-sources">Data: NHTSA FARS 2022 · 42,795 Records · 50 States · Real Federal Data</span>
-                    <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-mobility-data/tree/main/projects/nhtsa-safety">View Repository →</a>
+                    <span class="data-sources">Data: Data.gov Catalog (self-reported, inconsistent metadata) · FOIA.gov · OMB Guidance (manually curated) · 144K catalog entries</span>
+                    <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-data-governance">View Repository →</a>
+                </div>
+            </div>
+
+            <!-- === 6. Macroeconomic & Safety Intelligence Dashboards === -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Macroeconomic &amp; Safety Intelligence Dashboards</div>
+                        <div class="project-meta">BLS · Census ACS · World Bank · NHTSA · BTS — Historical public datasets</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-data">● HISTORICAL TREND ANALYSIS (BLS)</span>
+                        <span class="badge badge-data">● GEOSPATIAL DEMOGRAPHIC BASELINE (Census)</span>
+                        <span class="badge badge-avail">● GLOBAL BENCHMARK ARCHIVE (World Bank)</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Technical Reality</h4>
+                        <p>Five independent dashboard modules built on historical public datasets. Each module ingests, visualizes, and provides interactive exploration of government-published statistics — with honest disclosure of data vintage, update frequency, and coverage gaps.</p>
+                    </div>
+
+                    <!-- BLS -->
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">BLS</span>
+                            <span class="insight-metric">2019–2024</span>
+                        </div>
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/bls_employment.html"
+                                width="100%" height="550"
+                                style="border:none; background:var(--bg-deep);"
+                                loading="lazy"
+                                title="BLS Employment Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle sectors, hover for unemployment rates</span>
+                        </div>
+                        <div class="chart-caption-headline">BLS Labor Market Dashboard</div>
+                        <div class="chart-insight-body">Embedded time-series tracker modeling Unemployment Rate vs. Job Openings from 2019 to 2024, highlighting the COVID-19 macroeconomic anomaly.</div>
+                    </div>
+
+                    <!-- Census -->
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Census</span>
+                            <span class="insight-metric">2023 5-Year ACS</span>
+                        </div>
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/census_demographics.html"
+                                width="100%" height="550"
+                                style="border:none; background:var(--bg-deep);"
+                                loading="lazy"
+                                title="Census Demographics Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Toggle age brackets, hover for population counts</span>
+                        </div>
+                        <div class="chart-caption-headline">Census Demographics Workbench</div>
+                        <div class="chart-insight-body">Interactive scatter plot mapping Median Household Income against Bachelor's Degree+ percentages across states using historical 2023 5-Year ACS records.</div>
+                    </div>
+
+                    <!-- World Bank -->
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">World Bank</span>
+                            <span class="insight-metric">190 Countries</span>
+                        </div>
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/world_bank_gdp_life.html"
+                                width="100%" height="550"
+                                style="border:none; background:var(--bg-deep);"
+                                loading="lazy"
+                                title="World Bank Indicators Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Hover countries for details, bubble size = population</span>
+                        </div>
+                        <div class="chart-caption-headline">World Bank Global Development Progress Tracker</div>
+                        <div class="chart-insight-body">Log-scale bubble chart mapping GDP per Capita vs. Life Expectancy across 190 countries using World Bank historical open data.</div>
+                    </div>
+
+                    <!-- NHTSA -->
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">NHTSA</span>
+                            <span class="insight-metric">2014–2023</span>
+                        </div>
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/fatalities_choropleth.html"
+                                width="100%" height="550"
+                                style="border:none; background:var(--bg-deep);"
+                                loading="lazy"
+                                title="NHTSA Fatalities Choropleth Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — 10-year animation, year slider, hover state details</span>
+                        </div>
+                        <div class="chart-caption-headline">NHTSA Traffic Safety Fatalities Platform</div>
+                        <div class="chart-insight-body">Embedded choropleth map animating state-level traffic fatalities per 100K residents over a 10-year historical window (2014–2023).</div>
+                    </div>
+
+                    <!-- BTS -->
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">BTS</span>
+                            <span class="insight-metric">547,271 Records</span>
+                        </div>
+                        <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px;">
+                            <iframe src="https://gosidehustlesisi.github.io/charts/bts_airline_delays.html"
+                                width="100%" height="550"
+                                style="border:none; background:var(--bg-deep);"
+                                loading="lazy"
+                                title="BTS Airline Delays Interactive">
+                            </iframe>
+                        </div>
+                        <div style="text-align:center; margin-bottom:8px;">
+                            <span style="font-size:11px; color:var(--accent-gold);">★ Interactive — Filter by carrier, hover for delay stats</span>
+                        </div>
+                        <div class="chart-caption-headline">BTS Airline On-Time Performance Metrics</div>
+                        <div class="chart-insight-body">Interactive performance tracker filtering 547,271 historical flight records from the USDOT Bureau of Transportation Statistics for January 2024.</div>
+                    </div>
+
+                    <div class="technical-detail">
+                        <span class="technical-label">Dataset limitations</span>
+                        <p>BLS CES data is monthly with revision history. Census ACS is 5-year estimates with margin of error, not point-in-time counts. World Bank indicators have country-level gaps and reporting lags. NHTSA FARS is finalized annually with 12–18 month delay. BTS on-time data is flight-level for January 2024 only, not a longitudinal panel.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Multi-source public data integration and executive dashboards. I can build pipelines that harmonize government statistics into unified views — with explicit documentation of data vintage, coverage gaps, and update cadence.</p>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <span class="data-sources">Data: BLS CES (monthly, revised) · Census ACS 2023 5-Year (estimates with MOE) · World Bank (gaps/lags) · NHTSA FARS 2014–2023 (annual final) · BTS January 2024 only</span>
+                    <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-public-sector-insights">View Repository →</a>
+                </div>
+            </div>
+
+            <!-- === 7. Private Knowledge Infrastructure === -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Private Knowledge Infrastructure — Local RAG &amp; Classification</div>
+                        <div class="project-meta">Local inference · No external APIs · sentence-transformers · ChromaDB</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-data">● PRIVATE RAG SYSTEM</span>
+                        <span class="badge badge-data">Local LLM</span>
+                        <span class="badge badge-avail">ZERO API COST</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Technical Reality</h4>
+                        <p>Privacy-focused ingestion pipeline utilizing sentence-transformers and a local ChromaDB vector store to query corporate document corpora without external API usage. Local inference workflow utilizing structured prompting and token-level confidence metrics to route un-labeled document streams.</p>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Local Architecture</span>
+                            <span class="insight-metric">ChromaDB Vector Store</span>
+                        </div>
+                        <div class="chart-caption-headline">RAG Local Retrieval System</div>
+                        <div class="chart-insight-body">Privacy-focused ingestion pipeline utilizing sentence-transformers and a local ChromaDB vector store to query corporate document corpora without external API usage.</div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Local Architecture</span>
+                            <span class="insight-metric">Zero-Shot Prompting</span>
+                        </div>
+                        <div class="chart-caption-headline">LLM Zero-Shot Document Classification Pipeline</div>
+                        <div class="chart-insight-body">Local inference workflow utilizing structured prompting and token-level confidence metrics to route un-labeled document streams.</div>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">Architecture constraints</span>
+                        <p>Local LLMs run on consumer-grade hardware with limited context windows (4K–8K tokens). Retrieval quality depends on chunking strategy and embedding model selection — no semantic reranking or hybrid search. Zero-shot classification accuracy varies by document type and prompt design; no fine-tuning on domain corpora.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Private document intelligence that never leaves your infrastructure. I can build local RAG pipelines, zero-shot classification routers, and embedding-based search — architecture ready to scale to enterprise vector databases when privacy requirements allow.</p>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <span class="data-sources">Stack: sentence-transformers · ChromaDB · Local LLM · Zero-shot prompting · No external API dependency</span>
+                    <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-genai-engineering">View Repository →</a>
+                </div>
+            </div>
+
+            <!-- === 8. Production MLOps Frameworks === -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Production MLOps — Feature Store to Monitoring</div>
+                        <div class="project-meta">Local python architecture · Automated validation · ArcGIS REST API</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-data">● PRODUCTION-READY MLOPs ARCHITECTURE</span>
+                        <span class="badge badge-data">Python</span>
+                        <span class="badge badge-avail">LOCAL FIRST</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Technical Reality</h4>
+                        <p>Local python architecture managing automated feature extraction, model artifact versioning, and validation loops. Validation engine designed to calculate statistical variance thresholds and trigger retraining alerts when incoming data drifts from baseline vectors. ETL script that queries the active ArcGIS REST API to download, audit, and score dataset lineage records across 6 quality dimensions.</p>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">MLOps</span>
+                            <span class="insight-metric">retrain_pipeline.py</span>
+                        </div>
+                        <div class="chart-caption-headline">Automated Retraining &amp; Feature Store Pipeline</div>
+                        <div class="chart-insight-body">Local python architecture managing automated feature extraction, model artifact versioning, and validation loops.</div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">MLOps</span>
+                            <span class="insight-metric">drift_detector.py</span>
+                        </div>
+                        <div class="chart-caption-headline">Automated Concept Drift Detector</div>
+                        <div class="chart-insight-body">Validation engine designed to calculate statistical variance thresholds and trigger retraining alerts when incoming data drifts from baseline vectors.</div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">MLOps</span>
+                            <span class="insight-metric">harvest_metadata.py</span>
+                        </div>
+                        <div class="chart-caption-headline">Metadata Quality Auto-Scoring Engine</div>
+                        <div class="chart-insight-body">ETL script that queries the active ArcGIS REST API to download, audit, and score dataset lineage records across 6 quality dimensions.</div>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">Architecture constraints</span>
+                        <p>Feature store and model registry are file-system based, not distributed (no Feast, no MLflow server). Drift detection uses basic statistical tests (KS, chi-squared), not learned embeddings or adversarial validation. Metadata scoring is rule-based heuristics, not ML-based quality prediction. All components run locally; cloud deployment would require containerization and orchestration layer.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>MLOps scaffolding that gets you from notebook to repeatable pipeline. I can build feature extraction scripts, model versioning, drift detection, and metadata auditing — the foundation layer that makes ML reproducible before you invest in enterprise platforms.</p>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <span class="data-sources">Stack: Python · File-system registry · Local validation · ArcGIS REST API · Rule-based quality scoring</span>
+                    <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-genai-engineering">View Repository →</a>
+                </div>
+            </div>
+
+            <!-- === 9. Core Agentic Platforms === -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Core Agentic Platforms — Zeus-URSA, openclaw &amp; EVO3</div>
+                        <div class="project-meta">Multi-role execution · Cross-platform deployment · Parallel sub-agents</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-data">● AGENTIC ORCHESTRATION PLATFORM</span>
+                        <span class="badge badge-data">Gemini AI Studio</span>
+                        <span class="badge badge-avail">OPEN SOURCE</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Technical Reality</h4>
+                        <p>Goal-oriented planning system built inside Gemini AI Studio utilizing multi-role execution prompts and persistent long-term memory across active user sessions. Production backend infrastructure built using Express.js and WebSockets, deploying autonomous agent nodes across communication channels (Telegram, Discord, Web). Task-decomposition orchestrator using openclaw architecture to dispatch parallel background sub-agents for research, coding, and document drafting workflows.</p>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Platform</span>
+                            <span class="insight-metric">Multi-Role Prompting</span>
+                        </div>
+                        <div class="chart-caption-headline">Zeus-URSA Autonomous CEO System</div>
+                        <div class="chart-insight-body">Goal-oriented planning system built inside Gemini AI Studio utilizing multi-role execution prompts and persistent long-term memory across active user sessions.</div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Platform</span>
+                            <span class="insight-metric">Express.js + WebSockets</span>
+                        </div>
+                        <div class="chart-caption-headline">openclaw Cross-Platform Multi-Agent Gateway</div>
+                        <div class="chart-insight-body">Production backend infrastructure built using Express.js and WebSockets, deploying autonomous agent nodes across communication channels (Telegram, Discord, Web).</div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Platform</span>
+                            <span class="insight-metric">Parallel Dispatch</span>
+                        </div>
+                        <div class="chart-caption-headline">EVO3 Parallel Operation Swarm</div>
+                        <div class="chart-insight-body">Task-decomposition orchestrator using openclaw architecture to dispatch parallel background sub-agents for research, coding, and document drafting workflows.</div>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">Architecture constraints</span>
+                        <p>Zeus-URSA operates within Gemini AI Studio sandbox constraints — no persistent filesystem, no custom runtime environment, API rate limits apply. openclaw gateway requires always-on host (VPS or local machine); node pairing via QR/manual setup. EVO3 swarm orchestration is coordinator-based, not consensus-based; sub-agents do not share state beyond what the gateway persists. No SLA guarantees; uptime depends on host infrastructure.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>Agentic workflow automation that handles research, drafting, and analysis in parallel. I can design multi-role prompt systems, deploy cross-platform agent infrastructure, and build task-decomposition orchestration — the architecture layer between LLMs and operational workflows.</p>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <span class="data-sources">Stack: Gemini AI Studio · Express.js · WebSockets · Node.js · MCP Protocol · Self-hosted gateway</span>
+                    <a class="repo-link" href="https://github.com/gosidehustlesisi">View Repository →</a>
+                </div>
+            </div>
+
+            <!-- === 10. Workforce Sentiment NLP === -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Workforce Sentiment NLP — Predictive People Analytics</div>
+                        <div class="project-meta">1,470 historical records · IBM HR Analytics · Ensemble classification</div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge badge-data">● PREDICTIVE TURNOVER FRAMEWORK</span>
+                        <span class="badge badge-data">IBM HR</span>
+                        <span class="badge badge-avail">BENCHMARK</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="exec-summary">
+                        <h4>Technical Reality</h4>
+                        <p>Ensemble pipeline combining classic classification engines (Random Forest/XGBoost) with basic token extraction on a historical 1,470-record corporate HR dataset.</p>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-insight-header">
+                            <span class="insight-tag">Framework</span>
+                            <span class="insight-metric">RF + XGBoost + Token Extraction</span>
+                        </div>
+                        <div class="chart-caption-headline">Predictive People Analytics Pipeline</div>
+                        <div class="chart-insight-body">Ensemble pipeline combining classic classification engines (Random Forest/XGBoost) with basic token extraction on a historical 1,470-record corporate HR dataset.</div>
+                    </div>
+                    <div class="technical-detail">
+                        <span class="technical-label">Dataset limitations</span>
+                        <p>IBM HR Analytics dataset is a synthetic/derived benchmark with 1,470 records and 35 features. It does not represent any real company's workforce. Attrition labels are simulated, not verified exit interviews. Token extraction is basic bag-of-words, not contextual embeddings. Results demonstrate pipeline architecture on benchmark data, not validated predictive power on live HR systems.</p>
+                    </div>
+                    <div class="transfer-box">
+                        <h5>What I'd bring to your team</h5>
+                        <p>People analytics pipeline architecture for attrition risk scoring. I can build the ensemble classifier, feature engineering, and basic text extraction — ready to connect to your live HRIS data and validated exit records when available.</p>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <span class="data-sources">Data: IBM HR Analytics (synthetic benchmark, 1,470 records) · Kaggle · Not validated on live HR systems</span>
+                    <a class="repo-link" href="https://github.com/gosidehustlesisi/sierra-people-analytics">View Repository →</a>
                 </div>
             </div>
 
@@ -1170,25 +708,3 @@
             </div>
 
         </section>
-
-        <section id="contact">
-            <div class="contact-section">
-                <h2>Let's Build Something</h2>
-                <p>Available for fractional CMO engagements, BI consulting projects, and AI architecture work. I'll respond within 24 hours.</p>
-                <div class="contact-links">
-                    <a href="mailto:book@baldbeautymua.com">book@baldbeautymua.com</a>
-                    <a href="https://www.linkedin.com/in/sierran/">LinkedIn</a>
-                    <a href="https://github.com/gosidehustlesisi">GitHub</a>
-                    <a href="https://calendly.com">Book a Call</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <footer class="container">
-        <p>© 2026 Sierra Napier · <a href="https://gosidehustlesisi.github.io/sierra-applied-ml/" style="color:var(--accent-cyan);text-decoration:none;">Full Portfolio</a> · Built with real data · Benchmark datasets disclosed</p>
-    </footer>
-
-    <a href="#contact" class="floating-cta">Contact Sierra</a>
-</body>
-</html>
